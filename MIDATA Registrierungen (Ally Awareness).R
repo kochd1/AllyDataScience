@@ -8,12 +8,12 @@ library(jsonlite)
 all.equal(mtcars, fromJSON(toJSON(mtcars)))
 
 # Load JSON and convert to dataframe
-mydata <- fromJSON("study6.json", simplifyDataFrame = TRUE)
+mydata <- fromJSON("study_fullExport (dummy).json", simplifyDataFrame = TRUE)
 
 # Get all patient
 patient <- subset(mydata$entry$resource, mydata$entry$resource$resourceType == 'Patient')
 
-# count the lenght of the patient by is id
+# count the quantity of the patient by his id
 anzahlStudienteilnehmer <- length(patient$id)
 anzahlStudienteilnehmer
 # str(patient) --> 11 obj. à 23 variables. variables: patient features
@@ -21,6 +21,4 @@ anzahlStudienteilnehmer
 ### Berechnung
 anzahlStudienteilnehmer / population
 
-
-head(patient)
 
