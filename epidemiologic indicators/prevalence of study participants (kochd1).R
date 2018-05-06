@@ -3,16 +3,40 @@
 # Load library
 library(jsonlite)
 
-studyData <- read_json("study_fullExport (dummy).json", simplifyVector = TRUE)
+#prepare study data
 
-# Get all patients which submitted at least one symptom during the last 30 days.
+#options(stringsAsFactors=FALSE)
 
-activeStudyParticipants <- subset(mydata$entry$resource, mydata$entry$resource$resourceType == 'Patient')
+#studyData <- read_json("study_fullExport (dummy).json", simplifyVector = TRUE)
 
-#Count all these patients
-NumberOfActiveStudyParticipants <- 10
+study_df <- data.frame(read_json("study_fullExport (dummy).json", simplifyVector= TRUE)) #2x practitioner, 11x patient, 36x observation -> 49 obs.
 
-NumberOfActiveStudyParticipantsWithSymptom <- 5
+#a subset of all observations (with and without symptoms) -> 36 obs.
+observationsSym <- subset(study_df$entry.resource, study_df$entry.resource$resourceType == 'Observation')
 
-#Calculate this indicator
-NumberOfActiveStudyParticipants / NumberOfActiveStudyParticipantsWithSymptom
+#Observations last 30 days -> with/without symptoms! (Only one per study participant counted)
+observationsSymPeriod <- subset(study_df$entry.resource, study_df$entry.resource$resourceType == 'Observation' & !duplicated(study_df$entry.resource$subject$reference) & study_df$entry.resource$effectiveDateTime >= Sys.Date()-30) #alternative -> >="YYYY-MM-DD"
+
+StuPartSymEntry <- data.frame(observationsSymPeriod$subject$reference)
+
+# get number of active study participants with/without symptoms
+nbrStuPartSymEntry <- length(StuPartSymEntry$observationsSymPeriod.subject.reference)
+str(nbrStuPartSymEntry)
+
+
+#a subset of all observations (only with symptoms) -> 28 obs.
+observationsSymYes <- subset(study_df$entry.resource, study_df$entry.resource$resourceType == 'Observation' & study_df$entry.resource$valueQuantity >0)
+
+#Observations last 30 days -> only with symptoms! (Only one per study participant counted)
+observationsSymYesPeriod <- subset(study_df$entry.resource, study_df$entry.resource$resourceType == 'Observation' & study_df$entry.resource$valueQuantity >0 & !duplicated(study_df$entry.resource$subject$reference) & study_df$entry.resource$effectiveDateTime >= Sys.Date()-30)
+
+StuPartSymYesEntry <- data.frame(observationsSymYesPeriod$subject$reference)
+
+# get number of active study participants with symptoms
+nbrStuPartSymYesEntry <- length(StuPartSymYesEntry$observationsSymYesPeriod.subject.reference)
+str(nbrStuPartSymYesEntry)
+
+#calculate ratio of stuPart with a symptom in relation with all stuPart
+nbrStuPartSymYesEntry / nbrStuPartSymEntry
+
+
