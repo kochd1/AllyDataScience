@@ -12,10 +12,36 @@ library(jsonlite)
 study_df <- data.frame(read_json("study_fullExport (dummy).json", simplifyVector= TRUE)) #2x practitioner, 11x patient, 36x observation -> 49 obs.
 
 #a subset of all observations (with and without symptoms) -> 36 obs.
-observationsSym <- subset(study_df$entry.resource, study_df$entry.resource$resourceType == 'Observation')
+observations <- subset(study_df$entry.resource, study_df$entry.resource$resourceType == 'Observation')
 
+#auch nach typ der Observation filtern!
+x <- observations$code$coding
+
+y <- matrix(unlist(sapply(x, as.data.frame)),ncol=3, byrow=T)
+# class(y) -> matrix
+
+# Get Code an Display
+y[,2:3]
+y[,2]
+
+# Subset only allergy-to-pollen Observation with Coding 300910009
+allergy_to_pollen_df <- subset(observations, y[,2] == 300910009)
+#class(allergy_to_pollen_df)
+  
 #Observations last 30 days -> with/without symptoms! (Only one per study participant counted)
-observationsSymPeriod <- subset(study_df$entry.resource, study_df$entry.resource$resourceType == 'Observation' & !duplicated(study_df$entry.resource$subject$reference) & study_df$entry.resource$effectiveDateTime >= Sys.Date()-30) #alternative -> >="YYYY-MM-DD"
+
+#filter by day in a period of e.g. 30 days, not only in the last 30 days
+
+for(i in 0:30){
+  observationsOnDayX <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference) & allergy_to_pollen_df$effectiveDateTime == Sys.Date()-i)
+  obsSym <- data.frame(observationsOnDayX)
+  str(obsSym)
+}
+
+observationsOnDayX <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference) & allergy_to_pollen_df$effectiveDateTime == Sys.Date()-33)
+
+observationsSymPeriod <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference) & allergy_to_pollen_df$effectiveDateTime >= Sys.Date()-30) #alternative -> >="YYYY-MM-DD"
+#class(observationsSymPeriod)
 
 StuPartSymEntry <- data.frame(observationsSymPeriod$subject$reference)
 
@@ -23,12 +49,13 @@ StuPartSymEntry <- data.frame(observationsSymPeriod$subject$reference)
 nbrStuPartSymEntry <- length(StuPartSymEntry$observationsSymPeriod.subject.reference)
 str(nbrStuPartSymEntry)
 
+#zähler
 
 #a subset of all observations (only with symptoms) -> 28 obs.
-observationsSymYes <- subset(study_df$entry.resource, study_df$entry.resource$resourceType == 'Observation' & study_df$entry.resource$valueQuantity >0)
+observationsSymYes <- subset(allergy_to_pollen_df, allergy_to_pollen_df$valueQuantity>0)
 
 #Observations last 30 days -> only with symptoms! (Only one per study participant counted)
-observationsSymYesPeriod <- subset(study_df$entry.resource, study_df$entry.resource$resourceType == 'Observation' & study_df$entry.resource$valueQuantity >0 & !duplicated(study_df$entry.resource$subject$reference) & study_df$entry.resource$effectiveDateTime >= Sys.Date()-30)
+observationsSymYesPeriod <- subset(allergy_to_pollen_df, allergy_to_pollen_df$valueQuantity>0 & !duplicated(allergy_to_pollen_df$subject$reference) & allergy_to_pollen_df$effectiveDateTime >= Sys.Date()-30)
 
 StuPartSymYesEntry <- data.frame(observationsSymYesPeriod$subject$reference)
 
@@ -37,6 +64,13 @@ nbrStuPartSymYesEntry <- length(StuPartSymYesEntry$observationsSymYesPeriod.subj
 str(nbrStuPartSymYesEntry)
 
 #calculate ratio of stuPart with a symptom in relation with all stuPart
-nbrStuPartSymYesEntry / nbrStuPartSymEntry
+result <- nbrStuPartSymYesEntry / nbrStuPartSymEntry
+str(result)
 
+
+#visualization example
+x <- c(result, 0.8, 0.75)
+
+barplot(x)
+lines(x)
 
