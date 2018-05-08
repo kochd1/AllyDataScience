@@ -11,15 +11,18 @@ observation$resourceType
 
 
 x <- observation$code$coding
+# class(x) -> list
 
-class(x)
-class(unlist(x))
 
 y <- matrix(unlist(sapply(x, as.data.frame)),ncol=3, byrow=T)
+# class(y) -> matrix
 
-y[,3]
-observation$code$coding
+# Get Code an Display
+y[,2:3]
+y[,2]
 
-allergyIntolerance <- subset(observation, observation$code$coding == 300910009)
+# Subset only allergy-to-pollen Observation with Coding 300910009
+allergy_to_pollen <- subset(observation, y[,2] == 300910009)
+class(allergy_to_pollen)
 
 
