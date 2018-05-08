@@ -21,4 +21,7 @@ anzahlStudienteilnehmer
 ### Berechnung
 anzahlStudienteilnehmer / population
 
+x <- c(4,6,9,3,7)
+barplot(x)
+lines(x)
 
