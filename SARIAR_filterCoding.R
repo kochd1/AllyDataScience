@@ -3,7 +3,7 @@
 library(jsonlite)
 all.equal(mtcars, fromJSON(toJSON(mtcars)))
 
-res <- fromJSON("study6.json", simplifyDataFrame = TRUE) # simplifyDataFrame = true is default
+res <- fromJSON("study_fullExport (dummy).json", simplifyDataFrame = TRUE) # simplifyDataFrame = true is default
 
 # subset auf Observation
 observation <- subset(res$entry$resource, res$entry$resource$resourceType == "Observation")
