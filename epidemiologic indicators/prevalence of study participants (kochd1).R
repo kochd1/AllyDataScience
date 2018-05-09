@@ -31,14 +31,31 @@ allergy_to_pollen_df <- subset(observations, y[,2] == 300910009)
 #Observations last 30 days -> with/without symptoms! (Only one per study participant counted)
 
 #filter by day in a period of e.g. 30 days, not only in the last 30 days
+listOfDataFrames <- list()
 
-for(i in 0:30){
+for(i in 1:30){
   observationsOnDayX <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference) & allergy_to_pollen_df$effectiveDateTime == Sys.Date()-i)
-  obsSym <- data.frame(observationsOnDayX)
-  str(obsSym)
+  obsSym_df <- data.frame(observationsOnDayX)
+  listOfDataFrames[[paste0("dataframe: ", i)]] <- obsSym_df
+  #str(obsSym)
 }
 
-observationsOnDayX <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference) & allergy_to_pollen_df$effectiveDateTime == Sys.Date()-33)
+class(listOfDataFrames$`dataframe: 1`)
+
+listOfObservationsPerDay <- list()
+nbrOfObservationsPerDay <- length(listOfDataFrames[29]$`dataframe: 29`$id) 
+
+for(i in 1:30){
+
+nbrOfObservationsPerDay <- length(listOfDataFrames[i])$   #$`dataframe: 1`$id)
+
+listOfObservationsPerDay[[paste0("Number of Observations: ", nbrOfObservationsPerDay)]]
+}
+
+
+
+
+
 
 observationsSymPeriod <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference) & allergy_to_pollen_df$effectiveDateTime >= Sys.Date()-30) #alternative -> >="YYYY-MM-DD"
 #class(observationsSymPeriod)
