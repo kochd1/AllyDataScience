@@ -32,28 +32,29 @@ allergy_to_pollen_df <- subset(observations, y[,2] == 300910009)
 
 #filter by day in a period of e.g. 30 days, not only in the last 30 days
 listOfDataFrames <- list()
+listOfObservationsPerDay <- list()
 
 for(i in 1:30){
   observationsOnDayX <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference) & allergy_to_pollen_df$effectiveDateTime == Sys.Date()-i)
+  
   obsSym_df <- data.frame(observationsOnDayX)
-  listOfDataFrames[[paste0("dataframe: ", i)]] <- obsSym_df
+  listOfDataFrames[[paste0("Dataframe: today-", i)]] <- obsSym_df
+  #listOfObservationsPerDay[[paste0("Observations per day: ", i)]] <- length(listOfDataFrames[i]$`dataframe: 30`$id)
   #str(obsSym)
 }
 
-class(listOfDataFrames$`dataframe: 1`)
-
-listOfObservationsPerDay <- list()
-nbrOfObservationsPerDay <- length(listOfDataFrames[29]$`dataframe: 29`$id) 
+#create dataframes from this list of data frames (One data frame per day)
+list2env(listOfDataFrames ,.GlobalEnv)
 
 for(i in 1:30){
-
-nbrOfObservationsPerDay <- length(listOfDataFrames[i])$   #$`dataframe: 1`$id)
-
-listOfObservationsPerDay[[paste0("Number of Observations: ", nbrOfObservationsPerDay)]]
+today_df <- `Dataframe: today-30`
+l <- length(today_df$id)
+str(l)
 }
 
 
 
+#nbrOfObservationsPerDay <- length(listOfDataFrames[29]$`dataframe: 29`$id) 
 
 
 
