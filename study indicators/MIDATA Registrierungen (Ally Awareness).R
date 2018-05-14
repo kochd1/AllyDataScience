@@ -1,6 +1,17 @@
 # Thierry
-### MIDATA Registrierungen (Ally Awareness)
-# Zeigt, welcher anteil der Bevölkerung an der Studie teilnimmt.
+# MIDATA Registrierungen (Ally Awareness)
+# Zeigt, welcher Anteil der Bevölkerung an einem bestimmten Monat x an der Studie teilnimmt. 
+
+###   1 INPUT ###
+# YYYY-MM
+year_month <- "2018-04"
+
+# DD
+days_of_month <- 30
+
+
+
+###   2 PREPERATION ###
 # Ständige Wohnbevölkerung: 8419550 Personen (Stand 2016, bfs Tabelle)
 population = 8419550
 
@@ -12,8 +23,8 @@ all.equal(mtcars, fromJSON(toJSON(mtcars)))
 mydata <- fromJSON("study_fullExport (dummy).json", simplifyDataFrame = TRUE)
 
 
-#####
-# Get sum of all Study Participants at mounth x in a matrix
+
+###   3 GET SUM OF STUDY PARTICIPANTS AT MONTH X ###
 # Get all patient
 stuPart <- subset(mydata$entry$resource, mydata$entry$resource$resourceType == 'Patient')
 length(stuPart$resourceType)
@@ -21,18 +32,12 @@ length(stuPart$resourceType)
 # Generate Dataframe, attribut =  {sum_StuPart, Date}
 stuPart_IdDate_df <- data.frame(ncol = 2, byrow = TRUE) # Achtung, es gibt eine Matrix mit NA, NA -> length = 2
 
-
-# YYYY-MM
-year_mounth <- "2018-04"
-
-# DD
-days_of_mount <- 30
-
-for(j in 1:days_of_mount) {
+# Loop throught the month
+for(j in 1:days_of_month) {
   if(j < 10) {
     j <- paste("0",j, sep = "")
   }
-  date <- paste(year_mounth, j, sep = "-")
+  date <- paste(year_month, j, sep = "-")
   
   stuPart_Id <- subset(stuPart$id, stuPart$meta$lastUpdated <= date)
   stuPart_Id_length <- length(stuPart_Id)
@@ -40,30 +45,26 @@ for(j in 1:days_of_mount) {
   
   stuPart_IdDate_df <- rbind(stuPart_IdDate_df, stuPart_IdDate_vector)
 }
+
 # delete first row in matrix
 stuPart_IdDate_df <- stuPart_IdDate_df[-1,]
+
 # name the columns
 colnames(stuPart_IdDate_df) <- c("sumStuPart", "Date")
 print(stuPart_IdDate_df)
 
-
-typeof(stuPart_Id_length)
-
-
-### Berechnung
-anzahlStudienteilnehmer / population
-
-class(stuPart_IdDate_df$sumStuPart)
+# make sumStuPart to integer
+stuPart_IdDate_df$sumStuPart <- as.integer(stuPart_IdDate_df$sumStuPart)
 
 
 
+###   4 CALCULATION ###
+stuPart_IdDate_df$sumStuPart / population
 
 
 
-### Visualisierung
-x <- c(4,6,9,3,7)
-barplot(x)
-lines(x)
+###   5 VISUALIZATION
+barplot(stuPart_IdDate_df$sumStuPart)
 
 
 
