@@ -1,3 +1,4 @@
+#kochd1
 #indicator «prevalence of study participants»
 
 # Load library
@@ -10,6 +11,9 @@ library(jsonlite)
 #studyData <- read_json("study_fullExport (dummy).json", simplifyVector = TRUE)
 
 study_df <- data.frame(read_json("study_fullExport (dummy).json", simplifyVector= TRUE)) #2x practitioner, 11x patient, 36x observation -> 49 obs.
+
+#-------------------------------------------------------------
+
 
 #a subset of all observations (with and without symptoms) -> 36 obs.
 observations <- subset(study_df$entry.resource, study_df$entry.resource$resourceType == 'Observation')

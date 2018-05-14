@@ -1,1 +1,4108 @@
-{ "resourceType" : "Bundle", "type" : "searchset", "entry" : [ { "fullUrl" : "https://test.midata.coop/fhir/Practitioner/5ab89d6979c721d77ca22694", "resource" : {"resourceType":"Practitioner","id":"5ab89d6979c721d77ca22694","name":[{"family":"Stein","given":["Ein"]}],"telecom":[{"system":"email","value":"0sokey0@gmail.com"}],"address":[{"line":["Ritterstrasse 26a"],"city":"Bremgarten","postalCode":"3047","country":"CH"}],"gender":"male"} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Practitioner/5ac499b279c721352218101d", "resource" : {"resourceType":"Practitioner","id":"5ac499b279c721352218101d","name":[{"family":"Kocher","given":["Dominik Raphaël"]}],"telecom":[{"system":"email","value":"dominikraphael.kocher@students.bfh.ch"}],"address":[{"line":["Quellgasse 21"],"city":"Biel","postalCode":"2502","country":"CH"}],"gender":"male"} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5aca3c0379c721ee0472dc6c/_history/0", "resource" : {"resourceType":"Observation","id":"5aca3c0379c721ee0472dc6c","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5ab89be479c721d77ca2268b","display":"Joe Doe"}}]}],"versionId":"0","lastUpdated":"2018-04-08T17:57:55.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"2502"},{"url":"locality","valueString":"Biel/Bienne"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5ab89be479c721d77ca2268b","display":"Joe Doe"},"effectiveDateTime":"1977-04-22T01:00:00+01:00","valueQuantity":{"value":6},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"81745001","display":"Eye"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb15f479c721ee0472dce9/_history/0", "resource" : {"resourceType":"Observation","id":"5acb15f479c721ee0472dce9","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5ab89be479c721d77ca2268b","display":"Joe Doe"}}]}],"versionId":"0","lastUpdated":"2018-04-09T09:27:48.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"2502"},{"url":"locality","valueString":"Biel/Bienne"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5ab89be479c721d77ca2268b","display":"Joe Doe"},"effectiveDateTime":"1977-04-22T01:00:00+01:00","valueQuantity":{"value":8},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"45206002","display":"Nose"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Patient/5acb521379c72180a4df57aa/_history/1524470934120", "resource" : {"resourceType":"Patient","id":"5acb521379c72180a4df57a6","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"portal","display":"Midata Portal"}},{"url":"creator","valueReference":{"reference":"Patient/5acb521379c72180a4df57a6","display":"pablo1 eins"}}]}],"versionId":"1524470934120","lastUpdated":"2018-04-23T10:08:54.120+02:00"},"text":{"status":"generated","div":"<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo1 <b>EINS </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>V1BP-H5UC</td></tr><tr><td>Address</td><td><span>Bernstrasse </span><br/><span></span><br/><span>Bern </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>12 Oktober 1976</span></td></tr></tbody></table></div>"},"identifier":[{"system":"http://midata.coop/identifier/midata-id","value":"V1BP-H5UC"},{"system":"http://midata.coop/identifier/patient-login","value":"pablo1@gmail.com"}],"name":[{"family":"eins","given":["pablo1"]}],"telecom":[{"system":"email","value":"pablo1@gmail.com"}],"gender":"female","birthDate":"1976-10-12","address":[{"line":["Bernstrasse"],"city":"Bern","postalCode":"3000","country":"CH"}]} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb569c79c72180a4df57e3/_history/0", "resource" : {"resourceType":"Observation","id":"5acb569c79c72180a4df57e3","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb521379c72180a4df57a6","display":"pablo1 eins"}}]}],"versionId":"0","lastUpdated":"2018-04-09T14:03:40.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"3000"},{"url":"locality","valueString":"Bern"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb521379c72180a4df57a6","display":"pablo1 eins"},"effectiveDateTime":"1977-04-22T01:00:00+01:00","valueQuantity":{"value":3},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"45206002","display":"Nose"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Patient/5acb533a79c72180a4df57b9/_history/0", "resource" : {"resourceType":"Patient","id":"5acb533a79c72180a4df57b5","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"portal","display":"Midata Portal"}},{"url":"creator","valueReference":{"reference":"Patient/5acb533a79c72180a4df57b5","display":"domi1 eins"}}]}],"versionId":"0","lastUpdated":"2018-04-09T13:49:14.000+02:00"},"text":{"status":"generated","div":"<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">domi1 <b>EINS </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>IMEC-HECF</td></tr><tr><td>Address</td><td><span>null </span><br/><span>null </span><br/><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>09 April 1993</span></td></tr></tbody></table></div>"},"identifier":[{"system":"http://midata.coop/identifier/midata-id","value":"IMEC-HECF"},{"system":"http://midata.coop/identifier/patient-login","value":"domi1@gmail.com"}],"name":[{"family":"eins","given":["domi1"]}],"telecom":[{"system":"email","value":"domi1@gmail.com"}],"gender":"male","birthDate":"1993-04-09","address":[{"country":"CH"}]} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb5adb79c72180a4df57f8/_history/0", "resource" : {"resourceType":"Observation","id":"5acb5adb79c72180a4df57f8","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb533a79c72180a4df57b5","display":"domi1 eins"}}]}],"versionId":"0","lastUpdated":"2018-04-09T14:21:47.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"3700"},{"url":"locality","valueString":"Spiez"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb533a79c72180a4df57b5","display":"domi1 eins"},"effectiveDateTime":"2018-04-09T01:00:00+01:00","valueQuantity":{"value":7},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"81745001","display":"Eye"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acbb8ef79c721885811c5a8/_history/0", "resource" : {"resourceType":"Observation","id":"5acbb8ef79c721885811c5a8","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb533a79c72180a4df57b5","display":"domi1 eins"}}]}],"versionId":"0","lastUpdated":"2018-04-09T21:03:11.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"3700"},{"url":"locality","valueString":"Spiez"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb533a79c72180a4df57b5","display":"domi1 eins"},"effectiveDateTime":"2018-04-09T20:59:00+01:00","valueQuantity":{"value":6},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"45206002","display":"Nose"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acbc5e779c721885811c5ad/_history/0", "resource" : {"resourceType":"Observation","id":"5acbc5e779c721885811c5ad","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb533a79c72180a4df57b5","display":"domi1 eins"}}]}],"versionId":"0","lastUpdated":"2018-04-09T21:58:31.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"2502"},{"url":"locality","valueString":"Biel"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb533a79c72180a4df57b5","display":"domi1 eins"},"effectiveDateTime":"2018-04-09T20:53:00+01:00","valueQuantity":{"value":5},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"39607008","display":"Lungs"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Patient/5acb585079c72180a4df57eb/_history/1524470881549", "resource" : {"resourceType":"Patient","id":"5acb584f79c72180a4df57e7","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"portal","display":"Midata Portal"}},{"url":"creator","valueReference":{"reference":"Patient/5acb584f79c72180a4df57e7","display":"pablo2 zwei"}}]}],"versionId":"1524470881549","lastUpdated":"2018-04-23T10:08:01.549+02:00"},"text":{"status":"generated","div":"<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo2 <b>ZWEI </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>ASQR-359O</td></tr><tr><td>Address</td><td><span>Genfstrasse </span><br/><span></span><br/><span>Genf </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>23 November 1996</span></td></tr></tbody></table></div>"},"identifier":[{"system":"http://midata.coop/identifier/midata-id","value":"ASQR-359O"},{"system":"http://midata.coop/identifier/patient-login","value":"pablo2@gmail.com"}],"name":[{"family":"zwei","given":["pablo2"]}],"telecom":[{"system":"email","value":"pablo2@gmail.com"}],"gender":"male","birthDate":"1996-11-23","address":[{"line":["Genfstrasse"],"city":"Genf","postalCode":"1200","country":"CH"}]} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Patient/5acb5b5179c72180a4df5801/_history/1524470796062", "resource" : {"resourceType":"Patient","id":"5acb5b5079c72180a4df57fd","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"portal","display":"Midata Portal"}},{"url":"creator","valueReference":{"reference":"Patient/5acb5b5079c72180a4df57fd","display":"pablo3 drei"}}]}],"versionId":"1524470796062","lastUpdated":"2018-04-23T10:06:36.062+02:00"},"text":{"status":"generated","div":"<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo3 <b>DREI </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>B02M-O0CU</td></tr><tr><td>Address</td><td><span>Bernstrasse </span><br/><span></span><br/><span>Bern </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>11 Juni 1993</span></td></tr></tbody></table></div>"},"identifier":[{"system":"http://midata.coop/identifier/midata-id","value":"B02M-O0CU"},{"system":"http://midata.coop/identifier/patient-login","value":"pablo3@gmail.com"}],"name":[{"family":"drei","given":["pablo3"]}],"telecom":[{"system":"email","value":"pablo3@gmail.com"}],"gender":"female","birthDate":"1993-06-11","address":[{"line":["Bernstrasse"],"city":"Bern","postalCode":"3008","country":"CH"}]} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb70d979c721885811c40d/_history/0", "resource" : {"resourceType":"Observation","id":"5acb70d979c721885811c40d","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb5b5079c72180a4df57fd","display":"pablo3 drei"}}]}],"versionId":"0","lastUpdated":"2018-04-09T15:55:37.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"3008"},{"url":"locality","valueString":"Bern"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb5b5079c72180a4df57fd","display":"pablo3 drei"},"effectiveDateTime":"2018-04-05T16:00:00+01:00","valueQuantity":{"value":7},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"81745001","display":"Eyes"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb713b79c721885811c411/_history/0", "resource" : {"resourceType":"Observation","id":"5acb713b79c721885811c411","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb5b5079c72180a4df57fd","display":"pablo3 drei"}}]}],"versionId":"0","lastUpdated":"2018-04-09T15:57:15.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"3008"},{"url":"locality","valueString":"Bern"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb5b5079c72180a4df57fd","display":"pablo3 drei"},"effectiveDateTime":"2018-04-06T16:00:00+01:00","valueQuantity":{"value":9},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"81745001","display":"Eyes"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb71d579c721885811c413/_history/0", "resource" : {"resourceType":"Observation","id":"5acb71d579c721885811c413","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb5b5079c72180a4df57fd","display":"pablo3 drei"}}]}],"versionId":"0","lastUpdated":"2018-04-09T15:59:49.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"3008"},{"url":"locality","valueString":"Bern"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb5b5079c72180a4df57fd","display":"pablo3 drei"},"effectiveDateTime":"2018-04-06T16:00:00+01:00","valueQuantity":{"value":3},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"312533001","display":"Mouth"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb721579c721885811c415/_history/0", "resource" : {"resourceType":"Observation","id":"5acb721579c721885811c415","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb5b5079c72180a4df57fd","display":"pablo3 drei"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:00:53.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"3000"},{"url":"locality","valueString":"Bern"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb5b5079c72180a4df57fd","display":"pablo3 drei"},"effectiveDateTime":"2018-04-07T12:00:00+01:00","valueQuantity":{"value":5},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"312533001","display":"Mouth"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb727e79c721885811c417/_history/0", "resource" : {"resourceType":"Observation","id":"5acb727e79c721885811c417","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb5b5079c72180a4df57fd","display":"pablo3 drei"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:02:38.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"3000"},{"url":"locality","valueString":"Bern"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb5b5079c72180a4df57fd","display":"pablo3 drei"},"effectiveDateTime":"2018-04-07T12:00:00+01:00","valueQuantity":{"value":4},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"81745001","display":"Augen"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Patient/5acb72cf79c721885811c41e/_history/1524470601910", "resource" : {"resourceType":"Patient","id":"5acb72cf79c721885811c41a","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"portal","display":"Midata Portal"}},{"url":"creator","valueReference":{"reference":"Patient/5acb72cf79c721885811c41a","display":"pablo4 vier"}}]}],"versionId":"1524470601910","lastUpdated":"2018-04-23T10:03:21.910+02:00"},"text":{"status":"generated","div":"<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo4 <b>VIER </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>562Q-3FVQ</td></tr><tr><td>Address</td><td><span>Zurichstrasse </span><br/><span></span><br/><span>Zurich </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>19 Mai 1991</span></td></tr></tbody></table></div>"},"identifier":[{"system":"http://midata.coop/identifier/midata-id","value":"562Q-3FVQ"},{"system":"http://midata.coop/identifier/patient-login","value":"pablo4@gmail.com"}],"name":[{"family":"vier","given":["pablo4"]}],"telecom":[{"system":"email","value":"pablo4@gmail.com"}],"gender":"male","birthDate":"1991-05-19","address":[{"line":["Zurichstrasse"],"city":"Zurich","postalCode":"8000","country":"CH"}]} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb738b79c721885811c45a/_history/0", "resource" : {"resourceType":"Observation","id":"5acb738b79c721885811c45a","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb72cf79c721885811c41a","display":"pablo4 vier"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:07:07.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8400"},{"url":"locality","valueString":"Winterthur"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb72cf79c721885811c41a","display":"pablo4 vier"},"effectiveDateTime":"2018-04-02T12:00:00+01:00","valueQuantity":{"value":5},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"81745001","display":"Augen"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb73c879c721885811c45e/_history/0", "resource" : {"resourceType":"Observation","id":"5acb73c879c721885811c45e","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb72cf79c721885811c41a","display":"pablo4 vier"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:08:08.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8400"},{"url":"locality","valueString":"Winterthur"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb72cf79c721885811c41a","display":"pablo4 vier"},"effectiveDateTime":"2018-04-02T12:00:00+01:00","valueQuantity":{"value":6},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"45206002","display":"Nose"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb743879c721885811c472/_history/0", "resource" : {"resourceType":"Observation","id":"5acb743879c721885811c472","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb72cf79c721885811c41a","display":"pablo4 vier"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:10:00.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8000"},{"url":"locality","valueString":"Zurich"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb72cf79c721885811c41a","display":"pablo4 vier"},"effectiveDateTime":"2018-04-04T12:00:00+01:00","valueQuantity":{"value":2},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"39937001","display":"Skin"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Patient/5acb74af79c721885811c478/_history/1524470491201", "resource" : {"resourceType":"Patient","id":"5acb74af79c721885811c474","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"portal","display":"Midata Portal"}},{"url":"creator","valueReference":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"}}]}],"versionId":"1524470491201","lastUpdated":"2018-04-23T10:01:31.201+02:00"},"text":{"status":"generated","div":"<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo5 <b>FÜNF </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>F1Q0-2SQ0</td></tr><tr><td>Address</td><td><span>Genfstrasse </span><br/><span></span><br/><span>Genf </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>02 Februar 1987</span></td></tr></tbody></table></div>"},"identifier":[{"system":"http://midata.coop/identifier/midata-id","value":"F1Q0-2SQ0"},{"system":"http://midata.coop/identifier/patient-login","value":"pablo5@gmail.com"}],"name":[{"family":"fünf","given":["pablo5"]}],"telecom":[{"system":"email","value":"pablo5@gmail.com"}],"gender":"female","birthDate":"1987-02-02","address":[{"line":["Genfstrasse"],"city":"Genf","postalCode":"1201","country":"CH"}]} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb752479c721885811c485/_history/0", "resource" : {"resourceType":"Observation","id":"5acb752479c721885811c485","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:13:56.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8000"},{"url":"locality","valueString":"Zurich"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"},"effectiveDateTime":"2018-04-07T12:00:00+01:00","valueQuantity":{"value":5},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"39937001","display":"Skin"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb755779c721885811c489/_history/0", "resource" : {"resourceType":"Observation","id":"5acb755779c721885811c489","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:14:47.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8000"},{"url":"locality","valueString":"Zurich"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"},"effectiveDateTime":"2018-04-07T12:00:00+01:00","valueQuantity":{"value":8},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"45206002","display":"Nose"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb758879c721885811c48b/_history/0", "resource" : {"resourceType":"Observation","id":"5acb758879c721885811c48b","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:15:36.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8000"},{"url":"locality","valueString":"Zurich"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"},"effectiveDateTime":"2018-04-07T12:00:00+01:00","valueQuantity":{"value":10},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"81745001","display":"Eyes"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb75bb79c721885811c48d/_history/0", "resource" : {"resourceType":"Observation","id":"5acb75bb79c721885811c48d","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:16:27.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8000"},{"url":"locality","valueString":"Zurich"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"},"effectiveDateTime":"2018-04-07T12:00:00+01:00","valueQuantity":{"value":3},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"312533001","display":"Mouth"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb762f79c721885811c490/_history/0", "resource" : {"resourceType":"Observation","id":"5acb762f79c721885811c490","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:18:23.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8000"},{"url":"locality","valueString":"Zurich"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"},"effectiveDateTime":"2018-04-07T12:00:00+01:00","valueQuantity":{"value":2},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"39607008","display":"Lungs"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb766979c721885811c492/_history/0", "resource" : {"resourceType":"Observation","id":"5acb766979c721885811c492","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:19:21.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8000"},{"url":"locality","valueString":"Zurich"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"},"effectiveDateTime":"2018-04-07T12:00:00+01:00","valueQuantity":{"value":0},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"122865005","display":"Gastrointes"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb76af79c721885811c494/_history/0", "resource" : {"resourceType":"Observation","id":"5acb76af79c721885811c494","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:20:31.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"1201"},{"url":"locality","valueString":"Genf"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"},"effectiveDateTime":"2018-04-01T12:00:00+01:00","valueQuantity":{"value":0},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"122865005","display":"Gastrointes"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb76cf79c721885811c496/_history/0", "resource" : {"resourceType":"Observation","id":"5acb76cf79c721885811c496","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:21:03.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"1201"},{"url":"locality","valueString":"Genf"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"},"effectiveDateTime":"2018-04-01T12:00:00+01:00","valueQuantity":{"value":0},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"45206002","display":"Nose"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb76f779c721885811c498/_history/0", "resource" : {"resourceType":"Observation","id":"5acb76f779c721885811c498","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:21:43.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"1201"},{"url":"locality","valueString":"Genf"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"},"effectiveDateTime":"2018-04-01T12:00:00+01:00","valueQuantity":{"value":7},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"81745001","display":"Eyes"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acb772f79c721885811c506/_history/0", "resource" : {"resourceType":"Observation","id":"5acb772f79c721885811c506","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"}}]}],"versionId":"0","lastUpdated":"2018-04-09T16:22:39.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"1201"},{"url":"locality","valueString":"Genf"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acb74af79c721885811c474","display":"pablo5 fünf"},"effectiveDateTime":"2018-04-01T12:00:00+01:00","valueQuantity":{"value":0},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"39607008","display":"Lungs"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Patient/5acbc6d479c721885811c5af/_history/0", "resource" : {"resourceType":"Patient","id":"5acbc6d479c721885811c5b0","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"portal","display":"Midata Portal"}},{"url":"creator","valueReference":{"reference":"Practitioner/5ac499b279c721352218101d","display":"Dominik Raphaël Kocher"}}]}],"versionId":"0","lastUpdated":"2018-04-09T22:02:28.000+02:00"},"text":{"status":"generated","div":"<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">domi2 <b>ZWEI </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>domi2@gmail.com</td></tr><tr><td>Address</td><td><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>09 April 1993</span></td></tr></tbody></table></div>"},"identifier":[{"system":"http://midata.coop/identifier/patient-login","value":"domi2@gmail.com"}],"active":true,"name":[{"family":"zwei","given":["domi2"]}],"telecom":[{"system":"email","value":"domi2@gmail.com"}],"gender":"female","birthDate":"1993-04-09","address":[{"country":"CH"}],"communication":[{"language":{"coding":[{"system":"urn:ietf:bcp:47","code":"de"}]},"preferred":true}]} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Patient/5acbc97f79c721885811c5c7/_history/0", "resource" : {"resourceType":"Patient","id":"5acbc97f79c721885811c5c3","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"portal","display":"Midata Portal"}},{"url":"creator","valueReference":{"reference":"Patient/5acbc97f79c721885811c5c3","display":"domi3 drei"}}]}],"versionId":"0","lastUpdated":"2018-04-09T22:13:51.000+02:00"},"text":{"status":"generated","div":"<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">domi3 <b>DREI </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>1JMH-VSQF</td></tr><tr><td>Address</td><td><span>null </span><br/><span>null </span><br/><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>09 April 1980</span></td></tr></tbody></table></div>"},"identifier":[{"system":"http://midata.coop/identifier/midata-id","value":"1JMH-VSQF"},{"system":"http://midata.coop/identifier/patient-login","value":"domi3@gmail.com"}],"name":[{"family":"drei","given":["domi3"]}],"telecom":[{"system":"email","value":"domi3@gmail.com"}],"gender":"male","birthDate":"1980-04-09","address":[{"country":"CH"}]} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acbcc4a79c721885811c5d4/_history/0", "resource" : {"resourceType":"Observation","id":"5acbcc4a79c721885811c5d4","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acbc97f79c721885811c5c3","display":"domi3 drei"}}]}],"versionId":"0","lastUpdated":"2018-04-09T22:25:46.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"1950"},{"url":"locality","valueString":"Sion"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acbc97f79c721885811c5c3","display":"domi3 drei"},"effectiveDateTime":"2018-04-09T21:24:00+01:00","valueQuantity":{"value":3},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"39937001","display":"Skin"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acbcd5479c721885811c5d8/_history/0", "resource" : {"resourceType":"Observation","id":"5acbcd5479c721885811c5d8","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acbc97f79c721885811c5c3","display":"domi3 drei"}}]}],"versionId":"0","lastUpdated":"2018-04-09T22:30:12.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"1200"},{"url":"locality","valueString":"Genf"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acbc97f79c721885811c5c3","display":"domi3 drei"},"effectiveDateTime":"2018-04-09T21:28:00+01:00","valueQuantity":{"value":2},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"312533001","display":"Mouth"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Patient/5acc79fc79c721885811c633/_history/1523351552905", "resource" : {"resourceType":"Patient","id":"5acc79fc79c721885811c62f","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"portal","display":"Midata Portal"}},{"url":"creator","valueReference":{"reference":"Patient/5acc79fc79c721885811c62f","display":"pablo6 sechs"}}]}],"versionId":"1523351552905","lastUpdated":"2018-04-10T11:12:32.905+02:00"},"text":{"status":"generated","div":"<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo6 <b>SECHS </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>NOH3-H3F6</td></tr><tr><td>Address</td><td><span>sionstrasse </span><br/><span></span><br/><span>Sion </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>12 September 1985</span></td></tr></tbody></table></div>"},"identifier":[{"system":"http://midata.coop/identifier/midata-id","value":"NOH3-H3F6"},{"system":"http://midata.coop/identifier/patient-login","value":"pablo6@gmail.com"}],"name":[{"family":"sechs","given":["pablo6"]}],"telecom":[{"system":"email","value":"pablo6@gmail.com"}],"gender":"female","birthDate":"1985-09-12","address":[{"line":["sionstrasse"],"city":"Sion","postalCode":"1950","country":"CH"}]} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5acc7b1279c721885811c642/_history/0", "resource" : {"resourceType":"Observation","id":"5acc7b1279c721885811c642","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acc79fc79c721885811c62f","display":"pablo6 sechs"}}]}],"versionId":"0","lastUpdated":"2018-04-10T10:51:30.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"1950"},{"url":"locality","valueString":"Sion"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acc79fc79c721885811c62f","display":"pablo6 sechs"},"effectiveDateTime":"2018-10-01T14:00:00+01:00","valueQuantity":{"value":3},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"39607008","display":"Lungs"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5add864379c72104e79846ec/_history/0", "resource" : {"resourceType":"Observation","id":"5add864379c72104e79846ec","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acc79fc79c721885811c62f","display":"pablo6 sechs"}}]}],"versionId":"0","lastUpdated":"2018-04-23T09:07:47.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"1201"},{"url":"locality","valueString":"Genf"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acc79fc79c721885811c62f","display":"pablo6 sechs"},"effectiveDateTime":"2018-04-01T06:00:00+01:00","valueQuantity":{"value":8},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"39937001","display":"Skin"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5add893a79c72104e79846ee/_history/0", "resource" : {"resourceType":"Observation","id":"5add893a79c72104e79846ee","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5acc79fc79c721885811c62f","display":"pablo6 sechs"}}]}],"versionId":"0","lastUpdated":"2018-04-23T09:20:26.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"1201"},{"url":"locality","valueString":"Genf"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5acc79fc79c721885811c62f","display":"pablo6 sechs"},"effectiveDateTime":"2018-04-01T06:00:00+01:00","valueQuantity":{"value":0},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"312533001","display":"MouthThroat"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Patient/5add89cc79c72104e79846f5/_history/0", "resource" : {"resourceType":"Patient","id":"5add89cc79c72104e79846f1","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"portal","display":"Midata Portal"}},{"url":"creator","valueReference":{"reference":"Patient/5add89cc79c72104e79846f1","display":"pablo7 sieben"}}]}],"versionId":"0","lastUpdated":"2018-04-23T09:22:52.000+02:00"},"text":{"status":"generated","div":"<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo7 <b>SIEBEN </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>BL84-CI4L</td></tr><tr><td>Address</td><td><span>Bernstrasse </span><br/><span>null </span><br/><span>Bern </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>12 Mai 1984</span></td></tr></tbody></table></div>"},"identifier":[{"system":"http://midata.coop/identifier/midata-id","value":"BL84-CI4L"},{"system":"http://midata.coop/identifier/patient-login","value":"pablo7@gmail.com"}],"name":[{"family":"sieben","given":["pablo7"]}],"telecom":[{"system":"email","value":"pablo7@gmail.com"}],"gender":"female","birthDate":"1984-05-12","address":[{"line":["Bernstrasse"],"city":"Bern","postalCode":"3008","country":"CH"}]} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5add8afa79c72104e7984702/_history/0", "resource" : {"resourceType":"Observation","id":"5add8afa79c72104e7984702","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5add89cc79c72104e79846f1","display":"pablo7 sieben"}}]}],"versionId":"0","lastUpdated":"2018-04-23T09:27:54.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"3008"},{"url":"locality","valueString":"Bern"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5add89cc79c72104e79846f1","display":"pablo7 sieben"},"effectiveDateTime":"2018-04-14T13:00:00+01:00","valueQuantity":{"value":5},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"39937001","display":"Eyes"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5add8bcb79c72104e7984706/_history/0", "resource" : {"resourceType":"Observation","id":"5add8bcb79c72104e7984706","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5add89cc79c72104e79846f1","display":"pablo7 sieben"}}]}],"versionId":"0","lastUpdated":"2018-04-23T09:31:23.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"2502"},{"url":"locality","valueString":"Biel"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5add89cc79c72104e79846f1","display":"pablo7 sieben"},"effectiveDateTime":"2018-04-11T14:00:00+01:00","valueQuantity":{"value":0},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"312533001","display":"MouthThroat"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Patient/5add8c6479c72104e798470d/_history/0", "resource" : {"resourceType":"Patient","id":"5add8c6379c72104e7984709","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"portal","display":"Midata Portal"}},{"url":"creator","valueReference":{"reference":"Patient/5add8c6379c72104e7984709","display":"pablo8 acht"}}]}],"versionId":"0","lastUpdated":"2018-04-23T09:33:56.000+02:00"},"text":{"status":"generated","div":"<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo8 <b>ACHT </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>P5F9-K85T</td></tr><tr><td>Address</td><td><span>Zurichstrasse </span><br/><span>null </span><br/><span>Zurich </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>02 November 1992</span></td></tr></tbody></table></div>"},"identifier":[{"system":"http://midata.coop/identifier/midata-id","value":"P5F9-K85T"},{"system":"http://midata.coop/identifier/patient-login","value":"pablo8@gmail.com"}],"name":[{"family":"acht","given":["pablo8"]}],"telecom":[{"system":"email","value":"pablo8@gmail.com"}],"gender":"male","birthDate":"1992-11-02","address":[{"line":["Zurichstrasse"],"city":"Zurich","postalCode":"8001","country":"CH"}]} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5add8e2179c7218535620879/_history/0", "resource" : {"resourceType":"Observation","id":"5add8e2179c7218535620879","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5add8c6379c72104e7984709","display":"pablo8 acht"}}]}],"versionId":"0","lastUpdated":"2018-04-23T09:41:21.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8001"},{"url":"locality","valueString":"Zurich"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5add8c6379c72104e7984709","display":"pablo8 acht"},"effectiveDateTime":"2018-04-11T15:00:00+01:00","valueQuantity":{"value":6},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"39607008","display":"Lungs"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5add8e5d79c721853562087d/_history/0", "resource" : {"resourceType":"Observation","id":"5add8e5d79c721853562087d","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5add8c6379c72104e7984709","display":"pablo8 acht"}}]}],"versionId":"0","lastUpdated":"2018-04-23T09:42:21.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8001"},{"url":"locality","valueString":"Zurich"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5add8c6379c72104e7984709","display":"pablo8 acht"},"effectiveDateTime":"2018-04-11T15:00:00+01:00","valueQuantity":{"value":4},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"45206002","display":"Nose"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5add8e9579c721853562087f/_history/0", "resource" : {"resourceType":"Observation","id":"5add8e9579c721853562087f","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5add8c6379c72104e7984709","display":"pablo8 acht"}}]}],"versionId":"0","lastUpdated":"2018-04-23T09:43:17.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8001"},{"url":"locality","valueString":"Zurich"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":true}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5add8c6379c72104e7984709","display":"pablo8 acht"},"effectiveDateTime":"2018-04-11T15:00:00+01:00","valueQuantity":{"value":2},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"122865005","display":"GastrointesTinalTract"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5add8edf79c7218535620881/_history/0", "resource" : {"resourceType":"Observation","id":"5add8edf79c7218535620881","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5add8c6379c72104e7984709","display":"pablo8 acht"}}]}],"versionId":"0","lastUpdated":"2018-04-23T09:44:31.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8001"},{"url":"locality","valueString":"Zurich"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5add8c6379c72104e7984709","display":"pablo8 acht"},"effectiveDateTime":"2018-04-11T15:00:00+01:00","valueQuantity":{"value":0},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"39937001","display":"Eyes"}]}} } ,{ "fullUrl" : "https://test.midata.coop/fhir/Observation/5add91c179c721853562089d/_history/0", "resource" : {"resourceType":"Observation","id":"5add91c179c721853562089d","meta":{"extension":[{"url":"http://midata.coop/extensions/metadata","extension":[{"url":"app","valueCoding":{"system":"http://midata.coop/codesystems/app","code":"Ally","display":"LC1Ally"}},{"url":"creator","valueReference":{"reference":"Patient/5add8c6379c72104e7984709","display":"pablo8 acht"}}]}],"versionId":"0","lastUpdated":"2018-04-23T09:56:49.000+02:00"},"extension":[{"url":"http://midata.coop/Extensions/event-location","extension":[{"url":"zipcode","valueCode":"8001"},{"url":"locality","valueString":"Zurich"}]},{"url":"http://midata.coop/Extensions/treated","valueBoolean":false}],"status":"preliminary","category":[{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"survey","display":"Survey"}]}],"code":{"coding":[{"system":"http://snomed.info/sct","code":"300910009","display":"Allergy to pollen"}]},"subject":{"reference":"Patient/5add8c6379c72104e7984709","display":"pablo8 acht"},"effectiveDateTime":"2018-04-11T15:00:00+01:00","valueQuantity":{"value":0},"bodySite":{"coding":[{"system":"http://snomed.info/sct","code":"39937001","display":"Skin"}]}} } ] }
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "entry": [
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Practitioner/5ab89d6979c721d77ca22694",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "5ab89d6979c721d77ca22694",
+        "name": [
+          {
+            "family": "Stein",
+            "given": [
+              "Ein"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "0sokey0@gmail.com"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "Ritterstrasse 26a"
+            ],
+            "city": "Bremgarten",
+            "postalCode": "3047",
+            "country": "CH"
+          }
+        ],
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Practitioner/5ac499b279c721352218101d",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "5ac499b279c721352218101d",
+        "name": [
+          {
+            "family": "Kocher",
+            "given": [
+              "Dominik Raphaël"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "dominikraphael.kocher@students.bfh.ch"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "Quellgasse 21"
+            ],
+            "city": "Biel",
+            "postalCode": "2502",
+            "country": "CH"
+          }
+        ],
+        "gender": "male"
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5aca3c0379c721ee0472dc6c/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5aca3c0379c721ee0472dc6c",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5ab89be479c721d77ca2268b",
+                    "display": "Joe Doe"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-08T17:57:55.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "2502"
+              },
+              {
+                "url": "locality",
+                "valueString": "Biel/Bienne"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5ab89be479c721d77ca2268b",
+          "display": "Joe Doe"
+        },
+        "effectiveDateTime": "1977-04-22T01:00:00+01:00",
+        "valueQuantity": {
+          "value": 6
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "81745001",
+              "display": "Eye"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb15f479c721ee0472dce9/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb15f479c721ee0472dce9",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5ab89be479c721d77ca2268b",
+                    "display": "Joe Doe"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T09:27:48.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "2502"
+              },
+              {
+                "url": "locality",
+                "valueString": "Biel/Bienne"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5ab89be479c721d77ca2268b",
+          "display": "Joe Doe"
+        },
+        "effectiveDateTime": "1977-04-22T01:00:00+01:00",
+        "valueQuantity": {
+          "value": 8
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "45206002",
+              "display": "Nose"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5acb521379c72180a4df57aa/_history/1524470934120",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5acb521379c72180a4df57a6",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb521379c72180a4df57a6",
+                    "display": "pablo1 eins"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "1524470934120",
+          "lastUpdated": "2018-04-23T10:08:54.120+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo1 <b>EINS </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>V1BP-H5UC</td></tr><tr><td>Address</td><td><span>Bernstrasse </span><br/><span></span><br/><span>Bern </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>12 Oktober 1976</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/midata-id",
+            "value": "V1BP-H5UC"
+          },
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "pablo1@gmail.com"
+          }
+        ],
+        "name": [
+          {
+            "family": "eins",
+            "given": [
+              "pablo1"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "pablo1@gmail.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1976-10-12",
+        "address": [
+          {
+            "line": [
+              "Bernstrasse"
+            ],
+            "city": "Bern",
+            "postalCode": "3000",
+            "country": "CH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb569c79c72180a4df57e3/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb569c79c72180a4df57e3",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb521379c72180a4df57a6",
+                    "display": "pablo1 eins"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T14:03:40.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "3000"
+              },
+              {
+                "url": "locality",
+                "valueString": "Bern"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb521379c72180a4df57a6",
+          "display": "pablo1 eins"
+        },
+        "effectiveDateTime": "1977-04-22T01:00:00+01:00",
+        "valueQuantity": {
+          "value": 3
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "45206002",
+              "display": "Nose"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5acb533a79c72180a4df57b9/_history/0",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5acb533a79c72180a4df57b5",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb533a79c72180a4df57b5",
+                    "display": "domi1 eins"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T13:49:14.000+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">domi1 <b>EINS </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>IMEC-HECF</td></tr><tr><td>Address</td><td><span>null </span><br/><span>null </span><br/><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>09 April 1993</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/midata-id",
+            "value": "IMEC-HECF"
+          },
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "domi1@gmail.com"
+          }
+        ],
+        "name": [
+          {
+            "family": "eins",
+            "given": [
+              "domi1"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "domi1@gmail.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1993-04-09",
+        "address": [
+          {
+            "country": "CH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb5adb79c72180a4df57f8/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb5adb79c72180a4df57f8",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb533a79c72180a4df57b5",
+                    "display": "domi1 eins"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T14:21:47.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "3700"
+              },
+              {
+                "url": "locality",
+                "valueString": "Spiez"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb533a79c72180a4df57b5",
+          "display": "domi1 eins"
+        },
+        "effectiveDateTime": "2018-04-09T01:00:00+01:00",
+        "valueQuantity": {
+          "value": 7
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "81745001",
+              "display": "Eye"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acbb8ef79c721885811c5a8/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acbb8ef79c721885811c5a8",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb533a79c72180a4df57b5",
+                    "display": "domi1 eins"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T21:03:11.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "3700"
+              },
+              {
+                "url": "locality",
+                "valueString": "Spiez"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb533a79c72180a4df57b5",
+          "display": "domi1 eins"
+        },
+        "effectiveDateTime": "2018-04-09T20:59:00+01:00",
+        "valueQuantity": {
+          "value": 6
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "45206002",
+              "display": "Nose"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acbc5e779c721885811c5ad/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acbc5e779c721885811c5ad",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb533a79c72180a4df57b5",
+                    "display": "domi1 eins"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T21:58:31.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "2502"
+              },
+              {
+                "url": "locality",
+                "valueString": "Biel"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb533a79c72180a4df57b5",
+          "display": "domi1 eins"
+        },
+        "effectiveDateTime": "2018-04-09T20:53:00+01:00",
+        "valueQuantity": {
+          "value": 5
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39607008",
+              "display": "Lungs"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5acb585079c72180a4df57eb/_history/1524470881549",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5acb584f79c72180a4df57e7",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb584f79c72180a4df57e7",
+                    "display": "pablo2 zwei"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "1524470881549",
+          "lastUpdated": "2018-04-23T10:08:01.549+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo2 <b>ZWEI </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>ASQR-359O</td></tr><tr><td>Address</td><td><span>Genfstrasse </span><br/><span></span><br/><span>Genf </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>23 November 1996</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/midata-id",
+            "value": "ASQR-359O"
+          },
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "pablo2@gmail.com"
+          }
+        ],
+        "name": [
+          {
+            "family": "zwei",
+            "given": [
+              "pablo2"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "pablo2@gmail.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1996-11-23",
+        "address": [
+          {
+            "line": [
+              "Genfstrasse"
+            ],
+            "city": "Genf",
+            "postalCode": "1200",
+            "country": "CH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5acb5b5179c72180a4df5801/_history/1524470796062",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5acb5b5079c72180a4df57fd",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb5b5079c72180a4df57fd",
+                    "display": "pablo3 drei"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "1524470796062",
+          "lastUpdated": "2018-04-23T10:06:36.062+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo3 <b>DREI </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>B02M-O0CU</td></tr><tr><td>Address</td><td><span>Bernstrasse </span><br/><span></span><br/><span>Bern </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>11 Juni 1993</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/midata-id",
+            "value": "B02M-O0CU"
+          },
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "pablo3@gmail.com"
+          }
+        ],
+        "name": [
+          {
+            "family": "drei",
+            "given": [
+              "pablo3"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "pablo3@gmail.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1993-06-11",
+        "address": [
+          {
+            "line": [
+              "Bernstrasse"
+            ],
+            "city": "Bern",
+            "postalCode": "3008",
+            "country": "CH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb70d979c721885811c40d/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb70d979c721885811c40d",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb5b5079c72180a4df57fd",
+                    "display": "pablo3 drei"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T15:55:37.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "3008"
+              },
+              {
+                "url": "locality",
+                "valueString": "Bern"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb5b5079c72180a4df57fd",
+          "display": "pablo3 drei"
+        },
+        "effectiveDateTime": "2018-04-05T16:00:00+01:00",
+        "valueQuantity": {
+          "value": 7
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "81745001",
+              "display": "Eyes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb713b79c721885811c411/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb713b79c721885811c411",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb5b5079c72180a4df57fd",
+                    "display": "pablo3 drei"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T15:57:15.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "3008"
+              },
+              {
+                "url": "locality",
+                "valueString": "Bern"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb5b5079c72180a4df57fd",
+          "display": "pablo3 drei"
+        },
+        "effectiveDateTime": "2018-04-06T16:00:00+01:00",
+        "valueQuantity": {
+          "value": 9
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "81745001",
+              "display": "Eyes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb71d579c721885811c413/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb71d579c721885811c413",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb5b5079c72180a4df57fd",
+                    "display": "pablo3 drei"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T15:59:49.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "3008"
+              },
+              {
+                "url": "locality",
+                "valueString": "Bern"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb5b5079c72180a4df57fd",
+          "display": "pablo3 drei"
+        },
+        "effectiveDateTime": "2018-04-06T16:00:00+01:00",
+        "valueQuantity": {
+          "value": 3
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "312533001",
+              "display": "Mouth"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb721579c721885811c415/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb721579c721885811c415",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb5b5079c72180a4df57fd",
+                    "display": "pablo3 drei"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:00:53.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "3000"
+              },
+              {
+                "url": "locality",
+                "valueString": "Bern"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb5b5079c72180a4df57fd",
+          "display": "pablo3 drei"
+        },
+        "effectiveDateTime": "2018-04-07T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 5
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "312533001",
+              "display": "Mouth"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb727e79c721885811c417/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb727e79c721885811c417",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb5b5079c72180a4df57fd",
+                    "display": "pablo3 drei"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:02:38.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "3000"
+              },
+              {
+                "url": "locality",
+                "valueString": "Bern"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb5b5079c72180a4df57fd",
+          "display": "pablo3 drei"
+        },
+        "effectiveDateTime": "2018-04-07T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 4
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "81745001",
+              "display": "Augen"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5acb72cf79c721885811c41e/_history/1524470601910",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5acb72cf79c721885811c41a",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb72cf79c721885811c41a",
+                    "display": "pablo4 vier"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "1524470601910",
+          "lastUpdated": "2018-04-23T10:03:21.910+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo4 <b>VIER </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>562Q-3FVQ</td></tr><tr><td>Address</td><td><span>Zurichstrasse </span><br/><span></span><br/><span>Zurich </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>19 Mai 1991</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/midata-id",
+            "value": "562Q-3FVQ"
+          },
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "pablo4@gmail.com"
+          }
+        ],
+        "name": [
+          {
+            "family": "vier",
+            "given": [
+              "pablo4"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "pablo4@gmail.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1991-05-19",
+        "address": [
+          {
+            "line": [
+              "Zurichstrasse"
+            ],
+            "city": "Zurich",
+            "postalCode": "8000",
+            "country": "CH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb738b79c721885811c45a/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb738b79c721885811c45a",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb72cf79c721885811c41a",
+                    "display": "pablo4 vier"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:07:07.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8400"
+              },
+              {
+                "url": "locality",
+                "valueString": "Winterthur"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb72cf79c721885811c41a",
+          "display": "pablo4 vier"
+        },
+        "effectiveDateTime": "2018-04-02T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 5
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "81745001",
+              "display": "Augen"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb73c879c721885811c45e/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb73c879c721885811c45e",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb72cf79c721885811c41a",
+                    "display": "pablo4 vier"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:08:08.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8400"
+              },
+              {
+                "url": "locality",
+                "valueString": "Winterthur"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb72cf79c721885811c41a",
+          "display": "pablo4 vier"
+        },
+        "effectiveDateTime": "2018-04-02T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 6
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "45206002",
+              "display": "Nose"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb743879c721885811c472/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb743879c721885811c472",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb72cf79c721885811c41a",
+                    "display": "pablo4 vier"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:10:00.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8000"
+              },
+              {
+                "url": "locality",
+                "valueString": "Zurich"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb72cf79c721885811c41a",
+          "display": "pablo4 vier"
+        },
+        "effectiveDateTime": "2018-04-04T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 2
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39937001",
+              "display": "Skin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5acb74af79c721885811c478/_history/1524470491201",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5acb74af79c721885811c474",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb74af79c721885811c474",
+                    "display": "pablo5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "1524470491201",
+          "lastUpdated": "2018-04-23T10:01:31.201+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo5 <b>FÜNF </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>F1Q0-2SQ0</td></tr><tr><td>Address</td><td><span>Genfstrasse </span><br/><span></span><br/><span>Genf </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>02 Februar 1987</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/midata-id",
+            "value": "F1Q0-2SQ0"
+          },
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "pablo5@gmail.com"
+          }
+        ],
+        "name": [
+          {
+            "family": "fünf",
+            "given": [
+              "pablo5"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "pablo5@gmail.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1987-02-02",
+        "address": [
+          {
+            "line": [
+              "Genfstrasse"
+            ],
+            "city": "Genf",
+            "postalCode": "1201",
+            "country": "CH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb752479c721885811c485/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb752479c721885811c485",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb74af79c721885811c474",
+                    "display": "pablo5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:13:56.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8000"
+              },
+              {
+                "url": "locality",
+                "valueString": "Zurich"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb74af79c721885811c474",
+          "display": "pablo5 fünf"
+        },
+        "effectiveDateTime": "2018-04-07T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 5
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39937001",
+              "display": "Skin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb755779c721885811c489/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb755779c721885811c489",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb74af79c721885811c474",
+                    "display": "pablo5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:14:47.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8000"
+              },
+              {
+                "url": "locality",
+                "valueString": "Zurich"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb74af79c721885811c474",
+          "display": "pablo5 fünf"
+        },
+        "effectiveDateTime": "2018-04-07T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 8
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "45206002",
+              "display": "Nose"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb758879c721885811c48b/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb758879c721885811c48b",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb74af79c721885811c474",
+                    "display": "pablo5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:15:36.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8000"
+              },
+              {
+                "url": "locality",
+                "valueString": "Zurich"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb74af79c721885811c474",
+          "display": "pablo5 fünf"
+        },
+        "effectiveDateTime": "2018-04-07T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 10
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "81745001",
+              "display": "Eyes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb75bb79c721885811c48d/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb75bb79c721885811c48d",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb74af79c721885811c474",
+                    "display": "pablo5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:16:27.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8000"
+              },
+              {
+                "url": "locality",
+                "valueString": "Zurich"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb74af79c721885811c474",
+          "display": "pablo5 fünf"
+        },
+        "effectiveDateTime": "2018-04-07T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 3
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "312533001",
+              "display": "Mouth"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb762f79c721885811c490/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb762f79c721885811c490",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb74af79c721885811c474",
+                    "display": "pablo5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:18:23.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8000"
+              },
+              {
+                "url": "locality",
+                "valueString": "Zurich"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb74af79c721885811c474",
+          "display": "pablo5 fünf"
+        },
+        "effectiveDateTime": "2018-04-07T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 2
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39607008",
+              "display": "Lungs"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb766979c721885811c492/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb766979c721885811c492",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb74af79c721885811c474",
+                    "display": "pablo5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:19:21.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8000"
+              },
+              {
+                "url": "locality",
+                "valueString": "Zurich"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb74af79c721885811c474",
+          "display": "pablo5 fünf"
+        },
+        "effectiveDateTime": "2018-04-07T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 0
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "122865005",
+              "display": "Gastrointes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb76af79c721885811c494/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb76af79c721885811c494",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb74af79c721885811c474",
+                    "display": "pablo5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:20:31.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "1201"
+              },
+              {
+                "url": "locality",
+                "valueString": "Genf"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb74af79c721885811c474",
+          "display": "pablo5 fünf"
+        },
+        "effectiveDateTime": "2018-04-01T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 0
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "122865005",
+              "display": "Gastrointes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb76cf79c721885811c496/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb76cf79c721885811c496",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb74af79c721885811c474",
+                    "display": "pablo5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:21:03.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "1201"
+              },
+              {
+                "url": "locality",
+                "valueString": "Genf"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb74af79c721885811c474",
+          "display": "pablo5 fünf"
+        },
+        "effectiveDateTime": "2018-04-01T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 0
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "45206002",
+              "display": "Nose"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb76f779c721885811c498/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb76f779c721885811c498",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb74af79c721885811c474",
+                    "display": "pablo5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:21:43.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "1201"
+              },
+              {
+                "url": "locality",
+                "valueString": "Genf"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb74af79c721885811c474",
+          "display": "pablo5 fünf"
+        },
+        "effectiveDateTime": "2018-04-01T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 7
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "81745001",
+              "display": "Eyes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acb772f79c721885811c506/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acb772f79c721885811c506",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acb74af79c721885811c474",
+                    "display": "pablo5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T16:22:39.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "1201"
+              },
+              {
+                "url": "locality",
+                "valueString": "Genf"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acb74af79c721885811c474",
+          "display": "pablo5 fünf"
+        },
+        "effectiveDateTime": "2018-04-01T12:00:00+01:00",
+        "valueQuantity": {
+          "value": 0
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39607008",
+              "display": "Lungs"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5acbc6d479c721885811c5af/_history/0",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5acbc6d479c721885811c5b0",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Practitioner/5ac499b279c721352218101d",
+                    "display": "Dominik Raphaël Kocher"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T22:02:28.000+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">domi2 <b>ZWEI </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>domi2@gmail.com</td></tr><tr><td>Address</td><td><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>09 April 1993</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "domi2@gmail.com"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "zwei",
+            "given": [
+              "domi2"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "domi2@gmail.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1993-04-09",
+        "address": [
+          {
+            "country": "CH"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "de"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5acbc97f79c721885811c5c7/_history/0",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5acbc97f79c721885811c5c3",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acbc97f79c721885811c5c3",
+                    "display": "domi3 drei"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T22:13:51.000+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">domi3 <b>DREI </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>1JMH-VSQF</td></tr><tr><td>Address</td><td><span>null </span><br/><span>null </span><br/><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>09 April 1980</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/midata-id",
+            "value": "1JMH-VSQF"
+          },
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "domi3@gmail.com"
+          }
+        ],
+        "name": [
+          {
+            "family": "drei",
+            "given": [
+              "domi3"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "domi3@gmail.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1980-04-09",
+        "address": [
+          {
+            "country": "CH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acbcc4a79c721885811c5d4/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acbcc4a79c721885811c5d4",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acbc97f79c721885811c5c3",
+                    "display": "domi3 drei"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T22:25:46.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "1950"
+              },
+              {
+                "url": "locality",
+                "valueString": "Sion"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acbc97f79c721885811c5c3",
+          "display": "domi3 drei"
+        },
+        "effectiveDateTime": "2018-04-09T21:24:00+01:00",
+        "valueQuantity": {
+          "value": 3
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39937001",
+              "display": "Skin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acbcd5479c721885811c5d8/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acbcd5479c721885811c5d8",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acbc97f79c721885811c5c3",
+                    "display": "domi3 drei"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-09T22:30:12.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "1200"
+              },
+              {
+                "url": "locality",
+                "valueString": "Genf"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acbc97f79c721885811c5c3",
+          "display": "domi3 drei"
+        },
+        "effectiveDateTime": "2018-04-09T21:28:00+01:00",
+        "valueQuantity": {
+          "value": 2
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "312533001",
+              "display": "Mouth"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5acc79fc79c721885811c633/_history/1523351552905",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5acc79fc79c721885811c62f",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acc79fc79c721885811c62f",
+                    "display": "pablo6 sechs"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "1523351552905",
+          "lastUpdated": "2018-04-10T11:12:32.905+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo6 <b>SECHS </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>NOH3-H3F6</td></tr><tr><td>Address</td><td><span>sionstrasse </span><br/><span></span><br/><span>Sion </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>12 September 1985</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/midata-id",
+            "value": "NOH3-H3F6"
+          },
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "pablo6@gmail.com"
+          }
+        ],
+        "name": [
+          {
+            "family": "sechs",
+            "given": [
+              "pablo6"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "pablo6@gmail.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1985-09-12",
+        "address": [
+          {
+            "line": [
+              "sionstrasse"
+            ],
+            "city": "Sion",
+            "postalCode": "1950",
+            "country": "CH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5acc7b1279c721885811c642/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5acc7b1279c721885811c642",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acc79fc79c721885811c62f",
+                    "display": "pablo6 sechs"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-10T10:51:30.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "1950"
+              },
+              {
+                "url": "locality",
+                "valueString": "Sion"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acc79fc79c721885811c62f",
+          "display": "pablo6 sechs"
+        },
+        "effectiveDateTime": "2018-10-01T14:00:00+01:00",
+        "valueQuantity": {
+          "value": 3
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39607008",
+              "display": "Lungs"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5add864379c72104e79846ec/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5add864379c72104e79846ec",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acc79fc79c721885811c62f",
+                    "display": "pablo6 sechs"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-23T09:07:47.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "1201"
+              },
+              {
+                "url": "locality",
+                "valueString": "Genf"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acc79fc79c721885811c62f",
+          "display": "pablo6 sechs"
+        },
+        "effectiveDateTime": "2018-04-01T06:00:00+01:00",
+        "valueQuantity": {
+          "value": 8
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39937001",
+              "display": "Skin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5add893a79c72104e79846ee/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5add893a79c72104e79846ee",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acc79fc79c721885811c62f",
+                    "display": "pablo6 sechs"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-23T09:20:26.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "1201"
+              },
+              {
+                "url": "locality",
+                "valueString": "Genf"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5acc79fc79c721885811c62f",
+          "display": "pablo6 sechs"
+        },
+        "effectiveDateTime": "2018-04-01T06:00:00+01:00",
+        "valueQuantity": {
+          "value": 0
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "312533001",
+              "display": "MouthThroat"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5add89cc79c72104e79846f5/_history/0",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5add89cc79c72104e79846f1",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5add89cc79c72104e79846f1",
+                    "display": "pablo7 sieben"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-23T09:22:52.000+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo7 <b>SIEBEN </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>BL84-CI4L</td></tr><tr><td>Address</td><td><span>Bernstrasse </span><br/><span>null </span><br/><span>Bern </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>12 Mai 1984</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/midata-id",
+            "value": "BL84-CI4L"
+          },
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "pablo7@gmail.com"
+          }
+        ],
+        "name": [
+          {
+            "family": "sieben",
+            "given": [
+              "pablo7"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "pablo7@gmail.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1984-05-12",
+        "address": [
+          {
+            "line": [
+              "Bernstrasse"
+            ],
+            "city": "Bern",
+            "postalCode": "3008",
+            "country": "CH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5add8afa79c72104e7984702/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5add8afa79c72104e7984702",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5add89cc79c72104e79846f1",
+                    "display": "pablo7 sieben"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-23T09:27:54.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "3008"
+              },
+              {
+                "url": "locality",
+                "valueString": "Bern"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5add89cc79c72104e79846f1",
+          "display": "pablo7 sieben"
+        },
+        "effectiveDateTime": "2018-04-14T13:00:00+01:00",
+        "valueQuantity": {
+          "value": 5
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "81745001",
+              "display": "Eyes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5add8bcb79c72104e7984706/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5add8bcb79c72104e7984706",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5add89cc79c72104e79846f1",
+                    "display": "pablo7 sieben"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-23T09:31:23.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "2502"
+              },
+              {
+                "url": "locality",
+                "valueString": "Biel"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5add89cc79c72104e79846f1",
+          "display": "pablo7 sieben"
+        },
+        "effectiveDateTime": "2018-04-11T14:00:00+01:00",
+        "valueQuantity": {
+          "value": 0
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "312533001",
+              "display": "MouthThroat"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5add8c6479c72104e798470d/_history/0",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5add8c6379c72104e7984709",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5add8c6379c72104e7984709",
+                    "display": "pablo8 acht"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-23T09:33:56.000+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">pablo8 <b>ACHT </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>P5F9-K85T</td></tr><tr><td>Address</td><td><span>Zurichstrasse </span><br/><span>null </span><br/><span>Zurich </span><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>02 November 1992</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/midata-id",
+            "value": "P5F9-K85T"
+          },
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "pablo8@gmail.com"
+          }
+        ],
+        "name": [
+          {
+            "family": "acht",
+            "given": [
+              "pablo8"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "pablo8@gmail.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1992-11-02",
+        "address": [
+          {
+            "line": [
+              "Zurichstrasse"
+            ],
+            "city": "Zurich",
+            "postalCode": "8001",
+            "country": "CH"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5add8e2179c7218535620879/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5add8e2179c7218535620879",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5add8c6379c72104e7984709",
+                    "display": "pablo8 acht"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-23T09:41:21.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8001"
+              },
+              {
+                "url": "locality",
+                "valueString": "Zurich"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5add8c6379c72104e7984709",
+          "display": "pablo8 acht"
+        },
+        "effectiveDateTime": "2018-04-11T15:00:00+01:00",
+        "valueQuantity": {
+          "value": 6
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39607008",
+              "display": "Lungs"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5add8e5d79c721853562087d/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5add8e5d79c721853562087d",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5add8c6379c72104e7984709",
+                    "display": "pablo8 acht"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-23T09:42:21.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8001"
+              },
+              {
+                "url": "locality",
+                "valueString": "Zurich"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5add8c6379c72104e7984709",
+          "display": "pablo8 acht"
+        },
+        "effectiveDateTime": "2018-04-11T15:00:00+01:00",
+        "valueQuantity": {
+          "value": 4
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "45206002",
+              "display": "Nose"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5add8e9579c721853562087f/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5add8e9579c721853562087f",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5add8c6379c72104e7984709",
+                    "display": "pablo8 acht"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-23T09:43:17.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8001"
+              },
+              {
+                "url": "locality",
+                "valueString": "Zurich"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5add8c6379c72104e7984709",
+          "display": "pablo8 acht"
+        },
+        "effectiveDateTime": "2018-04-11T15:00:00+01:00",
+        "valueQuantity": {
+          "value": 2
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "122865005",
+              "display": "GastrointesTinalTract"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5add8edf79c7218535620881/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5add8edf79c7218535620881",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5add8c6379c72104e7984709",
+                    "display": "pablo8 acht"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-23T09:44:31.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8001"
+              },
+              {
+                "url": "locality",
+                "valueString": "Zurich"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5add8c6379c72104e7984709",
+          "display": "pablo8 acht"
+        },
+        "effectiveDateTime": "2018-04-11T15:00:00+01:00",
+        "valueQuantity": {
+          "value": 0
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39937001",
+              "display": "Eyes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5add91c179c721853562089d/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5add91c179c721853562089d",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5add8c6379c72104e7984709",
+                    "display": "pablo8 acht"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-04-23T09:56:49.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "8001"
+              },
+              {
+                "url": "locality",
+                "valueString": "Zurich"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": false
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5add8c6379c72104e7984709",
+          "display": "pablo8 acht"
+        },
+        "effectiveDateTime": "2018-04-11T15:00:00+01:00",
+        "valueQuantity": {
+          "value": 0
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39937001",
+              "display": "Skin"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
