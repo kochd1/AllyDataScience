@@ -66,8 +66,11 @@ stuPart_IdDate_df$sumStuPart / population
 ###   5 VISUALIZATION
 barplot(stuPart_IdDate_df$sumStuPart)
 
+stuPart_IdDate_df$sumStuPart <- stuPart_IdDate_df$sumStuPart / population
 
+stuPart_IdDate_df$sumStuPart
 
+ggplot(data = stuPart_IdDate_df, aes(x = stuPart_IdDate_df$Date, y = sumStuPart)) + geom_point()
 
 
 
