@@ -98,13 +98,33 @@ MeanActiveStuPart <- mean(activeStuPartIdDate_df$sumActiveStuPart)
 
 
 #Calculation
-activeStuPartSymYesIdDate_df$`sumActiveStuPart[SymYes]` / activeStuPartIdDate_df$sumActiveStuPart
 
+prevalence <- activeStuPartSymYesIdDate_df$`sumActiveStuPart[SymYes]` / activeStuPartIdDate_df$sumActiveStuPart
+
+naNFilter <- as.vector(prevalence)
+prevalenceFiltered <- naNFilter[!is.na(naNFilter)]
+
+meanPrevalence <- mean(prevalenceFiltered)
+str(meanPrevalence)
 
 #Visualization
-#example
-x <- c(result, 0.8, 0.75)
 
-barplot(x)
-lines(x)
+days <- c(1:30) #c(activeStuPartIdDate_df$Date)
+
+activeStuPart <- c(activeStuPartIdDate_df$sumActiveStuPart-activeStuPartSymYesIdDate_df$`sumActiveStuPart[SymYes]`) #subtraction necessary due to correct visualization
+activeStuPartSymYes <-c(activeStuPartSymYesIdDate_df$`sumActiveStuPart[SymYes]`)
+
+values <- c(activeStuPart, activeStuPartSymYes)
+
+type <- c(rep("ActiveStuPart", 30), rep("ActiveStuPart[SymYes]", 30))
+data <- data.frame(days, values)
+
+library(ggplot2)
+
+p <- ggplot(data, aes(days, values))
+p +geom_bar(stat= "identity", position = "fill", aes(fill = type)) + xlab("Days") + ylab("Prevalence in %") + 
+  ggtitle("Prevalence of the study participants") + labs(fill= "") + geom_hline(yintercept = meanPrevalence, size = 1.5, color="blue") + theme_bw()
+
+# notes for plotting: position = "dodge" -> not stacked, position = "fill" -> stacked percent bar plot, labs(fill="") -> removes the legend title
+
 
