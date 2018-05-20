@@ -2986,6 +2986,57 @@
       }
     },
     {
+      "fullUrl": "https://test.midata.coop/fhir/AllergyIntolerance/5b015e8d79c72104cf885981/_history/0",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "5b015e8d79c72104cf885981",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5acbc97f79c721885811c5c3",
+                    "display": "domi3 drei"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-05-20T13:39:57.000+02:00"
+        },
+        "verificationStatus": "confirmed",
+        "category": [
+          "environment"
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "256263006",
+              "display": "Hazel"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/5acbc97f79c721885811c5c3",
+          "display": "domi3 drei"
+        },
+        "assertedDate": "2018-04-10"
+      }
+    },
+    {
       "fullUrl": "https://test.midata.coop/fhir/Patient/5acc79fc79c721885811c633/_history/1523351552905",
       "resource": {
         "resourceType": "Patient",
