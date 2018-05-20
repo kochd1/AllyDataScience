@@ -174,7 +174,35 @@ lungObs_IdDate_df$`sumActiveStuPart[SymYes][Lungs]` / activeStuPartIdDate_df$sum
 # Visualization
 
 # show a stacked bar chart with the daily symptoms per bodysite
+days <- c(1:30) #c(activeStuPartIdDate_df$Date)
 
+activeStuPart <- c(activeStuPartIdDate_df$sumActiveStuPart-noseObs_IdDate_df$`sumActiveStuPart[SymYes][Nose]`
+                   -eyeObs_IdDate_df$`sumActiveStuPart[SymYes][Eyes]`
+                   -skinObs_IdDate_df$`sumActiveStuPart[SymYes][Skin]`
+                   -lungObs_IdDate_df$`sumActiveStuPart[SymYes][Lungs]`) #subtraction necessary due to correct visualization
+
+activeStuPartSymYesNose <-c(noseObs_IdDate_df$`sumActiveStuPart[SymYes][Nose]`)
+activeStuPartSymYesEyes <-c(eyeObs_IdDate_df$`sumActiveStuPart[SymYes][Eyes]`)
+activeStuPartSymYesSkin <-c(skinObs_IdDate_df$`sumActiveStuPart[SymYes][Skin]`)
+activeStuPartSymYesLungs <-c(lungObs_IdDate_df$`sumActiveStuPart[SymYes][Lungs]`)
+
+values <- c(activeStuPart, activeStuPartSymYesNose, activeStuPartSymYesEyes, activeStuPartSymYesSkin, activeStuPartSymYesLungs)
+
+type <- c(rep("ActiveStuPart", 30), rep("ActiveStuPart[SymYes][Nose]", 30), rep("ActiveStuPart[SymYes][Eyes]", 30)
+          ,rep("ActiveStuPart[SymYes][Skin]", 30), rep("ActiveStuPart[SymYes][Lungs]", 30))
+
+data <- data.frame(days, values)
+
+library(ggplot2)
+
+p <- ggplot(data, aes(days, values))
+p +geom_bar(stat= "identity", position = "fill", aes(fill = type)) + xlab("Days") + ylab("Symptoms per Bodysite in %") + 
+  ggtitle("Frequency of the symptoms per bodysite") + labs(fill= "") + 
+  scale_fill_manual("", values = c("ActiveStuPart" = "red","ActiveStuPart[SymYes][Eyes]" = "deepskyblue3",
+                                   "ActiveStuPart[SymYes][Nose]" = "darkgoldenrod2", "ActiveStuPart[SymYes][Lungs]" = "pink3",
+                                   "ActiveStuPart[SymYes][Skin]" = "peachpuff2")) + theme_bw()
+
+# notes for plotting: position = "dodge" -> not stacked, position = "fill" -> stacked percent bar plot, labs(fill="") -> removes the legend title
 
 #show a pie chart with the mean values of all bodysites in a timespan of 30 days
 meanVector <- c(MeanNoseObs, MeanEyesObs, MeanSkinObs, MeanLungsObs)
@@ -183,6 +211,6 @@ lbls <- c("Nose", "Eyes", "Skin", "Lungs")
 lbls <- paste(lbls, pct) # add percents to labels
 lbls <- paste(lbls,"%",sep="") # ad % to labels
 
-#still searching for a simple alternative in ggplot
+# still searching for a simple alternative in ggplot
 pie(meanVector, labels = lbls, main="Anteil ActiveStuPart mit Symptomen nach Körperteil (Mittelwert aus 30 Tagen)
 ", col=rainbow(length(meanVector)))
