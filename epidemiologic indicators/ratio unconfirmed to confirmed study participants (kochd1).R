@@ -39,8 +39,9 @@ allergyIntolerance_df <- subset(study_df$entry.resource, study_df$entry.resource
 
 uniqueAllergyIntolerances <- subset(allergyIntolerance_df, !duplicated(allergyIntolerance_df$patient$reference))
 
-uniqueAllergyIntolerancesConfirmed <- subset(uniqueAllergyIntolerances, uniqueAllergyIntolerances$verificationStatus=='confirmed')
-uniqueAllergyIntolerancesUnonfirmed <- subset(uniqueAllergyIntolerances, uniqueAllergyIntolerances$verificationStatus=='unconfirmed')
+uniqueAllergyIntolerancesConfirmed <- subset(uniqueAllergyIntolerances, uniqueAllergyIntolerances$verificationStatus =='confirmed')
+uniqueAllergyIntolerancesUnconfirmed <- subset(uniqueAllergyIntolerances, uniqueAllergyIntolerances$verificationStatus =='unconfirmed')
+
 
 #TODO: filter one day, length, calculation
 
