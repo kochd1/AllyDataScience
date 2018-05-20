@@ -17,6 +17,7 @@ population = 8419550
 
 # Load library
 library(jsonlite)
+library(ggplot2)
 all.equal(mtcars, fromJSON(toJSON(mtcars)))
 
 # Load JSON and convert to dataframe
@@ -30,7 +31,7 @@ stuPart <- subset(mydata$entry$resource, mydata$entry$resource$resourceType == '
 length(stuPart$resourceType)
 
 # Generate Dataframe, attribut =  {sum_StuPart, Date}
-stuPart_IdDate_df <- data.frame(ncol = 2, byrow = TRUE) # Achtung, es gibt eine Matrix mit NA, NA -> length = 2
+stuPart_IdDate_df <- data.frame(sumStuPart = 0, date = 0, day = 0) # Achtung, es gibt eine Matrix mit NA, NA -> length = 2
 
 # Loop throught the month
 for(j in 1:days_of_month) {
@@ -41,30 +42,41 @@ for(j in 1:days_of_month) {
   
   stuPart_Id <- subset(stuPart$id, stuPart$meta$lastUpdated <= date)
   stuPart_Id_length <- length(stuPart_Id)
-  stuPart_IdDate_vector <- c(stuPart_Id_length, date)
+  stuPart_IdDate_vector <- c(stuPart_Id_length, date, j)
   
   stuPart_IdDate_df <- rbind(stuPart_IdDate_df, stuPart_IdDate_vector)
 }
+stuPart_IdDate_df
 
 # delete first row in matrix
 stuPart_IdDate_df <- stuPart_IdDate_df[-1,]
 
-# name the columns
-colnames(stuPart_IdDate_df) <- c("sumStuPart", "Date")
-print(stuPart_IdDate_df)
-
 # make sumStuPart to integer
 stuPart_IdDate_df$sumStuPart <- as.integer(stuPart_IdDate_df$sumStuPart)
+# make day to factor
+stuPart_IdDate_df$day <- as.factor(stuPart_IdDate_df$day)
 
-
+str(stuPart_IdDate_df)
 
 ###   4 CALCULATION ###
-stuPart_IdDate_df$sumStuPart / population
-
+indicator <- stuPart_IdDate_df$sumStuPart / population
 
 
 ###   5 VISUALIZATION
 barplot(stuPart_IdDate_df$sumStuPart)
+
+p <- ggplot(data = stuPart_IdDate_df, aes(x = day, y = stuPart_IdDate_df$sumStuPart)) + geom_point()
+p + labs(x = "Day of the month", y = "Summe der StuPart")
+
+
+
+
+
+
+
+
+
+
 
 stuPart_IdDate_df$sumStuPart <- stuPart_IdDate_df$sumStuPart / population
 
