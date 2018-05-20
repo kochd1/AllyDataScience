@@ -4154,6 +4154,618 @@
           ]
         }
       }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5b01cf8d79c72104cf8859b7/_history/0",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5b01cf8d79c72104cf8859b3",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5b01cf8d79c72104cf8859b3",
+                    "display": "domi4 vier"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-05-20T21:42:05.000+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">domi4 <b>VIER </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>KJD1-J8PN</td></tr><tr><td>Address</td><td><span>null </span><br/><span>null </span><br/><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>20 Mai 1990</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/midata-id",
+            "value": "KJD1-J8PN"
+          },
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "domi4@gmail.com"
+          }
+        ],
+        "name": [
+          {
+            "family": "vier",
+            "given": [
+              "domi4"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "domi4@gmail.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1990-05-20",
+        "address": [
+          {
+            "country": "CH"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "code": "de"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/AllergyIntolerance/5b01dcad79c72104cf8859e0/_history/0",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "5b01dcad79c72104cf8859e0",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5b01cf8d79c72104cf8859b3",
+                    "display": "domi4 vier"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-05-20T22:38:05.000+02:00"
+        },
+        "verificationStatus": "unconfirmed",
+        "category": [
+          "environment"
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "256277009",
+              "display": "Grasses"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/5b01cf8d79c72104cf8859b3",
+          "display": "domi4 vier"
+        },
+        "assertedDate": "2018-05-20"
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5b01e1f679c72104cf8859fa/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5b01e1f679c72104cf8859fa",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5b01cf8d79c72104cf8859b3",
+                    "display": "domi4 vier"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-05-20T23:00:38.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "4001"
+              },
+              {
+                "url": "locality",
+                "valueString": "Basel"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b01cf8d79c72104cf8859b3",
+          "display": "domi4 vier"
+        },
+        "effectiveDateTime": "2018-05-20T22:54:00+01:00",
+        "valueQuantity": {
+          "value": 4
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "312533001",
+              "display": "Mouth / Throat"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5b01d31e79c72104cf8859c9/_history/0",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5b01d31d79c72104cf8859c5",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5b01d31d79c72104cf8859c5",
+                    "display": "domi5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-05-20T21:57:18.000+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">domi5 <b>FÜNF </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>LHC9-3OM5</td></tr><tr><td>Address</td><td><span>null </span><br/><span>null </span><br/><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>20 April 1973</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/midata-id",
+            "value": "LHC9-3OM5"
+          },
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "domi5@gmail.com"
+          }
+        ],
+        "name": [
+          {
+            "family": "fünf",
+            "given": [
+              "domi5"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "domi5@gmail.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1973-04-20",
+        "address": [
+          {
+            "country": "CH"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "code": "de"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/AllergyIntolerance/5b01dd6379c72104cf8859e4/_history/0",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "5b01dd6379c72104cf8859e4",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5b01d31d79c72104cf8859c5",
+                    "display": "domi5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-05-20T22:41:07.000+02:00"
+        },
+        "verificationStatus": "confirmed",
+        "category": [
+          "environment"
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "256277009",
+              "display": "Grasses"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/5b01d31d79c72104cf8859c5",
+          "display": "domi5 fünf"
+        },
+        "assertedDate": "2018-05-20"
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5b01e31b79c72104cf8859fe/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5b01e31b79c72104cf8859fe",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5b01d31d79c72104cf8859c5",
+                    "display": "domi5 fünf"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-05-20T23:05:31.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "4001"
+              },
+              {
+                "url": "locality",
+                "valueString": "Basel"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b01d31d79c72104cf8859c5",
+          "display": "domi5 fünf"
+        },
+        "effectiveDateTime": "2018-05-20T23:02:00+01:00",
+        "valueQuantity": {
+          "value": 6
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "122865005",
+              "display": "Gastrointestinal tract"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Patient/5b01ddc779c72104cf8859ec/_history/0",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5b01ddc779c72104cf8859e8",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "portal",
+                    "display": "Midata Portal"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5b01ddc779c72104cf8859e8",
+                    "display": "domi6 sechs"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-05-20T22:42:47.000+02:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">domi6 <b>SECHS </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>QM5C-MVBM</td></tr><tr><td>Address</td><td><span>null </span><br/><span>null </span><br/><span>CH </span></td></tr><tr><td>Date of birth</td><td><span>20 März 1960</span></td></tr></tbody></table></div>"
+        },
+        "identifier": [
+          {
+            "system": "http://midata.coop/identifier/midata-id",
+            "value": "QM5C-MVBM"
+          },
+          {
+            "system": "http://midata.coop/identifier/patient-login",
+            "value": "domi6@gmail.com"
+          }
+        ],
+        "name": [
+          {
+            "family": "sechs",
+            "given": [
+              "domi6"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "domi6@gmail.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1960-03-20",
+        "address": [
+          {
+            "country": "CH"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "code": "de"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://test.midata.coop/fhir/Observation/5b01e48e79c72104cf885a02/_history/0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "5b01e48e79c72104cf885a02",
+        "meta": {
+          "extension": [
+            {
+              "url": "http://midata.coop/extensions/metadata",
+              "extension": [
+                {
+                  "url": "app",
+                  "valueCoding": {
+                    "system": "http://midata.coop/codesystems/app",
+                    "code": "Ally",
+                    "display": "LC1Ally"
+                  }
+                },
+                {
+                  "url": "creator",
+                  "valueReference": {
+                    "reference": "Patient/5b01ddc779c72104cf8859e8",
+                    "display": "domi6 sechs"
+                  }
+                }
+              ]
+            }
+          ],
+          "versionId": "0",
+          "lastUpdated": "2018-05-20T23:11:42.000+02:00"
+        },
+        "extension": [
+          {
+            "url": "http://midata.coop/Extensions/event-location",
+            "extension": [
+              {
+                "url": "zipcode",
+                "valueCode": "1000"
+              },
+              {
+                "url": "locality",
+                "valueString": "Lausanne"
+              }
+            ]
+          },
+          {
+            "url": "http://midata.coop/Extensions/treated",
+            "valueBoolean": true
+          }
+        ],
+        "status": "preliminary",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "300910009",
+              "display": "Allergy to pollen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b01ddc779c72104cf8859e8",
+          "display": "domi6 sechs"
+        },
+        "effectiveDateTime": "2018-05-20T23:08:00+01:00",
+        "valueQuantity": {
+          "value": 7
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "45206002",
+              "display": "Nose"
+            }
+          ]
+        }
+      }
     }
   ]
 }
