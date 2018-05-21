@@ -2,14 +2,14 @@
 
 # script for the indicator «Frequency distribution of symptoms»
 
-#TODO: define timespan other than just months, uniqueSym does only show one bodysite symptom per stuPart
+#TODO: uniqueSym does only show one bodysite symptom per stuPart -> more than one pie/bar chart
 
 # Load library
 library(jsonlite)
 
 # Data preparation
 
-study_df <- data.frame(read_json("study_fullExport (dummy).json", simplifyVector= TRUE)) #2x practitioner, 11x patient, 36x observation -> 49 obs.
+study_df <- data.frame(read_json("study_fullExport (dummy).json", simplifyVector= TRUE))
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -38,16 +38,20 @@ uniqueSym <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subje
 # Get all unique observations with a syptom (value>0)
 uniqueSymYes <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference) & allergy_to_pollen_df$valueQuantity>0)
 
+symYes <- subset(allergy_to_pollen_df, allergy_to_pollen_df$valueQuantity>0)
 
 # Get the bodysite coding
 bodySiteCoding <- uniqueSymYes$bodySite$coding
+bodySiteCodingV2 <- uniqueSymYes$bodySite$coding
 
 bodySiteCodes <- matrix(unlist(sapply(bodySiteCoding, as.data.frame)),ncol=3, byrow=T)
+bodySiteCodesV2 <- matrix(unlist(sapply(bodySiteCodingV2, as.data.frame)),ncol=3, byrow=T)
 # class(y) -> matrix
 
 # Get Code an Display
 #y[,2:3] #text and code
 bodySiteCodes[,2]
+bodySiteCodesV2[,2]
 
 # Filter all stuPart (unique observations) by bodysite (six in total)
 noseSymptoms_df <- subset(uniqueSymYes, bodySiteCodes[,2] == 45206002) #& (uniqueSymYes$effectiveDateTime >="2018-04-11" & uniqueSymYes$effectiveDateTime <"2018-04-12"))
@@ -79,22 +83,17 @@ lungObs_IdDate_df <- data.frame(ncol = 2, byrow = TRUE)
 # create a specific dataframe for the daily number of "ActiveStuPart".
 activeStuPartIdDate_df <- data.frame(ncol= 2, byrow = TRUE)
 
+# definition of a specific timespan (month, pollenspecific period, pollen season in total etc.)
+beginDate <- as.Date.character("2018-04-01")
 
-# looping through all days of a month e.g. April
+endDate <- as.Date.character("2018-05-31")
 
-# YYYY-MM
-year_month <- "2018-04"
+date <- beginDate
 
-# DD
-days_of_month <- 30
 
-for(j in 1:days_of_month) {
-  if(j < 10) {
-    j <- paste("0",j, sep = "")
-  }
-  
-  date <- paste(year_month, j, sep = "-")
-  
+while(date <= endDate){
+
+
   # shorten the effectiveDateTime to a comparable format
   dateXNose<- as.Date(noseSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
   dateXEyes<- as.Date(eyeSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
@@ -102,19 +101,19 @@ for(j in 1:days_of_month) {
   dateXGastrointestinalTract<- as.Date(gastrointestinalTractSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
   dateXSkin<- as.Date(skinSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
   dateXLung<- as.Date(lungSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
-  
+
   dateXActiveStuPart <- as.Date(uniqueSym$effectiveDateTime, format="%Y-%m-%d")
-  
-  # Build subsets for each day during the timespan 
+
+  # Build subsets for each day during the timespan
   noseObs_Id <- subset(noseSymptoms_df$id, dateXNose == date)
   eyeObs_Id <- subset(eyeSymptoms_df$id, dateXEyes == date)
   mouthThroatObs_Id <- subset(mouthThroatSymptoms_df$id, dateXMouthThroat == date)
   gastrointestinalTractObs_Id <- subset(gastrointestinalTractSymptoms_df$id, dateXGastrointestinalTract == date)
   skinObs_Id <- subset(skinSymptoms_df$id, dateXSkin == date)
   lungObs_Id <- subset(lungSymptoms_df$id, dateXLung == date)
-  
+
   activeStuPart_Id <- subset(uniqueSym$id, dateXActiveStuPart == date)
-  
+
   # Get the number of entries
   noseObs_Id_length <- length(noseObs_Id)
   eyeObs_Id_length <- length(eyeObs_Id)
@@ -122,9 +121,9 @@ for(j in 1:days_of_month) {
   gastrointestinalTractObs_Id_length <- length(gastrointestinalTractObs_Id)
   skinObs_Id_length <- length(skinObs_Id)
   lungObs_Id_length <- length(lungObs_Id)
-  
+
   activeStuPart_Id_length <- length(activeStuPart_Id)
-  
+
   # Save this number in a vector for each day
   noseObs_IdDate_vector <- c(noseObs_Id_length, date)
   eyeObs_IdDate_vector <- c(eyeObs_Id_length, date)
@@ -132,9 +131,9 @@ for(j in 1:days_of_month) {
   gastrointestinalTractObs_IdDate_vector <- c(gastrointestinalTractObs_Id_length, date)
   skinObs_IdDate_vector <- c(skinObs_Id_length, date)
   lungObs_IdDate_vector <- c(lungObs_Id_length, date)
-  
-  activeStuPart_IdDate_vector <- c(activeStuPart_Id_length, date)
-  
+
+  activeStuPart_IdDate_vector <- c(activeStuPart_Id_length, as.character(date))
+
   # Combine the vectors with the predefined dataframes
   noseObs_IdDate_df <- rbind(noseObs_IdDate_df, noseObs_IdDate_vector)
   eyeObs_IdDate_df <- rbind(eyeObs_IdDate_df, eyeObs_IdDate_vector)
@@ -142,9 +141,11 @@ for(j in 1:days_of_month) {
   gastrointestinalTractObs_IdDate_df <- rbind(gastrointestinalTractObs_IdDate_df, gastrointestinalTractObs_IdDate_vector)
   skinObs_IdDate_df <- rbind(skinObs_IdDate_df, skinObs_IdDate_vector)
   lungObs_IdDate_df <- rbind(lungObs_IdDate_df, lungObs_IdDate_vector)
-  
+
   activeStuPartIdDate_df <- rbind(activeStuPartIdDate_df, activeStuPart_IdDate_vector)
-}
+
+    date <- date + 1
+    }
 
 # delete first row in matrix
 noseObs_IdDate_df <- noseObs_IdDate_df[-1,]
@@ -208,7 +209,8 @@ lungObs_IdDate_df$`sumActiveStuPart[SymYes][Lungs]` / activeStuPartIdDate_df$sum
 # Visualization
 
 # show a stacked bar chart with the daily symptoms per bodysite
-days <- c(1:30) #c(activeStuPartIdDate_df$Date)
+nbrOfObs <- nrow(activeStuPartIdDate_df)
+days <- c(1:nbrOfObs) #c(activeStuPartIdDate_df$Date)
 
 activeStuPart <- c(activeStuPartIdDate_df$sumActiveStuPart
                    -noseObs_IdDate_df$`sumActiveStuPart[SymYes][Nose]`
@@ -227,8 +229,8 @@ activeStuPartSymYesLungs <-c(lungObs_IdDate_df$`sumActiveStuPart[SymYes][Lungs]`
 
 values <- c(activeStuPart, activeStuPartSymYesNose, activeStuPartSymYesEyes, activeStuPartSymYesMouthThroat, activeStuPartSymYesGastrointestinalTract, activeStuPartSymYesSkin, activeStuPartSymYesLungs)
 
-type <- c(rep("ActiveStuPart", 30), rep("ActiveStuPart[SymYes][Nose]", 30), rep("ActiveStuPart[SymYes][Eyes]", 30)
-          ,rep("ActiveStuPart[SymYes][Mouth/Throat]", 30), rep("ActiveStuPart[SymYes][Gastrointestinal Tract]", 30), rep("ActiveStuPart[SymYes][Skin]", 30), rep("ActiveStuPart[SymYes][Lungs]", 30))
+type <- c(rep("ActiveStuPart", nbrOfObs), rep("ActiveStuPart[SymYes][Nose]", nbrOfObs), rep("ActiveStuPart[SymYes][Eyes]", nbrOfObs)
+          ,rep("ActiveStuPart[SymYes][Mouth/Throat]", nbrOfObs), rep("ActiveStuPart[SymYes][Gastrointestinal Tract]", nbrOfObs), rep("ActiveStuPart[SymYes][Skin]", nbrOfObs), rep("ActiveStuPart[SymYes][Lungs]", nbrOfObs))
 
 data <- data.frame(days, values)
 
@@ -249,10 +251,10 @@ p +geom_bar(stat= "identity", position = "fill", aes(fill = type)) + xlab("Days"
 #show a pie chart with the mean values of all bodysites in a timespan of 30 days
 meanVector <- c(MeanNoseObs, MeanEyesObs, MeanMouthThroatObs, MeanGastrointestinalTractObs, MeanSkinObs, MeanLungsObs)
 pct <- round(meanVector/sum(meanVector)*100)
-lbls <- c("Nose", "Eyes", "Skin", "Lungs")
+lbls <- c("Nose", "Eyes", "Mouth/Throat", "Gastrointestinal Tract", "Skin", "Lungs")
 lbls <- paste(lbls, pct) # add percents to labels
 lbls <- paste(lbls,"%",sep="") # ad % to labels
 
 # still searching for a simple alternative in ggplot
-pie(meanVector, labels = lbls, main="Anteil ActiveStuPart mit Symptomen nach Körperteil (Mittelwert aus 30 Tagen)
+pie(meanVector, labels = lbls, main="Anteil ActiveStuPart mit Symptomen nach Körperteil (Mittelwert April-Mai)
 ", col=rainbow(length(meanVector)))
