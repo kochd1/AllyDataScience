@@ -241,7 +241,7 @@ p +geom_bar(stat= "identity", position = "fill", aes(fill = type)) + xlab("Days"
   ggtitle("Frequency of the symptoms per bodysite") + labs(fill= "") + 
   scale_fill_manual("", values = c("ActiveStuPart" = "red","ActiveStuPart[SymYes][Eyes]" = "deepskyblue3",
                                    "ActiveStuPart[SymYes][Nose]" = "darkgoldenrod2",
-                                   "ActiveStuPart[SymYes][Mouth/Throat]" = "indianred2",
+                                   "ActiveStuPart[SymYes][Mouth/Throat]" = "seagreen3",
                                    "ActiveStuPart[SymYes][Gastrointestinal Tract]" = "lightslateblue",
                                    "ActiveStuPart[SymYes][Lungs]" = "pink3",
                                    "ActiveStuPart[SymYes][Skin]" = "peachpuff2")) + theme_bw()

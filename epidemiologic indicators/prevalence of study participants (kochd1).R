@@ -41,20 +41,15 @@ uniqueSymYes <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$su
 activeStuPartIdDate_df <- data.frame(ncol= 2, byrow = TRUE)
 activeStuPartSymYesIdDate_df <- data.frame(ncol= 2, byrow = TRUE)
 
-#looping through all days of a month e.g. April
+# definition of a specific timespan (month, pollenspecific period, pollen season in total etc.)
+beginDate <- as.Date.character("2018-04-01")
 
-# YYYY-MM
-year_month <- "2018-04"
+endDate <- as.Date.character("2018-05-31")
 
-# DD
-days_of_month <- 30
+date <- beginDate
 
-for(j in 1:days_of_month) {
-  if(j < 10) {
-    j <- paste("0",j, sep = "")
-  }
-  
-  date <- paste(year_month, j, sep = "-")
+
+while(date <= endDate){
   
   #shorten the effectiveDateTime to a comparable format
   dateXActiveStuPart <- as.Date(uniqueSym$effectiveDateTime, format="%Y-%m-%d")
@@ -75,7 +70,11 @@ for(j in 1:days_of_month) {
   #Combine the vectors with the predefined dataframes
   activeStuPartSymYesIdDate_df <- rbind(activeStuPartSymYesIdDate_df, activeStuPartSymYes_IdDate_vector)
   activeStuPartIdDate_df <- rbind(activeStuPartIdDate_df, activeStuPart_IdDate_vector)
+  
+  date <- date + 1
 }
+
+
 
 # delete first row in matrix
 activeStuPartSymYesIdDate_df <- activeStuPartSymYesIdDate_df[-1,]
@@ -109,14 +108,15 @@ str(meanPrevalence)
 
 #Visualization
 
-days <- c(1:30) #c(activeStuPartIdDate_df$Date)
+nbrOfActiveStuPart <- nrow(activeStuPartIdDate_df)
+days <- c(1:nbrOfActiveStuPart) #c(activeStuPartIdDate_df$Date)
 
 activeStuPart <- c(activeStuPartIdDate_df$sumActiveStuPart-activeStuPartSymYesIdDate_df$`sumActiveStuPart[SymYes]`) #subtraction necessary due to correct visualization
 activeStuPartSymYes <-c(activeStuPartSymYesIdDate_df$`sumActiveStuPart[SymYes]`)
 
 values <- c(activeStuPart, activeStuPartSymYes)
 
-type <- c(rep("ActiveStuPart", 30), rep("ActiveStuPart[SymYes]", 30))
+type <- c(rep("ActiveStuPart", nbrOfActiveStuPart), rep("ActiveStuPart[SymYes]", nbrOfActiveStuPart))
 data <- data.frame(days, values)
 
 library(ggplot2)
