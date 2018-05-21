@@ -43,7 +43,7 @@ for(j in 1:days_of_month) {
   stuPart_IdDate_df <- rbind(stuPart_IdDate_df, stuPart_IdDate_vector)
 }
 
-# delete first row in matrix
+# delete first row in data frame
 stuPart_IdDate_df <- stuPart_IdDate_df[-1,]
 
 # name the columns
@@ -69,18 +69,20 @@ y <- matrix(unlist(sapply(x, as.data.frame)),ncol=3, byrow=T) # class(y) -> matr
 allergy_to_pollen <- subset(observation, y[,2] == 300910009) # class(allergy_to_pollen) -> data frame
 
 # Generate Dataframe, attribut =  {sum_activeStuPart, Date}
-activeStuPart_IdDate_df <- data.frame(ncol = 2, byrow = TRUE) # Achtung, es gibt eine Matrix mit NA, NA -> length = 2
+activeStuPart_IdDate_df <- data.frame(activeStuPart = 0, date = 0) # Achtung, es gibt eine Matrix mit NA, NA -> length = 2
 
 
 # Loop throught the month
 for(i in 1:days_of_month) {
+  ##  PREPARE THE DATE
   if(i < 10) {
     i <- paste("0",i, sep = "")
   }
   date_min <- paste(year_month, i, sep = "-")
   date_max <- as.Date(date_min) + 1
   
-  # subset allergy-to-pollen Observation form one specific day 
+  
+  ##  GET ALLERGY-TO-POLLEN OBSERVATION FROM ONE SPECIFIC DAY 
   allergy_to_pollen_time <- subset(allergy_to_pollen, allergy_to_pollen$effectiveDateTime >= date_min & allergy_to_pollen$effectiveDateTime < date_max)
   
   # Get length of allergy_to_pollen
@@ -89,6 +91,7 @@ for(i in 1:days_of_month) {
   # generate empty character vector
   patIdVector <- character()
   
+  ##  INSERT ACTIVE STUDY PARTICIPANT INTO DATA FRAME
   # if there is any active stuPart at this time, insert into dataframe
   if(df_length > 0) {
   # fill vector patIdVector with all Patienten References
@@ -103,13 +106,13 @@ for(i in 1:days_of_month) {
   activeStuPart_length <- length(uniquePatIdVector)
   
   # Generate vector with activeStuPart_length and date
-  activeStuPart_idDate_vector <- c(activeStuPart_length, date)
+  activeStuPart_idDate_vector <- c(activeStuPart_length, date_min)
   
   # Add vector to dataframe
   activeStuPart_IdDate_df <- rbind(activeStuPart_IdDate_df, activeStuPart_idDate_vector)
   } else {
-    # generate derault vector
-    default_vector <- c(0, date)
+    # generate default vector
+    default_vector <- c(0, date_min)
     
     # add vector to dataframe
     activeStuPart_IdDate_df <- rbind(activeStuPart_IdDate_df, default_vector)
@@ -131,17 +134,23 @@ activeStuPart_IdDate_df$sumActiveStuPat <- as.integer(activeStuPart_IdDate_df$su
 
 
 
-activeStuPart_IdDate_df
-
-
-
 ###   5 CALCULATION ###
-indicator <- activeStuPart_IdDate_df$sumActiveStuPat / stuPart_IdDate_df$sumStuPart
-indicator
 
+activeStuPart_IdDate_df
+stuPart_IdDate_df
+ratio <- activeStuPart_IdDate_df$sumActiveStuPat / stuPart_IdDate_df$sumStuPart
+day <- c(1:days_of_month)
+
+df <- cbind(stuPart_IdDate_df, activeStuPart_IdDate_df, day, ratio)
+df <- df[,-2]
+df
 
 
 ###   6 VISUALIZATION ###
+ggplot(data = df, aes(x = df$day, y = df$ratio)) + geom_point()
+
+
+
 ReverseIndicator <- (1 - indicator)
 visData <- c(indicator, ReverseIndicator)
 visData_matrix <- matrix(visData)
