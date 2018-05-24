@@ -37,29 +37,86 @@ sumStuPart <-length(uniqueSym$id)
 # creation of a subset of all "AllergyIntolerance" resourceTypes
 allergyIntolerance_df <- subset(study_df$entry.resource, study_df$entry.resource$resourceType =='AllergyIntolerance')
 
+# get all StuPart with an Allergy Intolerance (regardless of the type)
 uniqueAllergyIntolerances <- subset(allergyIntolerance_df, !duplicated(allergyIntolerance_df$patient$reference))
 
 uniqueAllergyIntolerancesConfirmed <- subset(uniqueAllergyIntolerances, uniqueAllergyIntolerances$verificationStatus =='confirmed')
 uniqueAllergyIntolerancesUnconfirmed <- subset(uniqueAllergyIntolerances, uniqueAllergyIntolerances$verificationStatus =='unconfirmed')
 
+sumStuPartAllergyIntolerance <- length(uniqueAllergyIntolerances$id)
 
-#TODO: filter one day, length, calculation
+sumStuPartAllergyIntoleranceConfirmed <- length(uniqueAllergyIntolerancesConfirmed$id)
 
-# compare months -> loop must be redefined!
+sumStuPartAllergyIntoleranceUnconfirmed <- length(uniqueAllergyIntolerancesUnconfirmed$id)
 
-#  YYYY-MM
-# year_month <- "2018-04"
+#TODO: filter one day of a month
 
-# DD
-#  days_of_month <- 30
-# 
-#  for(j in 1:days_of_month) {
-#    if(j < 10) {
-#      j <- paste("0",j, sep = "")
-#    }
-# 
-#    date <- paste(year_month, j, sep = "-")
-# 
-# }
+# definition of a specific timespan (month, pollenspecific period, pollen season in total etc.)
+beginDate <- as.Date.character("2018-04-01")
+
+endDate <- as.Date.character("2018-05-31")
+
+
+
+date <- beginDate
+
+while(date <= endDate){
+  
+  uniqueAllergyIntolerancesPast <- subset(uniqueAllergyIntolerances, uniqueAllergyIntolerances$assertedDate<=date)
+  
+  if(length(uniqueAllergyIntolerancesPast$id)==0)
+  {
+    date <- date +1
+    str("iterate by one day!")
+  }
+  
+  else{
+    str("I found an entry in this month")
+    uniqueAllergyIntolerancesUnconfirmedPast <- subset(uniqueAllergyIntolerancesUnconfirmed, uniqueAllergyIntolerancesUnconfirmed$assertedDat<=date)
+    
+    date <- date +30
+  }
+  
+  
+
+  
+  # #Get the number of entries
+  stuPart_Id_length <- length(activeStuPartSymYes_Id)
+  # activeStuPart_Id_length <- length(activeStuPart_Id)
+  # 
+  # #Save this number in a vector for each day
+  # activeStuPartSymYes_IdDate_vector <- c(activeStuPartSymYes_Id_length, date)
+  # activeStuPart_IdDate_vector <- c(activeStuPart_Id_length, date)
+  # 
+  # #Combine the vectors with the predefined dataframes
+  # activeStuPartSymYesIdDate_df <- rbind(activeStuPartSymYesIdDate_df, activeStuPartSymYes_IdDate_vector)
+  # activeStuPartIdDate_df <- rbind(activeStuPartIdDate_df, activeStuPart_IdDate_vector)
+  
+}
 
 # Calculation
+ratioAllergyIntoleranceUnconfirmedToSumStuPart <- sumStuPartAllergyIntoleranceUnconfirmed / sumStuPart
+ratioAllergyIntoleranceToSumStuPart <- sumStuPartAllergyIntolerance / sumStuPart
+
+indicator <- ratioAllergyIntoleranceUnconfirmedToSumStuPart / ratioAllergyIntoleranceToSumStuPart
+
+# Visualization
+
+#nbrOfActiveStuPart <- nrow(StuPartIdDate_df)
+months <- c(1:3) #c(activeStuPartIdDate_df$Date)
+
+stuPart <- c(stuPartIdDate_df$sumActiveStuPart-activeStuPartSymYesIdDate_df$`sumActiveStuPart[SymYes]`) #subtraction necessary due to correct visualization
+activeStuPartSymYes <-c(activeStuPartSymYesIdDate_df$`sumActiveStuPart[SymYes]`)
+
+values <- c(activeStuPart, activeStuPartSymYes)
+
+type <- c(rep("StuPart", nbrOfStuPart), rep("AllergyIntolerance[Unconfirmed]", nbrOfStuPart), rep("AllergyIntolerance[Unconfirmed|Confirmed]", nbrOfStuPart))
+data <- data.frame(days, values)
+
+library(ggplot2)
+
+p <- ggplot(data, aes(days, values))
+p +geom_bar(stat= "identity", position = "fill", aes(fill = type)) + xlab("Months") + ylab("Prevalence in %") + 
+  ggtitle("Ratio unconfirmed to conf./unconf. allergy sufferers") + labs(fill= "") + geom_hline(yintercept = meanPrevalence, size = 1.5, color="blue") + theme_bw()
+
+# notes for plotting: position = "dodge" -> not stacked, position = "fill" -> stacked percent bar plot, labs(fill="") -> removes the legend title

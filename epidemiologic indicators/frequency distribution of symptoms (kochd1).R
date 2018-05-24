@@ -42,7 +42,7 @@ symYes <- subset(allergy_to_pollen_df, allergy_to_pollen_df$valueQuantity>0)
 
 # Get the bodysite coding
 bodySiteCoding <- uniqueSymYes$bodySite$coding
-bodySiteCodingV2 <- uniqueSymYes$bodySite$coding
+bodySiteCodingV2 <- symYes$bodySite$coding
 
 bodySiteCodes <- matrix(unlist(sapply(bodySiteCoding, as.data.frame)),ncol=3, byrow=T)
 bodySiteCodesV2 <- matrix(unlist(sapply(bodySiteCodingV2, as.data.frame)),ncol=3, byrow=T)
@@ -56,21 +56,27 @@ bodySiteCodesV2[,2]
 # Filter all stuPart (unique observations) by bodysite (six in total)
 noseSymptoms_df <- subset(uniqueSymYes, bodySiteCodes[,2] == 45206002) #& (uniqueSymYes$effectiveDateTime >="2018-04-11" & uniqueSymYes$effectiveDateTime <"2018-04-12"))
 # AllStuPartSymYesNose <- length(noseSymptoms_df$id)
+noseSymptoms_dfV2 <- subset(symYes, bodySiteCodesV2[,2] == 45206002)
 
 eyeSymptoms_df <- subset(uniqueSymYes, bodySiteCodes[,2] == 81745001)
 # AllStuPartSymYesEyes <- length(eyeSymptoms_df$id)
+eyeSymptoms_dfV2 <- subset(symYes, bodySiteCodesV2[,2] == 81745001)
 
 mouthThroatSymptoms_df <- subset(uniqueSymYes, bodySiteCodes[,2] == 312533001)
 # AllStuPartSymYesEyes <- length(eyeSymptoms_df$id)
+mouthThroatSymptoms_dfV2 <- subset(symYes, bodySiteCodesV2[,2] == 312533001)
 
 gastrointestinalTractSymptoms_df <- subset(uniqueSymYes, bodySiteCodes[,2] == 122865005)
 # AllStuPartSymYesEyes <- length(eyeSymptoms_df$id)
+gastrointestinalTractSymptoms_dfV2 <- subset(symYes, bodySiteCodesV2[,2] == 122865005)
 
 skinSymptoms_df <- subset(uniqueSymYes, bodySiteCodes[,2] == 39937001)
 # AllStuPartSymYesSkin <- length(skinSymptoms_df$id)
+skinSymptoms_dfV2 <- subset(symYes, bodySiteCodesV2[,2] == 39937001)
 
 lungSymptoms_df <- subset(uniqueSymYes, bodySiteCodes[,2] == 39607008)
 # AllStuPartSymYesLungs <- length(lungSymptoms_df$id)
+lungSymptoms_dfV2 <- subset(symYes, bodySiteCodesV2[,2] == 39607008)
 
 # create specific dataframes for the amount of unique Observations per bodysite per day
 noseObs_IdDate_df <- data.frame(ncol = 2, byrow = TRUE)
@@ -79,6 +85,13 @@ mouthThroatObs_IdDate_df <- data.frame(ncol = 2, byrow = TRUE)
 gastrointestinalTractObs_IdDate_df <- data.frame(ncol = 2, byrow = TRUE)
 skinObs_IdDate_df <- data.frame(ncol = 2, byrow = TRUE)
 lungObs_IdDate_df <- data.frame(ncol = 2, byrow = TRUE)
+
+noseObs_IdDate_df2 <- data.frame(ncol = 2, byrow = TRUE)
+eyeObs_IdDate_df2 <- data.frame(ncol = 2, byrow = TRUE)
+mouthThroatObs_IdDate_df2 <- data.frame(ncol = 2, byrow = TRUE)
+gastrointestinalTractObs_IdDate_df2 <- data.frame(ncol = 2, byrow = TRUE)
+skinObs_IdDate_df2 <- data.frame(ncol = 2, byrow = TRUE)
+lungObs_IdDate_df2 <- data.frame(ncol = 2, byrow = TRUE)
 
 # create a specific dataframe for the daily number of "ActiveStuPart".
 activeStuPartIdDate_df <- data.frame(ncol= 2, byrow = TRUE)
@@ -103,6 +116,14 @@ while(date <= endDate){
   dateXLung<- as.Date(lungSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
 
   dateXActiveStuPart <- as.Date(uniqueSym$effectiveDateTime, format="%Y-%m-%d")
+  
+  dateXNose2<- as.Date(noseSymptoms_dfV2$effectiveDateTime, format="%Y-%m-%d")
+  dateXEyes2<- as.Date(eyeSymptoms_dfV2$effectiveDateTime, format="%Y-%m-%d")
+  dateXMouthThroat2<- as.Date(mouthThroatSymptoms_dfV2$effectiveDateTime, format="%Y-%m-%d")
+  dateXGastrointestinalTract2<- as.Date(gastrointestinalTractSymptoms_dfV2$effectiveDateTime, format="%Y-%m-%d")
+  dateXSkin2<- as.Date(skinSymptoms_dfV2$effectiveDateTime, format="%Y-%m-%d")
+  dateXLung2<- as.Date(lungSymptoms_dfV2$effectiveDateTime, format="%Y-%m-%d")
+  
 
   # Build subsets for each day during the timespan
   noseObs_Id <- subset(noseSymptoms_df$id, dateXNose == date)
@@ -111,6 +132,13 @@ while(date <= endDate){
   gastrointestinalTractObs_Id <- subset(gastrointestinalTractSymptoms_df$id, dateXGastrointestinalTract == date)
   skinObs_Id <- subset(skinSymptoms_df$id, dateXSkin == date)
   lungObs_Id <- subset(lungSymptoms_df$id, dateXLung == date)
+  
+  noseObs_Id2 <- subset(noseSymptoms_dfV2$id, dateXNose2 == date)
+  eyeObs_Id2 <- subset(eyeSymptoms_dfV2$id, dateXEyes2 == date)
+  mouthThroatObs_Id2 <- subset(mouthThroatSymptoms_dfV2$id, dateXMouthThroat2 == date)
+  gastrointestinalTractObs_Id2 <- subset(gastrointestinalTractSymptoms_dfV2$id, dateXGastrointestinalTract2 == date)
+  skinObs_Id2 <- subset(skinSymptoms_dfV2$id, dateXSkin2 == date)
+  lungObs_Id2 <- subset(lungSymptoms_dfV2$id, dateXLung2 == date)
 
   activeStuPart_Id <- subset(uniqueSym$id, dateXActiveStuPart == date)
 
@@ -121,6 +149,13 @@ while(date <= endDate){
   gastrointestinalTractObs_Id_length <- length(gastrointestinalTractObs_Id)
   skinObs_Id_length <- length(skinObs_Id)
   lungObs_Id_length <- length(lungObs_Id)
+  
+  noseObs_Id_length2 <- length(noseObs_Id2)
+  eyeObs_Id_length2 <- length(eyeObs_Id2)
+  mouthThroatObs_Id_length2 <- length(mouthThroatObs_Id2)
+  gastrointestinalTractObs_Id_length2 <- length(gastrointestinalTractObs_Id2)
+  skinObs_Id_length2 <- length(skinObs_Id2)
+  lungObs_Id_length2 <- length(lungObs_Id2)
 
   activeStuPart_Id_length <- length(activeStuPart_Id)
 
@@ -131,6 +166,13 @@ while(date <= endDate){
   gastrointestinalTractObs_IdDate_vector <- c(gastrointestinalTractObs_Id_length, date)
   skinObs_IdDate_vector <- c(skinObs_Id_length, date)
   lungObs_IdDate_vector <- c(lungObs_Id_length, date)
+  
+  noseObs_IdDate_vector2 <- c(noseObs_Id_length2, date)
+  eyeObs_IdDate_vector2 <- c(eyeObs_Id_length2, date)
+  mouthThroatObs_IdDate_vector2 <- c(mouthThroatObs_Id_length2, date)
+  gastrointestinalTractObs_IdDate_vector2 <- c(gastrointestinalTractObs_Id_length2, date)
+  skinObs_IdDate_vector2 <- c(skinObs_Id_length2, date)
+  lungObs_IdDate_vector2 <- c(lungObs_Id_length2, date)
 
   activeStuPart_IdDate_vector <- c(activeStuPart_Id_length, as.character(date))
 
@@ -141,6 +183,13 @@ while(date <= endDate){
   gastrointestinalTractObs_IdDate_df <- rbind(gastrointestinalTractObs_IdDate_df, gastrointestinalTractObs_IdDate_vector)
   skinObs_IdDate_df <- rbind(skinObs_IdDate_df, skinObs_IdDate_vector)
   lungObs_IdDate_df <- rbind(lungObs_IdDate_df, lungObs_IdDate_vector)
+  
+  noseObs_IdDate_df2 <- rbind(noseObs_IdDate_df2, noseObs_IdDate_vector2)
+  eyeObs_IdDate_df2 <- rbind(eyeObs_IdDate_df2, eyeObs_IdDate_vector2)
+  mouthThroatObs_IdDate_df2 <- rbind(mouthThroatObs_IdDate_df2, mouthThroatObs_IdDate_vector2)
+  gastrointestinalTractObs_IdDate_df2 <- rbind(gastrointestinalTractObs_IdDate_df2, gastrointestinalTractObs_IdDate_vector2)
+  skinObs_IdDate_df2 <- rbind(skinObs_IdDate_df2, skinObs_IdDate_vector2)
+  lungObs_IdDate_df2 <- rbind(lungObs_IdDate_df2, lungObs_IdDate_vector2)
 
   activeStuPartIdDate_df <- rbind(activeStuPartIdDate_df, activeStuPart_IdDate_vector)
 
