@@ -123,7 +123,7 @@ library(ggplot2)
 
 p <- ggplot(data, aes(days, values))
 p +geom_bar(stat= "identity", position = "fill", aes(fill = type)) + xlab("Days") + ylab("Prevalence in %") + 
-  ggtitle("Prevalence of the study participants") + labs(fill= "") + geom_hline(yintercept = meanPrevalence, size = 1.5, color="blue") + theme_bw()
+  ggtitle("Prevalence of the study participants") + labs(fill= "") + geom_hline(yintercept = meanPrevalence, size = 1.5, color="blue") + theme_bw() + scale_y_continuous(labels=scales::percent)
 
 # notes for plotting: position = "dodge" -> not stacked, position = "fill" -> stacked percent bar plot, labs(fill="") -> removes the legend title
 
