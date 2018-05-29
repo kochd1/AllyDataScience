@@ -3,6 +3,9 @@
 # Zeigt, welcher Anteil der Bevölkerung an einem bestimmten Monat x an der Studie teilnimmt. 
 
 ###   1 INPUT ###
+# name of the JSON-File (studydata)
+inputFile <- "study_fullExport (dummy).json"
+
 # YYYY-MM
 year_month <- "2018-04"
 
@@ -21,7 +24,7 @@ library(ggplot2)
 all.equal(mtcars, fromJSON(toJSON(mtcars)))
 
 # Load JSON and convert to dataframe
-mydata <- fromJSON("study_fullExport (dummy).json", simplifyDataFrame = TRUE)
+mydata <- fromJSON(inputFile, simplifyDataFrame = TRUE)
 
 
 
@@ -63,34 +66,9 @@ indicator <- stuPart_IdDate_df$sumStuPart / population
 
 
 ###   5 VISUALIZATION
-barplot(stuPart_IdDate_df$sumStuPart)
-
-p <- ggplot(data = stuPart_IdDate_df, aes(x = day, y = stuPart_IdDate_df$sumStuPart)) + geom_point()
-p + labs(x = "Day of the month", y = "Summe der StuPart")
-
-
-
-
-
-
-
-
-
-
-
-stuPart_IdDate_df$sumStuPart <- stuPart_IdDate_df$sumStuPart / population
-
-stuPart_IdDate_df$sumStuPart
-
-ggplot(data = stuPart_IdDate_df, aes(x = stuPart_IdDate_df$Date, y = sumStuPart)) + geom_point()
-
-
-
-
-
-
-
-
+# ggplot shows the distribution of the study participants in one month.
+p <- ggplot(data = stuPart_IdDate_df, aes(x = stuPart_IdDate_df$day, y = stuPart_IdDate_df$sumStuPart)) + geom_point()
+p + xlab("Day of the month") + ylab("Sum of study participants") + ggtitle("Distribution of the study participants by ZIP")
 
 
 

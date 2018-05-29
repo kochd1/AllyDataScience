@@ -1,23 +1,29 @@
-# Thierry
-# Nutzung der App
+# author: Thierry
+# sript for Nutzung der App
 # Load library
 library(jsonlite)
 library(ggplot2)
 all.equal(mtcars, fromJSON(toJSON(mtcars)))
 
 ###   1 INPUT ###
+# name of the JSON-File (studydata)
+inputFile <- "study_fullExport (dummy).json"
+
+
 # Date:
 
+# name and Path of the Excel Table inlcuding the permanent resident population by postcode
+zipExcelTable <- "study indicators/ZIP.xlsx"
 
 
 
 ###   2 PREPERATION ###
 # Load JSON and convert to dataframe
-mydata <- fromJSON("study_fullExport (dummy).json", simplifyDataFrame = TRUE)
+mydata <- fromJSON(inputFile, simplifyDataFrame = TRUE)
 
 # Load Excel Tab
 library(readxl)
-zip1 <- read_excel("study indicators/ZIP.xlsx", 
+zip1 <- read_excel(zipExcelTable, 
                    sheet = "1-stelle")
 View(zip1)
 
@@ -72,6 +78,8 @@ distribution_df$zip <- as.factor(distribution_df$zip)
 # multiplicat ratio with 1 MIO
 distribution_df$ratio <- distribution_df$ratio * 1000000
 
+distribution_df
+
 
 ###   4 VISUALIZATION ###
 ggplot(data = distribution_df, aes(x = distribution_df$zip, y = distribution_df$stuPart)) + geom_point()
@@ -84,4 +92,7 @@ ggplot(data = distribution_df, aes(x = distribution_df$zip, y = 1, size = distri
 
 
 ggplot(data = distribution_df, aes(x = distribution_df$population, y = distribution_df$ratio, color = distribution_df$zip)) + geom_point()
+
+
+
 

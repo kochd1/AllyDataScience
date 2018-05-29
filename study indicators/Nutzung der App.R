@@ -7,6 +7,9 @@ all.equal(mtcars, fromJSON(toJSON(mtcars)))
 
 
 ###   1 INPUT ###
+# name of the JSON-File (studydata)
+inputFile <- "study_fullExport (dummy).json"
+
 # YYYY-MM
 year_month <- "2018-04"
 
@@ -17,7 +20,7 @@ days_of_month <- 30
 
 ###   2 PREPERATION ###
 # Load JSON and convert to dataframe
-mydata <- fromJSON("study_fullExport (dummy).json", simplifyDataFrame = TRUE)
+mydata <- fromJSON(inputFile, simplifyDataFrame = TRUE)
 
 
 
@@ -127,7 +130,7 @@ print(activeStuPart_IdDate_df)
 activeStuPart_IdDate_df <- activeStuPart_IdDate_df[-1,]
 
 # name the column
-colnames(activeStuPart_IdDate_df) <- c("sumActiveStuPat", "Date")
+colnames(activeStuPart_IdDate_df) <- c("sumActiveStuPart", "Date")
 
 # make sumActiveStuPart to integer
 activeStuPart_IdDate_df$sumActiveStuPat <- as.integer(activeStuPart_IdDate_df$sumActiveStuPat)
@@ -151,15 +154,6 @@ ggplot(data = df, aes(x = df$day, y = df$ratio)) + geom_point()
 
 
 
-ReverseIndicator <- (1 - indicator)
-visData <- c(indicator, ReverseIndicator)
-visData_matrix <- matrix(visData)
-m <- matrix(1:4, byrow = TRUE, nrow = 2)
-names(m) <- c("x", "y")
-m
-
-
-
 # create a dataset
 specie=c(rep("sorgho" , 3) , rep("poacee" , 3) , rep("banana" , 3) , rep("triticum" , 3) )
 condition=rep(c("normal" , "stress" , "Nitrogen") , 4)
@@ -179,27 +173,6 @@ ggplot(data, aes(fill=condition, y=value, x=specie)) +
 ggplot(data, aes(fill=condition, y=value, x=specie)) + 
   geom_bar( stat="identity", position="fill")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-sumOfActiveStudyParticipants
-sumOfStudyParticipants
 
 
 
