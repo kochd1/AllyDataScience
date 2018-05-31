@@ -2,7 +2,7 @@
 
 # script for the indicator «Frequency distribution of symptoms»
 
-#TODO: uniqueSym does only show one bodysite symptom per stuPart -> more than one pie/bar chart
+#TODO:
 
 # Load library
 library(jsonlite)
@@ -90,15 +90,17 @@ activeStuPartIdDate_df <- data.frame(ncol= 2, byrow = TRUE)
 
 symYesIdDate_df <- data.frame(ncol= 2, byrow = TRUE)
 # definition of a specific timespan (month, pollenspecific period, pollen season in total etc.)
+
 beginDate <- as.Date.character("2018-04-01")
 
 endDate <- as.Date.character("2018-05-31")
 
 date <- beginDate
 
+#test
+#date <- as.character("2018-04-22")
 
 while(date <= endDate){
-
 
   # shorten the effectiveDateTime to a comparable format
   dateXNose<- as.Date(noseSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
@@ -109,7 +111,7 @@ while(date <= endDate){
   dateXLung<- as.Date(lungSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
   
   #V1
-  dateXActiveStuPart <- as.Date(uniqueSym$effectiveDateTime, format="%Y-%m-%d")
+  dateXActiveStuPart <- as.Date(symYes$effectiveDateTime, format="%Y-%m-%d")
   
   #V2
   dateXSymYes <- as.Date(symYes$effectiveDateTime, format="%Y-%m-%d")
@@ -132,9 +134,21 @@ while(date <= endDate){
   
   lungObs_dateX <- subset(lungSymptoms_df, dateXLung == date)
   uniqueLungObs_Id <- subset(lungObs_dateX$id, !duplicated(lungObs_dateX$subject$reference))
-
-  activeStuPart_Id <- subset(uniqueSym$id, dateXActiveStuPart == date)
-  symYes_Id <- subset(symYes$id, dateXSymYes == date)
+  
+  activeStuPart_dateX <- subset(symYes, dateXActiveStuPart == date)
+  activeStuPart_Id <- subset(activeStuPart_dateX$id, !duplicated(activeStuPart_dateX$subject$reference))
+  
+  symYes_dateX <- subset(symYes, dateXSymYes == date)
+  # Get the bodysite coding
+  # bodySiteCoding_dateX <- symYes_dateX$bodySite$coding
+  # 
+  # bodySiteCodes_dateX <- matrix(unlist(sapply(bodySiteCoding_dateX, as.data.frame)),ncol=3, byrow=T)
+  # 
+  # # Get Code an Display
+  # #y[,2:3] #text and code
+  # bodySiteCodes_dateX_df <- data.frame(bodySiteCodes_dateX[,2])
+  
+  symYes_Id <- symYes_dateX$id #subset(symYes_dateX$id, !duplicated(symYes_dateX$subject$reference))  #!duplicated(symYes_dateX[, symYes_dateX$subject$reference:bodySiteCodes_dateX_df$bodySiteCodes_dateX...2.])) #subjReference darf mehrmals vorkommen, jedoch müssen die körperstellen pro activeStuPart pro Tag jeweils unique sein! -> d. h. zwei Bedingungen in !duplicated()/unique()
 
   # Get the number of entries
   noseObs_Id_length <- length(uniqueNoseObs_Id)
@@ -267,12 +281,12 @@ activeStuPartIdDate_df$sumActiveStuPart <- as.integer(activeStuPartIdDate_df$sum
 symYesIdDate_df$sumSymYes <- as.integer(symYesIdDate_df$sumSymYes)
 
 #build the mean of all unique bodysite observations
-MeanNoseObs <- mean(noseObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Nose]`)
-MeanEyesObs <- mean(eyeObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Eyes]`)
-MeanMouthThroatObs <- mean(mouthThroatObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Mouth/Throat]`)
-MeanGastrointestinalTractObs <- mean(gastrointestinalTractObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Gastrointestinal Tract]`)
-MeanSkinObs <- mean(skinObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Skin]`)
-MeanLungsObs <- mean(lungObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Lungs]`)
+MeanNoseObs <- mean(noseObs_IdDate_dfV2$`sum[SymYes][Nose]`)
+MeanEyesObs <- mean(eyeObs_IdDate_dfV2$`sum[SymYes][Eyes]`)
+MeanMouthThroatObs <- mean(mouthThroatObs_IdDate_dfV2$`sum[SymYes][Mouth/Throat]`)
+MeanGastrointestinalTractObs <- mean(gastrointestinalTractObs_IdDate_dfV2$`sum[SymYes][Gastrointestinal Tract]`)
+MeanSkinObs <- mean(skinObs_IdDate_dfV2$`sum[SymYes][Skin]`)
+MeanLungsObs <- mean(lungObs_IdDate_dfV2$`sum[SymYes][Lungs]`)
 
 
 # Calculation
@@ -311,6 +325,10 @@ activeStuPart <- c(activeStuPartIdDate_df$sumActiveStuPart
                     -skinObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Skin]`
                     -lungObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Lungs]`) #subtraction necessary due to correct visualization
 
+ # if(activeStuPart < 0){
+ #   activeStuPart <- 0 #necessary due to correct visualization
+ # }
+
 
 activeStuPartSymYesNose <-c(noseObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Nose]`)
 activeStuPartSymYesEyes <-c(eyeObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Eyes]`)
@@ -337,7 +355,8 @@ p <- ggplot(data, aes(days, values))
 p +geom_bar(stat= "identity", position = "stack", aes(fill = type)) + xlab("Days") + ylab("Symptoms per Bodysite in %") + 
   #geom_text(aes(label = sprintf("%0.1f%%", percent)), position = position_stack(vjust = 0.5)) +
   ggtitle("ActiveStuPart Ratio with Symptoms by Bodysite") + labs(fill= "") + 
-  scale_fill_manual("", values = c("ActiveStuPart" = "red","ActiveStuPart[SymYes][Eyes]" = "deepskyblue3",
+  scale_fill_manual("", values = c("ActiveStuPart" = "red",
+                                   "ActiveStuPart[SymYes][Eyes]" = "deepskyblue3",
                                    "ActiveStuPart[SymYes][Nose]" = "darkgoldenrod2",
                                    "ActiveStuPart[SymYes][Mouth/Throat]" = "seagreen3",
                                    "ActiveStuPart[SymYes][Gastrointestinal Tract]" = "lightslateblue",
@@ -348,51 +367,25 @@ p +geom_bar(stat= "identity", position = "stack", aes(fill = type)) + xlab("Days
 # notes for plotting: position = "dodge" -> not stacked, position = "fill" -> stacked percent bar plot, labs(fill="") -> removes the legend title
 # scale_y... -> set limits for the y-axis
 
-# #show a pie chart with the mean values of all bodysites in a predefined timespan
-# meanVector <- c(MeanNoseObs, MeanEyesObs, MeanMouthThroatObs, MeanGastrointestinalTractObs, MeanSkinObs, MeanLungsObs)
-# 
-# 
-# pct <- round(meanVector/sum(meanVector)*100)
-# 
-# 
-# lbls <- c("Nose", "Eyes", "Mouth/Throat", "Gastrointestinal Tract", "Skin", "Lungs")
-# lbls <- paste(lbls, pct) # add percents to labels
-# 
-# lbls <- paste(lbls,"%",sep="") # ad % to labels
-# 
-# 
-# # still searching for a simple alternative in ggplot
-# pie(meanVector, labels = lbls, main="ActiveStuPart Ratio with Symptoms by Bodysite"
-#     , col=rainbow(length(meanVector)))
-
 #V2: 100% -> Total of all Symptoms
 
 # show a stacked bar chart with the daily symptoms per bodysite
 nbrOfObs <- nrow(activeStuPartIdDate_df)
 days <- c(1:nbrOfObs) #c(activeStuPartIdDate_df$Date)
 
-symYes <- c(symYesIdDate_df$sumSymYes
-                   -noseObs_IdDate_dfV2$`sum[SymYes][Nose]`
-                   -eyeObs_IdDate_dfV2$`sum[SymYes][Eyes]`
-                   -mouthThroatObs_IdDate_dfV2$`sum[SymYes][Mouth/Throat]`
-                   -gastrointestinalTractObs_IdDate_dfV2$`sum[SymYes][Gastrointestinal Tract]`
-                   -skinObs_IdDate_dfV2$`sum[SymYes][Skin]`
-                   -lungObs_IdDate_dfV2$`sum[SymYes][Lungs]`) #subtraction necessary due to correct visualization
+symYesNose <-c(noseObs_IdDate_dfV2$`sum[SymYes][Nose]`)
+symYesEyes <-c(eyeObs_IdDate_dfV2$`sum[SymYes][Eyes]`)
+symYesMouthThroat <-c(mouthThroatObs_IdDate_dfV2$`sum[SymYes][Mouth/Throat]`)
+symYesGastrointestinalTract <-c(gastrointestinalTractObs_IdDate_dfV2$`sum[SymYes][Gastrointestinal Tract]`)
+symYesSkin <-c(skinObs_IdDate_dfV2$`sum[SymYes][Skin]`)
+symYesLungs <-c(lungObs_IdDate_dfV2$`sum[SymYes][Lungs]`)
 
 
-SymYesNose <-c(noseObs_IdDate_dfV2$`sum[SymYes][Nose]`)
-SymYesEyes <-c(eyeObs_IdDate_dfV2$`sum[SymYes][Eyes]`)
-SymYesMouthThroat <-c(mouthThroatObs_IdDate_dfV2$`sum[SymYes][Mouth/Throat]`)
-SymYesGastrointestinalTract <-c(gastrointestinalTractObs_IdDate_dfV2$`sum[SymYes][Gastrointestinal Tract]`)
-SymYesSkin <-c(skinObs_IdDate_dfV2$`sum[SymYes][Skin]`)
-SymYesLungs <-c(lungObs_IdDate_dfV2$`sum[SymYes][Lungs]`)
+values <- c(symYesEyes, symYesNose, symYesMouthThroat, symYesGastrointestinalTract, symYesSkin, symYesLungs)
 
 
-values <- c(symYes, SymYesNose, SymYesEyes, SymYesMouthThroat, SymYesGastrointestinalTract, SymYesSkin, SymYesLungs)
-
-
-type <- c(rep("SymYes", nbrOfObs), rep("SymYes[Nose]", nbrOfObs), rep("SymYes[Eyes]", nbrOfObs)
-          ,rep("SymYes[Mouth/Throat]", nbrOfObs), rep("SymYes[Gastrointestinal Tract]", nbrOfObs), rep("SymYes[Skin]", nbrOfObs), rep("SymYes[Lungs]", nbrOfObs))
+type <- c(rep("SymYes[Eyes]", nbrOfObs), rep("SymYes[Nose]", nbrOfObs), 
+          rep("SymYes[Mouth/Throat]", nbrOfObs), rep("SymYes[Gastrointestinal Tract]", nbrOfObs), rep("SymYes[Skin]", nbrOfObs), rep("SymYes[Lungs]", nbrOfObs))
 
 data <- data.frame(days, values)
 
@@ -405,12 +398,12 @@ p <- ggplot(data, aes(days, values))
 p +geom_bar(stat= "identity", position = "fill", aes(fill = type)) + xlab("Days") + ylab("Symptoms per Bodysite in %") +
   #geom_text(aes(label = sprintf("%0.1f%%", percent)), position = position_stack(vjust = 0.5)) +
   ggtitle("Frequency of Symptoms by Bodysite") + labs(fill= "") +
-  scale_fill_manual("", values = c("SymYes" = "red","SymYes[Eyes]" = "deepskyblue3",
+  scale_fill_manual("", values = c("SymYes[Eyes]" = "deepskyblue3",
                                    "SymYes[Nose]" = "darkgoldenrod2",
                                    "SymYes[Mouth/Throat]" = "seagreen3",
                                    "SymYes[Gastrointestinal Tract]" = "lightslateblue",
                                    "SymYes[Lungs]" = "pink3",
-                                   "SymYes[Skin]" = "peachpuff2")) + theme_bw() + scale_y_continuous(limit = c(0, 1), labels=scales::percent)
+                                   "SymYes[Skin]" = "peachpuff2")) + theme_bw() + scale_y_continuous(labels=scales::percent)
 
 
 # notes for plotting: position = "dodge" -> not stacked, position = "fill" -> stacked percent bar plot, labs(fill="") -> removes the legend title
