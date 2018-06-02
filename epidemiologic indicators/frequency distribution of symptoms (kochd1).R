@@ -32,13 +32,13 @@ colObsCoding[,2]
 allergy_to_pollen_df <- subset(observations, colObsCoding[,2] == 300910009)
 #class(allergy_to_pollen_df)
 
+symYes <- subset(allergy_to_pollen_df, allergy_to_pollen_df$valueQuantity>0)
+
 # Get all unique allergy to pollen obs. (inlc. symptoms value==0)
 uniqueSym <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference))
 
 # Get all unique observations with a syptom (value>0)
 uniqueSymYes <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference) & allergy_to_pollen_df$valueQuantity>0)
-
-symYes <- subset(allergy_to_pollen_df, allergy_to_pollen_df$valueQuantity>0)
 
 
 # Get the bodysite coding
@@ -99,7 +99,7 @@ endDate <- as.Date.character("2018-05-31")
 date <- beginDate
 
 #test
-#date <- as.character("2018-05-20")
+#date <- as.character("2018-04-11")
 
 while(date <= endDate){
 
@@ -112,7 +112,7 @@ while(date <= endDate){
   dateXLung<- as.Date(lungSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
   
   #V1
-  dateXActiveStuPart <- as.Date(symYes$effectiveDateTime, format="%Y-%m-%d")
+  dateXActiveStuPart <- as.Date(allergy_to_pollen_df$effectiveDateTime, format="%Y-%m-%d")
   
   #V2
   dateXSymYes <- as.Date(symYes$effectiveDateTime, format="%Y-%m-%d")
@@ -136,7 +136,7 @@ while(date <= endDate){
   lungObs_dateX <- subset(lungSymptoms_df, dateXLung == date)
   uniqueLungObs_Id <- subset(lungObs_dateX$id, !duplicated(lungObs_dateX$subject$reference))
   
-  activeStuPart_dateX <- subset(symYes, dateXActiveStuPart == date)
+  activeStuPart_dateX <- subset(allergy_to_pollen_df, dateXActiveStuPart == date)
   activeStuPart_Id <- subset(activeStuPart_dateX$id, !duplicated(activeStuPart_dateX$subject$reference))
   
   symYes_dateX <- subset(symYes, dateXSymYes == date)
@@ -144,7 +144,6 @@ while(date <= endDate){
   symYes_Id <- c(uniqueEyeObs_Id, uniqueNoseObs_Id, uniqueMouthThroatObs_Id, uniqueLungObs_Id, uniqueGastrointestinalTractObs_Id, uniqueSkinObs_Id) #subset(symYes_dateX$id, !duplicated(symYes_dateX$subject$reference))  #!duplicated(symYes_dateX[, symYes_dateX$subject$reference:bodySiteCodes_dateX_df$bodySiteCodes_dateX...2.])) #subjReference darf mehrmals vorkommen, jedoch müssen die körperstellen pro activeStuPart pro Tag jeweils unique sein! -> d. h. zwei Bedingungen in !duplicated()/unique()
   
   symYes_uniqueSubj <- subset(symYes_dateX$subject, !duplicated(symYes_dateX$subject$reference)) #count only one symptom per patient (visualization)
-  str(symYes_uniqueSubj)
   
   # Get the number of entries
   noseObs_Id_length <- length(uniqueNoseObs_Id)
@@ -157,7 +156,6 @@ while(date <= endDate){
   activeStuPart_Id_length <- length(activeStuPart_Id)
   symYes_Id_length <- length(symYes_Id)
   symYes_uniqueSubj_length <- length(symYes_uniqueSubj$reference)
-  str(symYes_uniqueSubj_length)
 
   # Save this number in a vector for each day
   noseObs_IdDate_vector <- c(noseObs_Id_length, date)
@@ -321,8 +319,7 @@ ratioLungObsToActiveStuPartV2 <- lungObs_IdDate_dfV2$`sum[SymYes][Lungs]` / symY
 nbrOfObs <- nrow(activeStuPartIdDate_df)
 days <- c(1:nbrOfObs) #c(activeStuPartIdDate_df$Date)
 
-activeStuPartWithoutSymptoms <- c(activeStuPartIdDate_df$sumActiveStuPart - symYesSubjDate_df$sumSubjSymYes)
-                                  
+ratioActiveStuPartWithoutSymptoms <- c((activeStuPartIdDate_df$sumActiveStuPart - symYesSubjDate_df$sumSubjSymYes) / activeStuPartIdDate_df$sumActiveStuPart)                           
                         
 # activeStuPartSymYesNose <-c(noseObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Nose]`)
 # activeStuPartSymYesEyes <-c(eyeObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Eyes]`)
@@ -333,7 +330,7 @@ activeStuPartWithoutSymptoms <- c(activeStuPartIdDate_df$sumActiveStuPart - symY
 
 
 #values <- c(activeStuPart, activeStuPartSymYesNose, activeStuPartSymYesEyes, activeStuPartSymYesMouthThroat, activeStuPartSymYesGastrointestinalTract, activeStuPartSymYesSkin, activeStuPartSymYesLungs)
-values <- c(activeStuPartWithoutSymptoms, ratioNoseObsToActiveStuPartV1, ratioEyeObsToActiveStuPartV1, ratioMouthThroatObsToActiveStuPartV1, ratioGastroIntestinalTractObsToActiveStuPartV1, ratioSkinObsToActiveStuPartV1, ratioLungObsToActiveStuPartV1)
+values <- c(ratioActiveStuPartWithoutSymptoms, ratioNoseObsToActiveStuPartV1, ratioEyeObsToActiveStuPartV1, ratioMouthThroatObsToActiveStuPartV1, ratioGastroIntestinalTractObsToActiveStuPartV1, ratioSkinObsToActiveStuPartV1, ratioLungObsToActiveStuPartV1)
 
 type <- c(rep("ActiveStuPart without Symptoms", nbrOfObs), rep("ActiveStuPart[SymYes][Nose]", nbrOfObs), rep("ActiveStuPart[SymYes][Eyes]", nbrOfObs)
           ,rep("ActiveStuPart[SymYes][Mouth/Throat]", nbrOfObs), rep("ActiveStuPart[SymYes][Gastrointestinal Tract]", nbrOfObs), rep("ActiveStuPart[SymYes][Skin]", nbrOfObs), rep("ActiveStuPart[SymYes][Lungs]", nbrOfObs))
