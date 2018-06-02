@@ -84,7 +84,7 @@ allyAwareness_df <- stuPart_IdDate_df
 indicator <- stuPart_IdDate_df$sumStuPart / population
 allyAwareness_df <- cbind(allyAwareness_df, indicator)
 
-print(allyAwareness_df)
+str(allyAwareness_df)
 
 
 ###   5 VISUALIZATION
