@@ -31,9 +31,9 @@ mydata <- fromJSON(inputFile, simplifyDataFrame = TRUE)
 ###   3 GET SUM OF STUDY PARTICIPANTS AT MONTH X ###
 # Get all patient
 stuPart <- subset(mydata$entry$resource, mydata$entry$resource$resourceType == 'Patient')
-length(stuPart$resourceType)
 
-# Generate Dataframe, attribut =  {sum_StuPart, Date}
+
+# Generate Dataframe, attribut =  {sum_StuPart, Date, day}
 stuPart_IdDate_df <- data.frame(sumStuPart = 0, date = 0, day = 0) # Achtung, es gibt eine Matrix mit NA, NA -> length = 2
 
 # Loop throught the month
@@ -49,26 +49,29 @@ for(j in 1:days_of_month) {
   
   stuPart_IdDate_df <- rbind(stuPart_IdDate_df, stuPart_IdDate_vector)
 }
-stuPart_IdDate_df
+
 
 # delete first row in matrix
 stuPart_IdDate_df <- stuPart_IdDate_df[-1,]
 
 # make sumStuPart to integer
 stuPart_IdDate_df$sumStuPart <- as.integer(stuPart_IdDate_df$sumStuPart)
+
 # make day to factor
 stuPart_IdDate_df$day <- as.factor(stuPart_IdDate_df$day)
 
-str(stuPart_IdDate_df)
+
 
 ###   4 CALCULATION ###
-indicator <- stuPart_IdDate_df$sumStuPart / population
+allyAwareness <- stuPart_IdDate_df$sumStuPart / population
+print(allyAwareness)
 
 
 ###   5 VISUALIZATION
 # ggplot shows the distribution of the study participants in one month.
-p <- ggplot(data = stuPart_IdDate_df, aes(x = stuPart_IdDate_df$day, y = stuPart_IdDate_df$sumStuPart)) + geom_point()
-p + xlab("Day of the month") + ylab("Sum of study participants") + ggtitle("Distribution of the study participants by ZIP")
+p <- ggplot(data = stuPart_IdDate_df, aes(x = day, y = sumStuPart)) + geom_point()
+p <- p + labs(x = "Day of the month", y = "Sum of StuPart", title = "Distribution of the StuPart by ZIP")
+p + theme_bw()
 
 
 
