@@ -89,6 +89,7 @@ lungObs_IdDate_dfV2 <- data.frame(ncol = 2, byrow = TRUE)
 activeStuPartIdDate_df <- data.frame(ncol= 2, byrow = TRUE)
 
 symYesIdDate_df <- data.frame(ncol= 2, byrow = TRUE)
+symYesSubjDate_df <- data.frame(ncol= 2, byrow = TRUE)
 # definition of a specific timespan (month, pollenspecific period, pollen season in total etc.)
 
 beginDate <- as.Date.character("2018-04-01")
@@ -98,7 +99,7 @@ endDate <- as.Date.character("2018-05-31")
 date <- beginDate
 
 #test
-#date <- as.character("2018-04-22")
+#date <- as.character("2018-05-20")
 
 while(date <= endDate){
 
@@ -140,9 +141,11 @@ while(date <= endDate){
   
   symYes_dateX <- subset(symYes, dateXSymYes == date)
   
-  symYes_Id <- c(uniqueEyeObs_Id, uniqueNoseObs_Id, uniqueNoseObs_Id, uniqueMouthThroatObs_Id, uniqueGastrointestinalTractObs_Id, uniqueSkinObs_Id) #subset(symYes_dateX$id, !duplicated(symYes_dateX$subject$reference))  #!duplicated(symYes_dateX[, symYes_dateX$subject$reference:bodySiteCodes_dateX_df$bodySiteCodes_dateX...2.])) #subjReference darf mehrmals vorkommen, jedoch müssen die körperstellen pro activeStuPart pro Tag jeweils unique sein! -> d. h. zwei Bedingungen in !duplicated()/unique()
+  symYes_Id <- c(uniqueEyeObs_Id, uniqueNoseObs_Id, uniqueMouthThroatObs_Id, uniqueLungObs_Id, uniqueGastrointestinalTractObs_Id, uniqueSkinObs_Id) #subset(symYes_dateX$id, !duplicated(symYes_dateX$subject$reference))  #!duplicated(symYes_dateX[, symYes_dateX$subject$reference:bodySiteCodes_dateX_df$bodySiteCodes_dateX...2.])) #subjReference darf mehrmals vorkommen, jedoch müssen die körperstellen pro activeStuPart pro Tag jeweils unique sein! -> d. h. zwei Bedingungen in !duplicated()/unique()
   
-  symYes_uniqueId <- subset(symYes_Id, !duplicated(symYes_Id))
+  symYes_uniqueSubj <- subset(symYes_dateX$subject, !duplicated(symYes_dateX$subject$reference)) #count only one symptom per patient (visualization)
+  str(symYes_uniqueSubj)
+  
   # Get the number of entries
   noseObs_Id_length <- length(uniqueNoseObs_Id)
   eyeObs_Id_length <- length(uniqueEyeObs_Id)
@@ -152,7 +155,9 @@ while(date <= endDate){
   lungObs_Id_length <- length(uniqueLungObs_Id)
   
   activeStuPart_Id_length <- length(activeStuPart_Id)
-  symYes_Id_length <- length(symYes_uniqueId)
+  symYes_Id_length <- length(symYes_Id)
+  symYes_uniqueSubj_length <- length(symYes_uniqueSubj$reference)
+  str(symYes_uniqueSubj_length)
 
   # Save this number in a vector for each day
   noseObs_IdDate_vector <- c(noseObs_Id_length, date)
@@ -164,6 +169,7 @@ while(date <= endDate){
   
   activeStuPart_IdDate_vector <- c(activeStuPart_Id_length, as.character(date))
   symYes_IdDate_vector <- c(symYes_Id_length, as.character(date))
+  symYes_SubjDate_vector <- c(symYes_uniqueSubj_length, as.character(date))
 
   # Combine the vectors with the predefined dataframes
   noseObs_IdDate_dfV1 <- rbind(noseObs_IdDate_dfV1, noseObs_IdDate_vector)
@@ -182,6 +188,7 @@ while(date <= endDate){
   
   activeStuPartIdDate_df <- rbind(activeStuPartIdDate_df, activeStuPart_IdDate_vector)
   symYesIdDate_df <- rbind(symYesIdDate_df, symYes_IdDate_vector)
+  symYesSubjDate_df <- rbind(symYesSubjDate_df, symYes_SubjDate_vector)
 
     date <- date + 1
     
@@ -205,6 +212,7 @@ lungObs_IdDate_dfV2 <- lungObs_IdDate_dfV2[-1,]
 
 activeStuPartIdDate_df <- activeStuPartIdDate_df[-1,]
 symYesIdDate_df <- symYesIdDate_df[-1,]
+symYesSubjDate_df <- symYesSubjDate_df[-1,]
 
 # name the columns of the different bodysite df
 colnames(noseObs_IdDate_dfV1) <- c("sumActiveStuPart[SymYes][Nose]", "Date")
@@ -254,6 +262,8 @@ print(activeStuPartIdDate_df)
 colnames(symYesIdDate_df) <- c("sumSymYes", "Date")
 print(symYesIdDate_df)
 
+colnames(symYesSubjDate_df) <- c("sumSubjSymYes", "Date")
+
 # make sumActiveStuPart[SymYes]["Bodysite"] to integer
 noseObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Nose]` <- as.integer(noseObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Nose]`)
 eyeObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Eyes]` <- as.integer(eyeObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Eyes]`)
@@ -272,6 +282,7 @@ lungObs_IdDate_dfV2$`sum[SymYes][Lungs]` <- as.integer(lungObs_IdDate_dfV2$`sum[
 
 activeStuPartIdDate_df$sumActiveStuPart <- as.integer(activeStuPartIdDate_df$sumActiveStuPart)
 symYesIdDate_df$sumSymYes <- as.integer(symYesIdDate_df$sumSymYes)
+symYesSubjDate_df$sumSubjSymYes <- as.integer(symYesSubjDate_df$sumSubjSymYes)
 
 #build the mean of all unique bodysite observations
 MeanNoseObs <- mean(noseObs_IdDate_dfV2$`sum[SymYes][Nose]`)
@@ -310,19 +321,9 @@ ratioLungObsToActiveStuPartV2 <- lungObs_IdDate_dfV2$`sum[SymYes][Lungs]` / symY
 nbrOfObs <- nrow(activeStuPartIdDate_df)
 days <- c(1:nbrOfObs) #c(activeStuPartIdDate_df$Date)
 
-activeStuPart <- c(activeStuPartIdDate_df$sumActiveStuPart
-                     - noseObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Nose]`
-                     - eyeObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Eyes]`
-                     - mouthThroatObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Mouth/Throat]`
-                     - gastrointestinalTractObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Gastrointestinal Tract]`
-                     - skinObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Skin]`
-                     - lungObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Lungs]`) #subtraction necessary due to correct visualization
-
-  # if(activeStuPart < 0){
-  #   activeStuPart <- 0 #necessary due to correct visualization
-  # }
-
-
+activeStuPartWithoutSymptoms <- c(activeStuPartIdDate_df$sumActiveStuPart - symYesSubjDate_df$sumSubjSymYes)
+                                  
+                        
 # activeStuPartSymYesNose <-c(noseObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Nose]`)
 # activeStuPartSymYesEyes <-c(eyeObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Eyes]`)
 # activeStuPartSymYesMouthThroat <-c(mouthThroatObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Mouth/Throat]`)
@@ -332,9 +333,9 @@ activeStuPart <- c(activeStuPartIdDate_df$sumActiveStuPart
 
 
 #values <- c(activeStuPart, activeStuPartSymYesNose, activeStuPartSymYesEyes, activeStuPartSymYesMouthThroat, activeStuPartSymYesGastrointestinalTract, activeStuPartSymYesSkin, activeStuPartSymYesLungs)
-values <- c(activeStuPart, ratioNoseObsToActiveStuPartV1, ratioEyeObsToActiveStuPartV1, ratioMouthThroatObsToActiveStuPartV1, ratioGastroIntestinalTractObsToActiveStuPartV1, ratioSkinObsToActiveStuPartV1, ratioLungObsToActiveStuPartV1)
+values <- c(activeStuPartWithoutSymptoms, ratioNoseObsToActiveStuPartV1, ratioEyeObsToActiveStuPartV1, ratioMouthThroatObsToActiveStuPartV1, ratioGastroIntestinalTractObsToActiveStuPartV1, ratioSkinObsToActiveStuPartV1, ratioLungObsToActiveStuPartV1)
 
-type <- c(rep("ActiveStuPart", nbrOfObs), rep("ActiveStuPart[SymYes][Nose]", nbrOfObs), rep("ActiveStuPart[SymYes][Eyes]", nbrOfObs)
+type <- c(rep("ActiveStuPart without Symptoms", nbrOfObs), rep("ActiveStuPart[SymYes][Nose]", nbrOfObs), rep("ActiveStuPart[SymYes][Eyes]", nbrOfObs)
           ,rep("ActiveStuPart[SymYes][Mouth/Throat]", nbrOfObs), rep("ActiveStuPart[SymYes][Gastrointestinal Tract]", nbrOfObs), rep("ActiveStuPart[SymYes][Skin]", nbrOfObs), rep("ActiveStuPart[SymYes][Lungs]", nbrOfObs))
 
 data <- data.frame(days, values)
@@ -345,10 +346,10 @@ library(ggplot2)
 p <- ggplot(data, aes(days, values))
 
 
-p +geom_bar(stat= "identity", position = "stack", aes(fill = type)) + xlab("Days") + ylab("Symptoms per Bodysite in %") + 
+p +geom_bar(stat= "identity", position = "stack", aes(fill = type)) + xlab("Days") + ylab("Symptoms per ActiveStuPart by Bodysite %") + 
   #geom_text(aes(label = sprintf("%0.1f%%", percent)), position = position_stack(vjust = 0.5)) +
   ggtitle("ActiveStuPart Ratio with Symptoms by Bodysite") + labs(fill= "") + 
-  scale_fill_manual("", values = c("ActiveStuPart" = "red",
+  scale_fill_manual("", values = c("ActiveStuPart without Symptoms" = "red",
                                    "ActiveStuPart[SymYes][Eyes]" = "deepskyblue3",
                                    "ActiveStuPart[SymYes][Nose]" = "darkgoldenrod2",
                                    "ActiveStuPart[SymYes][Mouth/Throat]" = "seagreen3",
