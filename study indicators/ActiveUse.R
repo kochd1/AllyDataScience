@@ -3,6 +3,7 @@
 # Load library
 library(jsonlite)
 library(ggplot2)
+#Test function "fromJSON"
 all.equal(mtcars, fromJSON(toJSON(mtcars)))
 
 
