@@ -27,6 +27,7 @@ population = 8419550
 # Load library
 library(jsonlite)
 library(ggplot2)
+#Test function "fromJSON"
 all.equal(mtcars, fromJSON(toJSON(mtcars)))
 
 # Load JSON and convert to dataframe
@@ -88,6 +89,7 @@ str(allyAwareness_df)
 
 
 ###   5 VISUALIZATION
+## Plot
 if(numOfDay <= 31) {
 # ggplot shows the distribution of the study participants in one month.
   p <- ggplot(data = allyAwareness_df, aes(x = day, y = indicator)) + geom_point()
@@ -96,6 +98,20 @@ if(numOfDay <= 31) {
 } else {
 # ggplot shows the distribution of the study participants in a period of time.
   p <- ggplot(data = allyAwareness_df, aes(x = date, y = indicator)) + geom_point()
+  p <- p + labs(x = "period of time", y = "Sum of StuPart / Population", title = "Ally Awareness")
+  p + theme_bw()
+}
+
+## Histogramm
+if(numOfDay <= 31) {
+  # ggplot shows the distribution of the study participants in one month.
+  p <- ggplot(data = allyAwareness_df, aes(allyAwareness_df$sumStuPart)) + geom_histogram()
+  p
+  p <- p + labs(x = "Day of the month", y = "Sum of StuPart / Population", title = "Ally Awareness")
+  p + theme_bw()
+} else {
+  # ggplot shows the distribution of the study participants in a period of time.
+  p <- ggplot(data = allyAwareness_df, aes(x = date, y = indicator)) + geom_histogram()
   p <- p + labs(x = "period of time", y = "Sum of StuPart / Population", title = "Ally Awareness")
   p + theme_bw()
 }
