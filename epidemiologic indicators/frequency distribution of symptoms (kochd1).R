@@ -2,8 +2,6 @@
 
 # script for the indicator «Frequency distribution of symptoms»
 
-#TODO: Correct graph-axis
-
 # Load library
 library(jsonlite)
 
@@ -292,26 +290,48 @@ MeanLungsObs <- mean(lungObs_IdDate_dfV2$`sum[SymYes][Lungs]`)
 
 
 # Calculation
+# df[is.na(df)] <- 0 // because of possible NaN-Values (Division by Zero)
 
 #V1
-ratioNoseObsToActiveStuPartV1 <- noseObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Nose]` / activeStuPartIdDate_df$sumActiveStuPart
-ratioEyeObsToActiveStuPartV1 <- eyeObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Eyes]` / activeStuPartIdDate_df$sumActiveStuPart
-ratioMouthThroatObsToActiveStuPartV1 <- mouthThroatObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Mouth/Throat]` / activeStuPartIdDate_df$sumActiveStuPart
-ratioGastroIntestinalTractObsToActiveStuPartV1 <- gastrointestinalTractObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Gastrointestinal Tract]` / activeStuPartIdDate_df$sumActiveStuPart
-ratioSkinObsToActiveStuPartV1 <- skinObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Skin]` / activeStuPartIdDate_df$sumActiveStuPart
-ratioLungObsToActiveStuPartV1 <- lungObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Lungs]` / activeStuPartIdDate_df$sumActiveStuPart
+ratioNoseObsToActiveStuPart <- noseObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Nose]` / activeStuPartIdDate_df$sumActiveStuPart
+ratioNoseObsToActiveStuPart[is.na(ratioNoseObsToActiveStuPart)] <- 0
+
+ratioEyeObsToActiveStuPart <- eyeObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Eyes]` / activeStuPartIdDate_df$sumActiveStuPart
+ratioEyeObsToActiveStuPart[is.na(ratioEyeObsToActiveStuPart)] <- 0
+
+ratioMouthThroatObsToActiveStuPart <- mouthThroatObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Mouth/Throat]` / activeStuPartIdDate_df$sumActiveStuPart
+ratioMouthThroatObsToActiveStuPart[is.na(ratioMouthThroatObsToActiveStuPart)] <- 0
+
+ratioGastroIntestinalTractObsToActiveStuPart <- gastrointestinalTractObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Gastrointestinal Tract]` / activeStuPartIdDate_df$sumActiveStuPart
+ratioGastroIntestinalTractObsToActiveStuPart[is.na(ratioGastroIntestinalTractObsToActiveStuPart)] <- 0
+
+ratioSkinObsToActiveStuPart <- skinObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Skin]` / activeStuPartIdDate_df$sumActiveStuPart
+ratioSkinObsToActiveStuPart[is.na(ratioSkinObsToActiveStuPart)] <- 0
+
+ratioLungObsToActiveStuPart <- lungObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Lungs]` / activeStuPartIdDate_df$sumActiveStuPart
+ratioLungObsToActiveStuPart[is.na(ratioLungObsToActiveStuPart)] <- 0
 
 #V2
-ratioNoseObsToActiveStuPartV2 <- noseObs_IdDate_dfV2$`sum[SymYes][Nose]` / symYesIdDate_df$sumSymYes
-ratioEyeObsToActiveStuPartV2 <- eyeObs_IdDate_dfV2$`sum[SymYes][Eyes]` / symYesIdDate_df$sumSymYes
-ratioMouthThroatObsToActiveStuPartV2 <- mouthThroatObs_IdDate_dfV2$`sum[SymYes][Mouth/Throat]` / symYesIdDate_df$sumSymYes
-ratioGastroIntestinalObsToActiveStuPartV2 <- gastrointestinalTractObs_IdDate_dfV2$`sum[SymYes][Gastrointestinal Tract]` / symYesIdDate_df$sumSymYes
-ratioSkinObsToActiveStuPartV2 <- skinObs_IdDate_dfV2$`sum[SymYes][Skin]` / symYesIdDate_df$sumSymYes
-ratioLungObsToActiveStuPartV2 <- lungObs_IdDate_dfV2$`sum[SymYes][Lungs]` / symYesIdDate_df$sumSymYes
+ratioNoseObsToSymYes <- noseObs_IdDate_dfV2$`sum[SymYes][Nose]` / symYesIdDate_df$sumSymYes
+ratioNoseObsToSymYes[is.na(ratioNoseObsToSymYes)] <- 0
+
+ratioEyeObsToSymYes <- eyeObs_IdDate_dfV2$`sum[SymYes][Eyes]` / symYesIdDate_df$sumSymYes
+ratioEyeObsToSymYes[is.na(ratioEyeObsToSymYes)] <- 0
+
+ratioMouthThroatObsToSymYes <- mouthThroatObs_IdDate_dfV2$`sum[SymYes][Mouth/Throat]` / symYesIdDate_df$sumSymYes
+ratioMouthThroatObsToSymYes[is.na(ratioMouthThroatObsToSymYes)] <- 0
+
+ratioGastroIntestinalObsToSymYes <- gastrointestinalTractObs_IdDate_dfV2$`sum[SymYes][Gastrointestinal Tract]` / symYesIdDate_df$sumSymYes
+ratioGastroIntestinalObsToSymYes[is.na(ratioGastroIntestinalObsToSymYes)] <- 0
+
+ratioSkinObsToSymYes <- skinObs_IdDate_dfV2$`sum[SymYes][Skin]` / symYesIdDate_df$sumSymYes
+ratioSkinObsToSymYes[is.na(ratioSkinObsToSymYes)] <- 0
+
+ratioLungObsToSymYes <- lungObs_IdDate_dfV2$`sum[SymYes][Lungs]` / symYesIdDate_df$sumSymYes
+ratioLungObsToSymYes[is.na(ratioLungObsToSymYes)] <- 0
+
 
 # Visualization
-
-#TODO: Same for not unique obs.
 
 #V1: 100% -> Total of all StuPart
   
@@ -322,7 +342,7 @@ days <- c(1:nbrOfObs) #c(activeStuPartIdDate_df$Date)
 ratioActiveStuPartWithoutSymptoms <- c((activeStuPartIdDate_df$sumActiveStuPart - symYesSubjDate_df$sumSubjSymYes) / activeStuPartIdDate_df$sumActiveStuPart)                           
                         
 #values <- c(activeStuPart, activeStuPartSymYesNose, activeStuPartSymYesEyes, activeStuPartSymYesMouthThroat, activeStuPartSymYesGastrointestinalTract, activeStuPartSymYesSkin, activeStuPartSymYesLungs)
-values <- c(ratioActiveStuPartWithoutSymptoms, ratioNoseObsToActiveStuPartV1, ratioEyeObsToActiveStuPartV1, ratioMouthThroatObsToActiveStuPartV1, ratioGastroIntestinalTractObsToActiveStuPartV1, ratioSkinObsToActiveStuPartV1, ratioLungObsToActiveStuPartV1)
+values <- c(ratioActiveStuPartWithoutSymptoms, ratioNoseObsToActiveStuPart, ratioEyeObsToActiveStuPart, ratioMouthThroatObsToActiveStuPart, ratioGastroIntestinalTractObsToActiveStuPart, ratioSkinObsToActiveStuPart, ratioLungObsToActiveStuPart)
 
 type <- c(rep("ActiveStuPart without Symptoms", nbrOfObs), rep("ActiveStuPart[SymYes][Nose]", nbrOfObs), rep("ActiveStuPart[SymYes][Eyes]", nbrOfObs)
           ,rep("ActiveStuPart[SymYes][Mouth/Throat]", nbrOfObs), rep("ActiveStuPart[SymYes][Gastrointestinal Tract]", nbrOfObs), rep("ActiveStuPart[SymYes][Skin]", nbrOfObs), rep("ActiveStuPart[SymYes][Lungs]", nbrOfObs))
@@ -354,17 +374,9 @@ p +geom_bar(stat= "identity", position = "stack", aes(fill = type)) + xlab("Days
 
 # show a stacked bar chart with the daily symptoms per bodysite
 nbrOfObs <- nrow(activeStuPartIdDate_df)
-days <- c(1:nbrOfObs) #c(activeStuPartIdDate_df$Date)
+days <- c(1:nbrOfObs)
 
-symYesNose <-c(noseObs_IdDate_dfV2$`sum[SymYes][Nose]`)
-symYesEyes <-c(eyeObs_IdDate_dfV2$`sum[SymYes][Eyes]`)
-symYesMouthThroat <-c(mouthThroatObs_IdDate_dfV2$`sum[SymYes][Mouth/Throat]`)
-symYesGastrointestinalTract <-c(gastrointestinalTractObs_IdDate_dfV2$`sum[SymYes][Gastrointestinal Tract]`)
-symYesSkin <-c(skinObs_IdDate_dfV2$`sum[SymYes][Skin]`)
-symYesLungs <-c(lungObs_IdDate_dfV2$`sum[SymYes][Lungs]`)
-
-
-values <- c(symYesEyes, symYesNose, symYesMouthThroat, symYesGastrointestinalTract, symYesSkin, symYesLungs)
+values <- c(ratioEyeObsToSymYes, ratioNoseObsToSymYes, ratioMouthThroatObsToSymYes, ratioGastroIntestinalObsToSymYes, ratioSkinObsToSymYes, ratioLungObsToSymYes)
 
 
 type <- c(rep("SymYes[Eyes]", nbrOfObs), rep("SymYes[Nose]", nbrOfObs), 
