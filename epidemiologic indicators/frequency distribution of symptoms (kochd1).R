@@ -321,14 +321,6 @@ days <- c(1:nbrOfObs) #c(activeStuPartIdDate_df$Date)
 
 ratioActiveStuPartWithoutSymptoms <- c((activeStuPartIdDate_df$sumActiveStuPart - symYesSubjDate_df$sumSubjSymYes) / activeStuPartIdDate_df$sumActiveStuPart)                           
                         
-# activeStuPartSymYesNose <-c(noseObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Nose]`)
-# activeStuPartSymYesEyes <-c(eyeObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Eyes]`)
-# activeStuPartSymYesMouthThroat <-c(mouthThroatObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Mouth/Throat]`)
-# activeStuPartSymYesGastrointestinalTract <-c(gastrointestinalTractObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Gastrointestinal Tract]`)
-# activeStuPartSymYesSkin <-c(skinObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Skin]`)
-# activeStuPartSymYesLungs <-c(lungObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Lungs]`)
-
-
 #values <- c(activeStuPart, activeStuPartSymYesNose, activeStuPartSymYesEyes, activeStuPartSymYesMouthThroat, activeStuPartSymYesGastrointestinalTract, activeStuPartSymYesSkin, activeStuPartSymYesLungs)
 values <- c(ratioActiveStuPartWithoutSymptoms, ratioNoseObsToActiveStuPartV1, ratioEyeObsToActiveStuPartV1, ratioMouthThroatObsToActiveStuPartV1, ratioGastroIntestinalTractObsToActiveStuPartV1, ratioSkinObsToActiveStuPartV1, ratioLungObsToActiveStuPartV1)
 
@@ -345,14 +337,14 @@ p <- ggplot(data, aes(days, values))
 
 p +geom_bar(stat= "identity", position = "stack", aes(fill = type)) + xlab("Days") + ylab("Symptoms per ActiveStuPart by Bodysite %") + 
   #geom_text(aes(label = sprintf("%0.1f%%", percent)), position = position_stack(vjust = 0.5)) +
-  ggtitle("ActiveStuPart Ratio with Symptoms by Bodysite") + labs(fill= "") + 
+  ggtitle(paste("ActiveStuPart Ratio with Symptoms by Bodysite ", "(from ", beginDate, " to ", endDate, ")", sep="")) + labs(fill= "") + 
   scale_fill_manual("", values = c("ActiveStuPart without Symptoms" = "red",
                                    "ActiveStuPart[SymYes][Eyes]" = "deepskyblue3",
                                    "ActiveStuPart[SymYes][Nose]" = "darkgoldenrod2",
                                    "ActiveStuPart[SymYes][Mouth/Throat]" = "seagreen3",
                                    "ActiveStuPart[SymYes][Gastrointestinal Tract]" = "lightslateblue",
                                    "ActiveStuPart[SymYes][Lungs]" = "pink3",
-                                   "ActiveStuPart[SymYes][Skin]" = "peachpuff2")) + theme_bw() + scale_y_continuous(limit = c(0, 6), labels=scales::percent)
+                                   "ActiveStuPart[SymYes][Skin]" = "peachpuff2")) + theme_bw() + scale_x_continuous(breaks = seq(0, nbrOfObs, by = 5)) + scale_y_continuous(limit = c(0, 6), labels=scales::percent)
 
 
 # notes for plotting: position = "dodge" -> not stacked, position = "fill" -> stacked percent bar plot, labs(fill="") -> removes the legend title
@@ -385,16 +377,15 @@ library(ggplot2)
 
 p <- ggplot(data, aes(days, values))
 
-
 p +geom_bar(stat= "identity", position = "fill", aes(fill = type)) + xlab("Days") + ylab("Symptoms per Bodysite in %") +
   #geom_text(aes(label = sprintf("%0.1f%%", percent)), position = position_stack(vjust = 0.5)) +
-  ggtitle("Frequency of Symptoms by Bodysite") + labs(fill= "") +
+  ggtitle(paste("Frequency of Symptoms by Bodysite ", "(from ", beginDate, " to ", endDate, ")", sep= "")) + labs(fill= "") +
   scale_fill_manual("", values = c("SymYes[Eyes]" = "deepskyblue3",
                                    "SymYes[Nose]" = "darkgoldenrod2",
                                    "SymYes[Mouth/Throat]" = "seagreen3",
                                    "SymYes[Gastrointestinal Tract]" = "lightslateblue",
                                    "SymYes[Lungs]" = "pink3",
-                                   "SymYes[Skin]" = "peachpuff2")) + theme_bw() + scale_y_continuous(labels=scales::percent)
+                                   "SymYes[Skin]" = "peachpuff2")) + theme_bw() + scale_x_continuous(breaks = seq(0, nbrOfObs, by = 5)) + scale_y_continuous(labels=scales::percent)
 
 
 # notes for plotting: position = "dodge" -> not stacked, position = "fill" -> stacked percent bar plot, labs(fill="") -> removes the legend title
