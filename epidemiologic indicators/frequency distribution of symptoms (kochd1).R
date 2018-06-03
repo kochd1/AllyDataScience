@@ -290,7 +290,7 @@ MeanLungsObs <- mean(lungObs_IdDate_dfV2$`sum[SymYes][Lungs]`)
 
 
 # Calculation
-# df[is.na(df)] <- 0 // because of possible NaN-Values (Division by Zero)
+# valueset[is.na(valueset)] <- 0 // because of possible NaN-Values (Division by Zero)
 
 #V1
 ratioNoseObsToActiveStuPart <- noseObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Nose]` / activeStuPartIdDate_df$sumActiveStuPart
@@ -312,22 +312,22 @@ ratioLungObsToActiveStuPart <- lungObs_IdDate_dfV1$`sumActiveStuPart[SymYes][Lun
 ratioLungObsToActiveStuPart[is.na(ratioLungObsToActiveStuPart)] <- 0
 
 #V2
-ratioNoseObsToSymYes <- noseObs_IdDate_dfV2$`sum[SymYes][Nose]` / symYesIdDate_df$sumSymYes
+ratioNoseObsToSymYes <- noseObs_IdDate_dfV2$`sum[SymYes][Nose]` / symYesSubjDate_df$sumSubjSymYes
 ratioNoseObsToSymYes[is.na(ratioNoseObsToSymYes)] <- 0
 
-ratioEyeObsToSymYes <- eyeObs_IdDate_dfV2$`sum[SymYes][Eyes]` / symYesIdDate_df$sumSymYes
+ratioEyeObsToSymYes <- eyeObs_IdDate_dfV2$`sum[SymYes][Eyes]` / symYesSubjDate_df$sumSubjSymYes
 ratioEyeObsToSymYes[is.na(ratioEyeObsToSymYes)] <- 0
 
-ratioMouthThroatObsToSymYes <- mouthThroatObs_IdDate_dfV2$`sum[SymYes][Mouth/Throat]` / symYesIdDate_df$sumSymYes
+ratioMouthThroatObsToSymYes <- mouthThroatObs_IdDate_dfV2$`sum[SymYes][Mouth/Throat]` / symYesSubjDate_df$sumSubjSymYes
 ratioMouthThroatObsToSymYes[is.na(ratioMouthThroatObsToSymYes)] <- 0
 
-ratioGastroIntestinalObsToSymYes <- gastrointestinalTractObs_IdDate_dfV2$`sum[SymYes][Gastrointestinal Tract]` / symYesIdDate_df$sumSymYes
+ratioGastroIntestinalObsToSymYes <- gastrointestinalTractObs_IdDate_dfV2$`sum[SymYes][Gastrointestinal Tract]` / symYesSubjDate_df$sumSubjSymYes
 ratioGastroIntestinalObsToSymYes[is.na(ratioGastroIntestinalObsToSymYes)] <- 0
 
-ratioSkinObsToSymYes <- skinObs_IdDate_dfV2$`sum[SymYes][Skin]` / symYesIdDate_df$sumSymYes
+ratioSkinObsToSymYes <- skinObs_IdDate_dfV2$`sum[SymYes][Skin]` / symYesSubjDate_df$sumSubjSymYes
 ratioSkinObsToSymYes[is.na(ratioSkinObsToSymYes)] <- 0
 
-ratioLungObsToSymYes <- lungObs_IdDate_dfV2$`sum[SymYes][Lungs]` / symYesIdDate_df$sumSymYes
+ratioLungObsToSymYes <- lungObs_IdDate_dfV2$`sum[SymYes][Lungs]` / symYesSubjDate_df$sumSubjSymYes
 ratioLungObsToSymYes[is.na(ratioLungObsToSymYes)] <- 0
 
 
@@ -341,7 +341,6 @@ days <- c(1:nbrOfObs) #c(activeStuPartIdDate_df$Date)
 
 ratioActiveStuPartWithoutSymptoms <- c((activeStuPartIdDate_df$sumActiveStuPart - symYesSubjDate_df$sumSubjSymYes) / activeStuPartIdDate_df$sumActiveStuPart)                           
                         
-#values <- c(activeStuPart, activeStuPartSymYesNose, activeStuPartSymYesEyes, activeStuPartSymYesMouthThroat, activeStuPartSymYesGastrointestinalTract, activeStuPartSymYesSkin, activeStuPartSymYesLungs)
 values <- c(ratioActiveStuPartWithoutSymptoms, ratioNoseObsToActiveStuPart, ratioEyeObsToActiveStuPart, ratioMouthThroatObsToActiveStuPart, ratioGastroIntestinalTractObsToActiveStuPart, ratioSkinObsToActiveStuPart, ratioLungObsToActiveStuPart)
 
 type <- c(rep("ActiveStuPart without Symptoms", nbrOfObs), rep("ActiveStuPart[SymYes][Nose]", nbrOfObs), rep("ActiveStuPart[SymYes][Eyes]", nbrOfObs)
