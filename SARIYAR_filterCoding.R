@@ -1,4 +1,4 @@
-### SARIAR
+### SARIYAR
 # Load library
 library(jsonlite)
 all.equal(mtcars, fromJSON(toJSON(mtcars)))
