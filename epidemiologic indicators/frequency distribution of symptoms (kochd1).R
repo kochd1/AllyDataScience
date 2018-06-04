@@ -92,12 +92,12 @@ symYesSubjDate_df <- data.frame(ncol= 2, byrow = TRUE)
 
 beginDate <- as.Date.character("2018-04-01")
 
-endDate <- as.Date.character("2018-05-31")
+endDate <- as.Date.character("2018-04-30")
 
 date <- beginDate
 
 #test
-#date <- as.character("2018-04-11")
+#date <- as.character("2018-04-22")
 
 while(date <= endDate){
 
@@ -343,8 +343,8 @@ ratioActiveStuPartWithoutSymptoms <- c((activeStuPartIdDate_df$sumActiveStuPart 
                         
 values <- c(ratioActiveStuPartWithoutSymptoms, ratioNoseObsToActiveStuPart, ratioEyeObsToActiveStuPart, ratioMouthThroatObsToActiveStuPart, ratioGastroIntestinalTractObsToActiveStuPart, ratioSkinObsToActiveStuPart, ratioLungObsToActiveStuPart)
 
-type <- c(rep("ActiveStuPart without Symptoms", nbrOfObs), rep("ActiveStuPart[SymYes][Nose]", nbrOfObs), rep("ActiveStuPart[SymYes][Eyes]", nbrOfObs)
-          ,rep("ActiveStuPart[SymYes][Mouth/Throat]", nbrOfObs), rep("ActiveStuPart[SymYes][Gastrointestinal Tract]", nbrOfObs), rep("ActiveStuPart[SymYes][Skin]", nbrOfObs), rep("ActiveStuPart[SymYes][Lungs]", nbrOfObs))
+type <- c(rep("No Symptoms", nbrOfObs), rep("SymYes[Nose]", nbrOfObs), rep("SymYes[Eyes]", nbrOfObs)
+          ,rep("SymYes[Mouth/Throat]", nbrOfObs), rep("SymYes[Gastrointestinal Tract]", nbrOfObs), rep("SymYes[Skin]", nbrOfObs), rep("SymYes[Lungs]", nbrOfObs))
 
 data <- data.frame(days, values)
 
@@ -356,14 +356,14 @@ p <- ggplot(data, aes(days, values))
 
 p +geom_bar(stat= "identity", position = "stack", aes(fill = type)) + xlab("Days") + ylab("Symptoms per ActiveStuPart by Bodysite %") + 
   #geom_text(aes(label = sprintf("%0.1f%%", percent)), position = position_stack(vjust = 0.5)) +
-  ggtitle(paste("ActiveStuPart Ratio with Symptoms by Bodysite ", "(from ", beginDate, " to ", endDate, ")", sep="")) + labs(fill= "") + 
-  scale_fill_manual("", values = c("ActiveStuPart without Symptoms" = "red",
-                                   "ActiveStuPart[SymYes][Eyes]" = "deepskyblue3",
-                                   "ActiveStuPart[SymYes][Nose]" = "darkgoldenrod2",
-                                   "ActiveStuPart[SymYes][Mouth/Throat]" = "seagreen3",
-                                   "ActiveStuPart[SymYes][Gastrointestinal Tract]" = "lightslateblue",
-                                   "ActiveStuPart[SymYes][Lungs]" = "pink3",
-                                   "ActiveStuPart[SymYes][Skin]" = "peachpuff2")) + theme_bw() + scale_x_continuous(breaks = seq(0, nbrOfObs, by = 5)) + scale_y_continuous(limit = c(0, 6), labels=scales::percent)
+  ggtitle(paste("ActiveStuPart with Symptoms by Bodysite ", "(from ", beginDate, " to ", endDate, ")", sep="")) + 
+  scale_fill_manual(name ="ActiveStuPart with:", values = c("No Symptoms" = "red",
+                                   "SymYes[Eyes]" = "deepskyblue3",
+                                   "SymYes[Nose]" = "darkgoldenrod2",
+                                   "SymYes[Mouth/Throat]" = "seagreen3",
+                                   "SymYes[Gastrointestinal Tract]" = "lightslateblue",
+                                   "SymYes[Lungs]" = "pink3",
+                                   "SymYes[Skin]" = "peachpuff2")) + labs(fill= "ActiveStuPart with:") + theme_bw() + scale_x_continuous(breaks = seq(0, nbrOfObs, by = 5)) + scale_y_continuous(limit = c(0, 6), labels=scales::percent)
 
 
 # notes for plotting: position = "dodge" -> not stacked, position = "fill" -> stacked percent bar plot, labs(fill="") -> removes the legend title
@@ -418,4 +418,6 @@ lbls <- paste(lbls,"%",sep="") # ad % to labels
 # still searching for a simple alternative in ggplot
 pie(meanVector, labels = lbls, main="Frequency of Symptoms by Bodysite"
     , col=rainbow(length(meanVector)))
+
+
 
