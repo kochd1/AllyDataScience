@@ -1,4 +1,4 @@
-# Thierry
+# Author: Thierry Schmidt
 # MIDATA Registrierungen (Ally Awareness)
 # Zeigt, welcher Anteil der Bevölkerung an einem bestimmten Monat x an der Studie teilnimmt. 
 
@@ -14,13 +14,13 @@ beginDate <- as.Date.character(beginDate)
 endDate <- "2018-04-30" # Fill in
 endDate <- as.Date.character(endDate)
 
-# calculate the number of days
+# Calculate the number of days
 numOfDay <- endDate - (beginDate - 1)
 numOfDay <- as.integer(numOfDay)
 
 
 
-###   2 PREPERATION ###
+###   2 DATA IMPORT ###
 # Ständige Wohnbevölkerung: 8419550 Personen (Stand 2016, bfs Tabelle)
 population = 8419550
 
@@ -46,7 +46,7 @@ stuPart_IdDate_df <- data.frame(sumStuPart = 0, date = 0, day = 0) # Achtung, es
 # Loop throught the month
 date <- beginDate
 while(date <= endDate) {
-  # subset all StuPart which has been registrated at the date or earlier
+  # Subset all StuPart which has been registrated at the date or earlier
   stuPart_Id <- subset(stuPart$id, stuPart$meta$lastUpdated <= date)
   # Get sum of these subseted StuPart
   stuPart_Id_length <- length(stuPart_Id)
@@ -62,21 +62,21 @@ while(date <= endDate) {
 }
 
 
-# delete first row in matrix
+# Delete first row in matrix
 stuPart_IdDate_df <- stuPart_IdDate_df[-1,]
 
-# make sumStuPart to integer
+# Make sumStuPart to integer
 stuPart_IdDate_df$sumStuPart <- as.integer(stuPart_IdDate_df$sumStuPart)
 
-# make day to factor
+# Make day to factor
 stuPart_IdDate_df$day <- as.factor(stuPart_IdDate_df$day)
 
 # The date is a number as type character
-# make date to the format YYYY-MM-DD
+# Make date to the format YYYY-MM-DD
 stuPart_IdDate_df$date <- as.integer(stuPart_IdDate_df$date)
 stuPart_IdDate_df$date <- as.Date.numeric(stuPart_IdDate_df$date, origin = "1970-01-01")
 
-# show the dataframe
+# Show the dataframe
 stuPart_IdDate_df
 
 
