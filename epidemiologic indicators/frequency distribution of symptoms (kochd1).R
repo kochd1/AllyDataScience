@@ -1,74 +1,80 @@
-# author: Dominik R. Kocher (kochd1)
+# Author: Dominik R. Kocher (kochd1)
 
-# script for the indicator «Frequency distribution of symptoms»
+# Script for the indicator «Frequency distribution of symptoms»
 
-# Load library
+# Load libraries
 library(jsonlite)
+library(ggplot2)
 
-# Data preparation
+### 1 - INPUT ###
 
-study_df <- data.frame(read_json("study_fullExport (dummy).json", simplifyVector= TRUE))
 
-#-------------------------------------------------------------------------------------------------------------------------------------------------
+# Name of the JSON-File (studydata)
+inputFile <- "study_fullExport (dummy).json"
 
-# creation of a subset of all observations
+# Date of beginning as YYYY-MM-DD
+beginDate <- as.Date.character("2018-04-01") # Fill in
+
+# Date of end as YYYY-MM-DD
+endDate <- as.Date.character("2018-04-30") # Fill in
+
+### 2 - DATA IMPORT ###
+# Load JSON and convert to dataframe
+study_df <- data.frame(read_json(inputFile, simplifyDataFrame = TRUE))
+
+### 3 - GET DATA FOR THE INDICATOR ###
+
+# Creation of a subset of all observations
 observations <- subset(study_df$entry.resource, study_df$entry.resource$resourceType == 'Observation')
 
 # Get the coding of this observation
 ObsType <- observations$code$coding
 
-# prepare it as a dataframe
+# Prepare it as a dataframe
 colObsCoding <- matrix(unlist(sapply(ObsType, as.data.frame)),ncol=3, byrow=T)
+
 # class(colObsCoding) -> matrix
 
 # Get Code an Display
 # colObsCoding[,2:3] #text and code
-# only Code
+
+# Only Code
 colObsCoding[,2]
 
 # Subset only allergy-to-pollen Observations with Coding 300910009 (Allergy to Pollen)
 allergy_to_pollen_df <- subset(observations, colObsCoding[,2] == 300910009)
-#class(allergy_to_pollen_df)
 
+#Get all symptoms with valueQuantity>0
 symYes <- subset(allergy_to_pollen_df, allergy_to_pollen_df$valueQuantity>0)
 
-# Get all unique allergy to pollen obs. (inlc. symptoms value==0)
+# Get all unique allergy to pollen obs. (incl. symptoms with valueQuantity == 0)
 uniqueSym <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference))
 
-# Get all unique observations with a syptom (value>0)
+# Get all unique observations with a syptom (valueQuantity>0)
 uniqueSymYes <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference) & allergy_to_pollen_df$valueQuantity>0)
-
 
 # Get the bodysite coding
 bodySiteCoding <- symYes$bodySite$coding
 
 bodySiteCodes <- matrix(unlist(sapply(bodySiteCoding, as.data.frame)),ncol=3, byrow=T)
-# class(y) -> matrix
 
-# Get Code an Display
-#y[,2:3] #text and code
 bodySiteCodes[,2]
 
-# Filter all stuPart (unique observations) by bodysite (six in total)
+# Filter all SymYes by Bodysite (six in total)
 noseSymptoms_df <- subset(symYes, bodySiteCodes[,2] == 45206002)
-# AllStuPartSymYesNose <- length(noseSymptoms_df$id)
 
 eyeSymptoms_df <- subset(symYes, bodySiteCodes[,2] == 81745001)
-# AllStuPartSymYesEyes <- length(eyeSymptoms_df$id)
 
 mouthThroatSymptoms_df <- subset(symYes, bodySiteCodes[,2] == 312533001)
-# AllStuPartSymYesEyes <- length(eyeSymptoms_df$id)
 
 gastrointestinalTractSymptoms_df <- subset(symYes, bodySiteCodes[,2] == 122865005)
-# AllStuPartSymYesEyes <- length(eyeSymptoms_df$id)
 
 skinSymptoms_df <- subset(symYes, bodySiteCodes[,2] == 39937001)
-# AllStuPartSymYesSkin <- length(skinSymptoms_df$id)
 
 lungSymptoms_df <- subset(symYes, bodySiteCodes[,2] == 39607008)
-# AllStuPartSymYesLungs <- length(lungSymptoms_df$id)
 
-# create specific dataframes for the amount of unique Observations per bodysite per day
+
+# Create specific dataframes for the different bodysites and by visualization variant
 noseObs_IdDate_dfV1 <- data.frame(ncol = 2, byrow = TRUE)
 eyeObs_IdDate_dfV1 <- data.frame(ncol = 2, byrow = TRUE)
 mouthThroatObs_IdDate_dfV1 <- data.frame(ncol = 2, byrow = TRUE)
@@ -83,16 +89,14 @@ gastrointestinalTractObs_IdDate_dfV2 <- data.frame(ncol = 2, byrow = TRUE)
 skinObs_IdDate_dfV2 <- data.frame(ncol = 2, byrow = TRUE)
 lungObs_IdDate_dfV2 <- data.frame(ncol = 2, byrow = TRUE)
 
-# create a specific dataframe for the daily number of "ActiveStuPart".
+# Create a specific dataframe for the daily number of "ActiveStuPart".
 activeStuPartIdDate_df <- data.frame(ncol= 2, byrow = TRUE)
 
+# Create a specific dataframe for the daily number of "SymYes".
 symYesIdDate_df <- data.frame(ncol= 2, byrow = TRUE)
+
+# Create a specific dataframe for the daily number of "SymYesSubj" (one symptom per StuPart per day and per bodysite)
 symYesSubjDate_df <- data.frame(ncol= 2, byrow = TRUE)
-# definition of a specific timespan (month, pollenspecific period, pollen season in total etc.)
-
-beginDate <- as.Date.character("2018-04-01")
-
-endDate <- as.Date.character("2018-04-30")
 
 date <- beginDate
 
@@ -102,12 +106,12 @@ date <- beginDate
 while(date <= endDate){
 
   # shorten the effectiveDateTime to a comparable format
-  dateXNose<- as.Date(noseSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
-  dateXEyes<- as.Date(eyeSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
-  dateXMouthThroat<- as.Date(mouthThroatSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
-  dateXGastrointestinalTract<- as.Date(gastrointestinalTractSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
-  dateXSkin<- as.Date(skinSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
-  dateXLung<- as.Date(lungSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
+  dateXNose <- as.Date(noseSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
+  dateXEyes <- as.Date(eyeSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
+  dateXMouthThroat <- as.Date(mouthThroatSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
+  dateXGastrointestinalTract <- as.Date(gastrointestinalTractSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
+  dateXSkin <- as.Date(skinSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
+  dateXLung <- as.Date(lungSymptoms_df$effectiveDateTime, format="%Y-%m-%d")
   
   #V1
   dateXActiveStuPart <- as.Date(allergy_to_pollen_df$effectiveDateTime, format="%Y-%m-%d")
@@ -115,7 +119,7 @@ while(date <= endDate){
   #V2
   dateXSymYes <- as.Date(symYes$effectiveDateTime, format="%Y-%m-%d")
   
-  # Build subsets for each day during the timespan
+  # Build subsets for each day during the predefined timespan
   noseObs_dateX <- subset(noseSymptoms_df, dateXNose == date)
   uniqueNoseObs_Id <- subset(noseObs_dateX$id, !duplicated(noseObs_dateX$subject$reference))
   
@@ -289,7 +293,8 @@ MeanSkinObs <- mean(skinObs_IdDate_dfV2$`sum[SymYes][Skin]`)
 MeanLungsObs <- mean(lungObs_IdDate_dfV2$`sum[SymYes][Lungs]`)
 
 
-# Calculation
+### 4 - CALCULATION ###
+
 # valueset[is.na(valueset)] <- 0 // because of possible NaN-Values (Division by Zero)
 
 #V1
@@ -331,7 +336,7 @@ ratioLungObsToSymYes <- lungObs_IdDate_dfV2$`sum[SymYes][Lungs]` / symYesSubjDat
 ratioLungObsToSymYes[is.na(ratioLungObsToSymYes)] <- 0
 
 
-# Visualization
+### 5 - VISUALIZATION ###
 
 #V1: 100% -> Total of all StuPart
   
@@ -348,8 +353,6 @@ type <- c(rep("No Symptoms", nbrOfObs), rep("SymYes[Nose]", nbrOfObs), rep("SymY
 
 data <- data.frame(days, values)
 
-
-library(ggplot2)
 
 p <- ggplot(data, aes(days, values))
 
@@ -383,8 +386,6 @@ type <- c(rep("SymYes[Eyes]", nbrOfObs), rep("SymYes[Nose]", nbrOfObs),
 
 data <- data.frame(days, values)
 
-
-library(ggplot2)
 
 p <- ggplot(data, aes(days, values))
 
