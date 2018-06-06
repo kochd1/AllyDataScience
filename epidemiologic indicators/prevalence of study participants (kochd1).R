@@ -43,7 +43,7 @@ allergy_to_pollen_df <- subset(observations, colObsCoding[,2] == 300910009)
 #Get all unique allergy to pollen obs. (incl. symptoms valueQuantity == 0)
 uniqueSym <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference))
 
-#Get all unique observations with a syptom (value>0)
+#Get all unique observations with a symptom (valueQuantity > 0) -> Gets all StuPart with a symptom
 uniqueSymYes <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference) & allergy_to_pollen_df$valueQuantity>0)
 
 #create specific dataframes for the daily number of "ActiveStuPart" and "ActiveStuPart[SymYes]".
