@@ -1,6 +1,6 @@
 # Author: Dominik R. Kocher (kochd1)
 
-# Script for the indicator «Frequency distribution of symptoms»
+# Script for the indicator «Frequency Distribution of Symptoms»
 
 # Load libraries
 library(jsonlite)
@@ -397,7 +397,7 @@ p +geom_bar(stat= "identity", position = "fill", aes(fill = type)) + xlab("Days"
                                    "SymYes[Mouth/Throat]" = "seagreen3",
                                    "SymYes[Gastrointestinal Tract]" = "lightslateblue",
                                    "SymYes[Lungs]" = "pink3",
-                                   "SymYes[Skin]" = "peachpuff2")) + theme_bw() + scale_x_continuous(breaks = seq(0, nbrOfObs, by = 5)) + scale_y_continuous(labels=scales::percent)
+                                   "SymYes[Skin]" = "peachpuff2")) + theme_bw() + scale_x_continuous(breaks = seq(0, nbrOfObs, by = 5)) + scale_y_continuous(limit= c(0, 1), labels=scales::percent)
 
 
 # notes for plotting: position = "dodge" -> not stacked, position = "fill" -> stacked percent bar plot, labs(fill="") -> removes the legend title
