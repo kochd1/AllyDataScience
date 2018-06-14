@@ -46,43 +46,22 @@ allergy_to_pollen_df <- subset(observations, colObsCoding[,2] == 300910009)
 uniqueSym <- subset(allergy_to_pollen_df, !duplicated(allergy_to_pollen_df$subject$reference))
 sumStuPart <-length(uniqueSym$id)
 
-# creation of a subset of all "AllergyIntolerance" resourceTypes
+# Get all "AllergyIntolerance" (resourceType) entries
 allergyIntolerance_df <- subset(study_df$entry.resource, study_df$entry.resource$resourceType =='AllergyIntolerance')
 
-# get all StuPart with an Allergy Intolerance (regardless of the type)
+# Get all StuPart with an Allergy Intolerance (regardless of the type)
 uniqueAllergyIntolerances <- subset(allergyIntolerance_df, !duplicated(allergyIntolerance_df$patient$reference))
 
 uniqueAllergyIntolerancesConfirmed <- subset(uniqueAllergyIntolerances, uniqueAllergyIntolerances$verificationStatus =='confirmed')
 uniqueAllergyIntolerancesUnconfirmed <- subset(uniqueAllergyIntolerances, uniqueAllergyIntolerances$verificationStatus =='unconfirmed')
 
+# Build the sum of the respective StuPart
 sumStuPartAllergyIntolerance <- length(uniqueAllergyIntolerances$id)
 
 sumStuPartAllergyIntoleranceConfirmed <- length(uniqueAllergyIntolerancesConfirmed$id)
 
 sumStuPartAllergyIntoleranceUnconfirmed <- length(uniqueAllergyIntolerancesUnconfirmed$id)
 
-
-# definition of a specific timespan (month, pollenspecific period, pollen season in total etc.)
-
-# while(date <= endDate){
-#   
-#   #Build subsets for each day during the timespan
-#   uniqueAllergyIntolerancesPast <- subset(uniqueAllergyIntolerances, uniqueAllergyIntolerances$assertedDate<=date)
-#   
-#   #Get the number of entries
-#   activeStuPartSymYes_Id_length <- length(activeStuPartSymYes_Id)
-#   activeStuPart_Id_length <- length(activeStuPart_Id)
-#   
-#   #Save this number in a vector for each day
-#   activeStuPartSymYes_IdDate_vector <- c(activeStuPartSymYes_Id_length, date)
-#   activeStuPart_IdDate_vector <- c(activeStuPart_Id_length, date)
-#   
-#   #Combine the vectors with the predefined dataframes
-#   activeStuPartSymYesIdDate_df <- rbind(activeStuPartSymYesIdDate_df, activeStuPartSymYes_IdDate_vector)
-#   activeStuPartIdDate_df <- rbind(activeStuPartIdDate_df, activeStuPart_IdDate_vector)
-#   
-#   date <- date + 1
-# }
 
 # Create specific dataframes for the daily number of "ActiveStuPart" and "ActiveStuPart[SymYes]".
 uniqueAllergyIntolerancesByNow_df <- data.frame(ncol= 2, byrow = TRUE)
