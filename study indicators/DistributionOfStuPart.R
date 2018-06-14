@@ -79,21 +79,19 @@ distribution_df <- distribution_df[-1,]
 # Make zip to factor
 distribution_df$zip <- as.factor(distribution_df$zip)
 
-# Multiplicat ratio with 1 MIO
-distribution_df$ratio <- distribution_df$ratio * 1000000
 
 mydf <- distribution_df
 mydf$stuPart
 
 ###   4 VISUALIZATION ###
-p <- ggplot(data = mydf, aes(x = mydf$zip, y = mydf$ratio, size = mydf$stuPart)) + geom_point()
-p <- p + labs(x = "ZIP", y = "percentage of StuPart", title = "Distribution of study participants")
+p <- ggplot(data = mydf, aes(x = mydf$zip, y = mydf$ratio, size = stuPart)) + geom_point()
+p <- p + labs(x = "ZIP (1. digit)", y = "Share of StuPart", title = "Distribution of study participants")
 p + theme_bw()
 
 
 
 p <- ggplot(data = distribution_df, aes(x = distribution_df$zip, y = distribution_df$stuPart)) + geom_bar(stat = "identity")
-p <- p + labs(x = "ZIP", y = "Number of StuPart", title = "Distribution of study participants")
+p <- p + labs(x = "ZIP (1. digit)", y = "Number of StuPart", title = "Distribution of study participants")
 p + theme_bw()
 
 # ggplot(data = distribution_df, aes(x = distribution_df$ratio, y = distribution_df$stuPart, color = distribution_df$zip)) + geom_point()

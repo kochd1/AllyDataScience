@@ -30,6 +30,7 @@ numOfDay <- as.integer(numOfDay)
 mydata <- fromJSON(inputFile, simplifyDataFrame = TRUE)
 
 
+
 ### 3 GET OBSERVATION-RESOURCES  ###
 observation <- subset(mydata$entry$resource, mydata$entry$resource$resourceType == "Observation")
 
@@ -50,7 +51,7 @@ stuPart_IdDate_df <- data.frame(sumStuPart = 0, date = 0) # Achtung, es gibt ein
 # Loop throught the month
 date <- beginDate
 while(date <= endDate) {
-  ##  GET ALLERGY-TO-POLLEN OBSERVATION FROM ONE SPECIFIC DAY 
+  ##  GET ALLERGY-TO-POLLEN OBSERVATION until date  
   stuPart_time <- subset(allergy_to_pollen, as.Date(allergy_to_pollen$effectiveDateTime) <= date)
   
   # Get length of allergy_to_pollen
@@ -182,21 +183,18 @@ if(numOfDay <= 31) {
   p <- p + theme_bw()
   p + ylim(0,1)
 } else {
-  p <- ggplot(data = mydf, aes(x = mydf$Date, y = mydf$ratio)) + geom_point()
+  p <- ggplot(data = mydf, aes(x = mydf$date, y = mydf$ratio)) + geom_point()
   p <- p + labs(x = "Period of time", y = "share of active StuPart", title = "Active use of the app")
   p <- p + theme_bw()
   p + ylim(0,1)
 }
 
 
-april <- c(4,5,3,6,2,6,8,6,9,6,8,2,4,7,9,5,7,2)
-month <- c(1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2)
-abc <- cbind(april, month)
-abc <- as.data.frame(abc)
-str(abc)
-mai <- c(6,8,2,4,7,9,5,7,2)
-abc
-
-
-
-ggplot(data = abc, aes(x = abc$month, y = abc$april)) + geom_smooth()
+#april <- c(4,5,3,6,2,6,8,6,9,6,8,2,4,7,9,5,7,2)
+#month <- c(1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2)
+#abc <- cbind(april, month)
+#abc <- as.data.frame(abc)
+#str(abc)
+#mai <- c(6,8,2,4,7,9,5,7,2)
+#abc
+#ggplot(data = abc, aes(x = abc$month, y = abc$april)) + geom_smooth()

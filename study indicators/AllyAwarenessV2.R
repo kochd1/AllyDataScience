@@ -11,7 +11,7 @@ beginDate <- "2018-04-01" # Fill in
 beginDate <- as.Date.character(beginDate)
 
 # Date of end as YYYY-MM-DD
-endDate <- "2018-04-30" # Fill in
+endDate <- "2018-05-31" # Fill in
 endDate <- as.Date.character(endDate)
 
 # Calculate the number of days
@@ -93,25 +93,26 @@ str(allyAwareness_df)
 if(numOfDay <= 31) {
 # ggplot shows the distribution of the study participants in one month.
   p <- ggplot(data = allyAwareness_df, aes(x = day, y = indicator)) + geom_point()
-  p <- p + labs(x = "Day of the month", y = "Sum of StuPart / Population", title = "Ally Awareness")
+  p <- p + labs(x = "Day", y = "Share of StuPart", title = "MIDATA registrations")
   p + theme_bw()
 } else {
 # ggplot shows the distribution of the study participants in a period of time.
   p <- ggplot(data = allyAwareness_df, aes(x = date, y = indicator)) + geom_point()
-  p <- p + labs(x = "period of time", y = "Sum of StuPart / Population", title = "Ally Awareness")
+  p <- p + labs(x = "period of time", y = "Share of StuPart", title = "MIDATA registrations")
   p + theme_bw()
 }
+
 
 ## Histogramm
 if(numOfDay <= 31) {
   # ggplot shows the distribution of the study participants in one month.
   p <- ggplot(data = allyAwareness_df, aes(allyAwareness_df$sumStuPart)) + geom_histogram()
   p
-  p <- p + labs(x = "Day of the month", y = "Sum of StuPart / Population", title = "Ally Awareness")
+  p <- p + labs(x = "Day", y = "Share of StuPart", title = "MIDATA registrations")
   p + theme_bw()
 } else {
   # ggplot shows the distribution of the study participants in a period of time.
   p <- ggplot(data = allyAwareness_df, aes(x = date, y = indicator)) + geom_histogram()
-  p <- p + labs(x = "period of time", y = "Sum of StuPart / Population", title = "Ally Awareness")
+  p <- p + labs(x = "period of time", y = "Share of StuPart", title = "MIDATA registrations")
   p + theme_bw()
 }
